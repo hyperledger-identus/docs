@@ -1,30 +1,22 @@
 # Overview
 
-The [Cloud Agent](/home/concepts/glossary#cloud-agent) is a scaleable, easy-to-use, robust, and W3C standards-based
-agent that provides [self-sovereign identity (SSI)](/home/concepts/glossary#self-sovereign-identity) services to build
-products and solutions based on it. The Cloud Agent exposes REST API for integration with any programming language.
+The [Cloud Agent](/home/concepts/glossary#cloud-agent) is a scaleable, easy-to-use, robust, and W3C standards-based agent that provides [self-sovereign identity (SSI)](/home/concepts/glossary#self-sovereign-identity) services to build products and solutions based on it. 
+The Cloud Agent exposes REST API for integration with any programming language.
 
-The Cloud Agent provides all the required capabilities to leverage the power of decentralized identity through the
-support of W3C standards, [DIDComm](/home/concepts/glossary#didcomm), and the Hyperledger Aries protocols, solutions
-based on the Cloud Agent are interoperable with the SSI ecosystem. The Cloud Agent includes the following high-level
-features:
+The Cloud Agent provides all the required capabilities to leverage the power of decentralized identity through the support of W3C standards, [DIDComm](/home/concepts/glossary#didcomm), and the Hyperledger Aries protocols, solutions based on the Cloud Agent are interoperable with the SSI ecosystem.
+The Cloud Agent includes the following high-level features:
 
-- Use the Cloud Agent API to develop [controllers](/home/concepts/glossary#controller) that implement specific business
-  logic according to use case requirements.
-- Develop controllers in any programming language and remove the requirement for developers to interact or learn the
-  nuts and bolts of the various standards.
-- The Cloud Agent is written in Scala, supports the `did:prism` method, interacts with the PRISM Node over gRPC
-  protocol, and uses it as the [Verifiable Data Registry](/home/concepts/glossary#verifiable-data-registry).
+- Use the Cloud Agent API to develop [controllers](/home/concepts/glossary#controller) that implement specific business logic according to use case requirements.
+- Develop controllers in any programming language and remove the requirement for developers to interact or learn the nuts and bolts of the various standards.
+- The Cloud Agent is written in Scala, supports the `did:prism` method, interacts with the PRISM Node over gRPC protocol, and uses it as the [Verifiable Data Registry](/home/concepts/glossary#verifiable-data-registry).
 - The PRISM Node interacts with a distributed ledger, providing high security, scalability, and availability.
 - The Cloud Agent is a cloud agent accessible from anywhere.
 - Highly scalable and flexible, making it well-suited for a wide range of use cases and applications.
 
 ## Cloud Agent Features
 
-This document provides an overview of the Cloud Agent feature set. This document is manually updated; as such, it may
-not be up to date with the most recent release of Cloud Agent.
-
-**Last Update**: 2023-03-06, Release 0.48.3
+This document provides an overview of the Cloud Agent feature set. 
+This document is manually updated; as such, it may not be up to date with the most recent release of Cloud Agent.
 
 ## Platform Support
 
