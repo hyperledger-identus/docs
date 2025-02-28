@@ -1,3 +1,68 @@
+## [1.128.0](https://github.com/hyperledger/identus-docs/compare/v1.127.0...v1.128.0) (2025-02-09)
+
+### :rocket: New Content
+
+* update submodules documentation to latest ([c42c426](https://github.com/hyperledger/identus-docs/commit/c42c42637256568fe181e5b1e2aa315463b00b50))
+
+## [1.127.0](https://github.com/hyperledger/identus-docs/compare/v1.126.0...v1.127.0) (2025-02-04)
+
+### :rocket: New Content
+
+* update submodules documentation to latest ([b11ea28](https://github.com/hyperledger/identus-docs/commit/b11ea28fb3e996c74cdeb66386f93852d6a13604))
+* update submodules documentation to latest ([71935e2](https://github.com/hyperledger/identus-docs/commit/71935e2e3e3935dc6acba9881599c2ca03833e87))
+
+## [1.126.0](https://github.com/hyperledger/identus-docs/compare/v1.125.0...v1.126.0) (2025-01-26)
+
+### :rocket: New Content
+
+* update submodules documentation to latest ([ac1bd96](https://github.com/hyperledger/identus-docs/commit/ac1bd9646d2773adaf329a947ae4d80ca7f324db))
+
+## [1.125.0](https://github.com/hyperledger/identus-docs/compare/v1.124.0...v1.125.0) (2025-01-19)
+
+### :rocket: New Content
+
+* update submodules documentation to latest ([5ad2767](https://github.com/hyperledger/identus-docs/commit/5ad27678ce1057df0083efd22bf409d232780377))
+
+## [1.124.0](https://github.com/hyperledger/identus-docs/compare/v1.123.1...v1.124.0) (2025-01-14)
+
+### :rocket: New Content
+
+* document feature flag ENABLE_ANONCRED [#199](https://github.com/hyperledger/identus-docs/issues/199) ([#201](https://github.com/hyperledger/identus-docs/issues/201)) ([0c15820](https://github.com/hyperledger/identus-docs/commit/0c15820196446f1eda3846578b77971dd175f015))
+
+## [1.123.1](https://github.com/hyperledger/identus-docs/compare/v1.123.0...v1.123.1) (2025-01-14)
+
+### :sparkles: Updates
+
+* Broken link in Credential Schema Introduction page for [#84](https://github.com/hyperledger/identus-docs/issues/84) ([#200](https://github.com/hyperledger/identus-docs/issues/200)) ([2bc6b75](https://github.com/hyperledger/identus-docs/commit/2bc6b75bf9f4499ae5648aba4df5bedc485a571e))
+
+## [1.123.0](https://github.com/hyperledger/identus-docs/compare/v1.122.0...v1.123.0) (2025-01-12)
+
+### :rocket: New Content
+
+* update submodules documentation to latest ([b486a21](https://github.com/hyperledger/identus-docs/commit/b486a21071ab43b7b5334f37c88ca468e411bda8))
+
+## [1.122.0](https://github.com/hyperledger/identus-docs/compare/v1.121.0...v1.122.0) (2025-01-08)
+
+### :rocket: New Content
+
+* update submodules documentation to latest ([7e705d3](https://github.com/hyperledger/identus-docs/commit/7e705d31374dfa08114fe1f06e3279b29d747914))
+
+## [1.121.0](https://github.com/hyperledger/identus-docs/compare/v1.120.0...v1.121.0) (2025-01-08)
+
+### :rocket: New Content
+
+* update submodules documentation to latest ([fbbc34e](https://github.com/hyperledger/identus-docs/commit/fbbc34e6fb6a33053b0c395286a44d078641dab1))
+* update submodules documentation to latest ([8164691](https://github.com/hyperledger/identus-docs/commit/8164691fa1e4628817c0d7dd89681b89b6118163))
+* update submodules documentation to latest ([67ef658](https://github.com/hyperledger/identus-docs/commit/67ef658c2fd8bcee2a9e0d7907c98ffaa9dcbb93))
+* update submodules documentation to latest ([ef5f023](https://github.com/hyperledger/identus-docs/commit/ef5f02346ef652ace13c5daa1446ef9bfe09d9b5))
+* update submodules documentation to latest ([95d398c](https://github.com/hyperledger/identus-docs/commit/95d398c4c0fc475ebb1eab57076e8b59d5d759d4))
+* update submodules documentation to latest ([1a8dd1a](https://github.com/hyperledger/identus-docs/commit/1a8dd1a0e86dbf9234f5110c048805501aa2bd91))
+* update submodules documentation to latest ([8e6e00b](https://github.com/hyperledger/identus-docs/commit/8e6e00b08698e4d97db6122fc1c272a4850802b0))
+
+### :sparkles: Updates
+
+* replace 'docker-compose' with 'docker compose' ([#179](https://github.com/hyperledger/identus-docs/issues/179)) ([585d102](https://github.com/hyperledger/identus-docs/commit/585d1026b590f0302c19c8fea581f68bad520929))
+
 ## [1.120.0](https://github.com/hyperledger/identus-docs/compare/v1.119.0...v1.120.0) (2024-11-17)
 
 ### :rocket: New Content

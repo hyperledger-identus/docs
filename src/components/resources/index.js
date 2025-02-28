@@ -141,7 +141,7 @@ const RESOURCES = [
         title: "Wallet SDK KMM",
         Svg: Graphics.walletSdkKmm,
         content: "Build KMM-based applications using our SDKs",
-        linkTo: "https://hyperledger.github.io/identus-edge-agent-sdk-kmp/"
+        linkTo: "https://hyperledger-identus.github.io/edge-agent-sdk-kmp/"
     },
     {
         title: "APIs",
@@ -227,7 +227,7 @@ export default function HomeResources() {
                 <h5>Hyperledger Identus Docs</h5>
                 <h2>This guide will help you understand the principles of SSI and how to start deploying solutions
                     quickly with Identus</h2>
-                <Button to="/docs/getting-started">Start now</Button>
+                <Button to="/home/">Start now</Button>
             </div>
             <div className={styles.home__resources}>
                 {
