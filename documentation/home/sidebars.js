@@ -82,6 +82,20 @@ const sidebars = {
                         "identus/prism-node/running-node",
                     ],
                 },
+                {
+                    type: "category",
+                    label: "DID PRISM Resolver",
+                    collapsed: true,
+                    link: {
+                        type: "generated-index",
+                        title: "DID PRISM Resolver",
+                        description: "Learn about the DID PRISM Resolver!",
+                    },
+                    items: [
+                        "identus/did-prism-resolver/overview",
+                        "identus/did-prism-resolver/did-prism-resolver",
+                    ],
+                },
                 "identus/mediator",
                 "identus/troubleshooting&considerations",
                 "identus/getting-help",
