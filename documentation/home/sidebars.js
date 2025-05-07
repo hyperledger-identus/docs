@@ -94,6 +94,7 @@ const sidebars = {
                     items: [
                         "identus/did-prism-resolver/overview",
                         "identus/did-prism-resolver/did-prism-resolver",
+                        "identus/did-prism-resolver/did-prism-resolver-sdk",
                     ],
                 },
                 "identus/mediator",
