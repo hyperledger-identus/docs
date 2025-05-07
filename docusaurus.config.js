@@ -11,7 +11,6 @@ const path = require('path')
 const config = {
     title: 'Hyperledger Identus',
     tagline: 'Hyperledger Identus Docs',
-    // url: 'https://docs.atalaprism.io',
     url: 'https://hyperledger-identus.github.io/',
     baseUrl: '/docs/',
     onBrokenLinks: 'throw',
