@@ -84,7 +84,7 @@ A DID itself is a type of a URL, while `did` is a registered schema type, like `
 did:prism:9f847f8bbb66c112f71d08ab39930d468ccbfe1e0e1d002be53d46c431212c26?resourceService=agent-base-url&resourcePath=schema-registry/schemas/did-url&resourceHash=4074bb1a8e0ea45437ad86763cd7e12de3fe8349ef19113df773b0d65c8a9c46
 ```
 
-### Distributed Ledger Technology (DLT)
+### Distributed Ledger Technology (DLT) {#dlt}
 A distributed database or ledger establishes confidence for the participants to rely on the data recorded. Typically these databases use nodes and a consensus protocol to confirm the order of cryptographically signed transactions. Linking the transactions over time creates a historical ledger that is effectively immutable.
 
 
