@@ -44,7 +44,7 @@ More in depth documentation about [Cloud Agent](/home/concepts/glossary/#cloud-a
 ### Wallet SDKs
 [Wallet SDKs](/home/concepts/glossary/#wallet-sdk) for web and mobile (iOS, Android, TypeScript) enable identity holders to store credentials and respond to proof requests. They are typically used in applications that allow identity holders to interact with issuers and verifiers.
 
-More in-depth documentation about the different Wallet SDKs can be found here ([TypeScript](https://hyperledger.github.io/identus-docs/identus-sdk-ts/sdk), [Swift](https://hyperledger.github.io/identus-edge-agent-sdk-swift/documentation/edgeagentsdk/), [KMP](https://hyperledger.github.io/identus-edge-agent-sdk-kmp/))
+More in-depth documentation about the different Wallet SDKs can be found here ([TypeScript](https://hyperledger-identus.github.io/docs/sdk-ts/sdk/), [Swift](https://hyperledger-identus.github.io/sdk-swift/documentation/edgeagentsdk/), [KMP](https://hyperledger-identus.github.io/sdk-kmp/))
 
 
 
@@ -639,7 +639,7 @@ curl --location --request POST 'http://localhost:8000/cloud-agent/issue-credenti
     },
     "connectionId": [[connectionId]],
     "issuingDID": [[publishedPrismDID]],
-    "schemaId": "http://host.docker.internal:8000/cloud-agent/schema-registry/schemas/{schemaGuid}/schema",
+    "schemaId": [[schemaId]],
     "automaticIssuance": true
 }'
 ```
@@ -678,7 +678,7 @@ curl --location --request POST 'http://localhost:8000/cloud-agent/issue-credenti
     "goal": [[goal]],
     "credentialFormat": "JWT",
     "issuingDID": [[publishedPrismDID]],
-    "schemaId": "http://host.docker.internal:8000/cloud-agent/schema-registry/schemas/{schemaGuid}/schema",
+    "schemaId": [[schemaId]],
     "automaticIssuance": true
 }'
 ```
