@@ -632,9 +632,9 @@ curl --location --request POST 'http://localhost:8000/cloud-agent/issue-credenti
 --data-raw '{
     "claims": {
       "emailAddress":"sampleEmail",
-      "familyName":"",
+      "familyName":"Alice",
       "dateOfIssuance":"2023-01-01T02:02:02Z",
-      "drivingLicenseID":"",
+      "drivingLicenseID":"42",
       "drivingClass":1
     },
     "connectionId": [[connectionId]],
