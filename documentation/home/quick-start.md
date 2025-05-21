@@ -667,11 +667,18 @@ The Issuing DID is the published PRISM DID in its short version which was also u
 curl --location --request POST 'http://localhost:8000/cloud-agent/issue-credentials/credential-offers/invitation' \
 --header 'Content-Type: application/json' \
 --data-raw '{
-    "claims": {"emailAddress":"sampleEmail", "familyName":"", "dateOfIssuance":"2023-01-01T02:02:02Z", "drivingLicenseID":"", "drivingClass":1},
+    "claims": {
+      "emailAddress":"sampleEmail",
+      "familyName":"Alice",
+      "dateOfIssuance":"2023-01-01T02:02:02Z",
+      "drivingLicenseID":"42",
+      "drivingClass":1
+    },
     "goalCode": [[goalCode]],
     "goal": [[goal]],
     "credentialFormat": "JWT",
     "issuingDID": [[publishedPrismDID]],
+    "schemaId": "http://host.docker.internal:8000/cloud-agent/schema-registry/schemas/{schemaGuid}/schema",
     "automaticIssuance": true
 }'
 ```
