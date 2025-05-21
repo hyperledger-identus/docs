@@ -81,8 +81,8 @@ git clone https://github.com/hyperledger/identus-cloud-agent
 
 ```
 API_KEY_ENABLED=false
-AGENT_VERSION=1.36.1
-PRISM_NODE_VERSION=2.4.1
+AGENT_VERSION=2.0.0
+PRISM_NODE_VERSION=2.6.0
 PORT=8000
 NETWORK=identus
 VAULT_DEV_ROOT_TOKEN_ID=root
@@ -95,8 +95,8 @@ PG_PORT=5432
 
 ```
 API_KEY_ENABLED=false
-AGENT_VERSION=1.36.1
-PRISM_NODE_VERSION=2.4.1
+AGENT_VERSION=2.0.0
+PRISM_NODE_VERSION=2.6.0
 PORT=9000
 NETWORK=identus
 VAULT_DEV_ROOT_TOKEN_ID=root
@@ -270,7 +270,7 @@ All wallet SDK's come bundled with a sample application, that cover all the Iden
 1. Clone the [TypeScript SDK](https://github.com/hyperledger-identus/sdk-ts) repository.
 
 ```bash
-git clone https://github.com/hyperledger-identus/sdk-ts
+git clone -b v6.6.0 https://github.com/hyperledger-identus/sdk-ts
 ```
 
 2. Ensure you have all applications installed for building the SDK and their dependencies
@@ -357,11 +357,11 @@ The latest mediator version can be found at [Mediator releases](https://github.c
 
   Mac OSX  terminal shell
 ```bash
-MEDIATOR_VERSION=0.15.0 SERVICE_ENDPOINTS="http://$(ipconfig getifaddr $(route get default | grep interface | awk '{print $2}')):8080;ws://$(ipconfig getifaddr $(route get default | grep interface | awk '{print $2}')):8080/ws" docker compose up
+MEDIATOR_VERSION=1.1.0 SERVICE_ENDPOINTS="http://$(ipconfig getifaddr $(route get default | grep interface | awk '{print $2}')):8080;ws://$(ipconfig getifaddr $(route get default | grep interface | awk '{print $2}')):8080/ws" docker compose up
 ```
  Linux terminal shell
 ```bash
-MEDIATOR_VERSION=0.15.0 SERVICE_ENDPOINTS="http://$(ip addr show $(ip route show default | awk '/default/ {print $5}') | grep 'inet ' | awk '{print $2}' | cut -d/ -f1):8080;ws://$(ip addr show $(ip route show default | awk '/default/ {print $5}') | grep 'inet ' | awk '{print $2}' | cut -d/ -f1):8080/ws" docker compose up
+MEDIATOR_VERSION=1.1.0 SERVICE_ENDPOINTS="http://$(ip addr show $(ip route show default | awk '/default/ {print $5}') | grep 'inet ' | awk '{print $2}' | cut -d/ -f1):8080;ws://$(ip addr show $(ip route show default | awk '/default/ {print $5}') | grep 'inet ' | awk '{print $2}' | cut -d/ -f1):8080/ws" docker compose up
 ```
 
 `MEDIATOR_ENDPOINTS` is then set to your local IP address:8080.
@@ -630,9 +630,16 @@ The Issuing DID is the published PRISM DID in its short version which was also u
 curl --location --request POST 'http://localhost:8000/cloud-agent/issue-credentials/credential-offers' \
 --header 'Content-Type: application/json' \
 --data-raw '{
-    "claims": {"emailAddress":"sampleEmail", "familyName":"", "dateOfIssuance":"2023-01-01T02:02:02Z", "drivingLicenseID":"", "drivingClass":1},
+    "claims": {
+      "emailAddress":"sampleEmail",
+      "familyName":"",
+      "dateOfIssuance":"2023-01-01T02:02:02Z",
+      "drivingLicenseID":"",
+      "drivingClass":1
+    },
     "connectionId": [[connectionId]],
     "issuingDID": [[publishedPrismDID]],
+    "schemaId": "http://host.docker.internal:8000/cloud-agent/schema-registry/schemas/{schemaGuid}/schema",
     "automaticIssuance": true
 }'
 ```
