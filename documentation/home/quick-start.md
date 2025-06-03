@@ -657,9 +657,7 @@ Please replace the following variables in the example request before sending:
 - `goal`: OPTIONAL. A self-attested string that the receiver may want to display to the user about the context-specific goal of the out-of-band message.
 - `publishedPrismDID`: The short form of the PRISM DID created when setting up the Issuer agent
 
-The Issuing DID is the published PRISM DID in its short version which was also used to create and publish the credential schema.
-
-- ``
+The Issuing DID is the published PRISM DID in its short version, which was also used to create and publish the credential schema.
 
 :::
 
