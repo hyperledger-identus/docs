@@ -65,6 +65,7 @@ const sidebars = {
                         "identus/cloud-agent/authentication",
                         "identus/cloud-agent/did-management",
                         "identus/cloud-agent/secrets-storage",
+                        "identus/cloud-agent/vdr",
                         "identus/cloud-agent/environment-variables",
                     ],
                 },
