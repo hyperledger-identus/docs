@@ -18,10 +18,10 @@ __Example__
 
 | Operation | HTTP Endpoint |
 |-|-|
-| `create(data, options)`| `POST /vdr/entries?drid=...`  |
-| `read(url)`            | `GET /vdr/entries?url=...`    |
-| `update(url, data)`    | `PUT /vdr/entries?url=...`    |
-| `delete(url      )`    | `DELETE /vdr/entries?url=...` |
+| `create(data, options)`      | `POST /vdr/entries?drid=...`  |
+| `read(url, options)`         | `GET /vdr/entries?url=...`    |
+| `update(url, data, options)` | `PUT /vdr/entries?url=...`    |
+| `delete(url, options)`       | `DELETE /vdr/entries?url=...` |
 
 ## Selecting VDR drivers
 
