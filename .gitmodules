@@ -4,3 +4,4 @@
 [submodule "sdk-ts"]
 	path = sdk-ts
 	url = https://github.com/hyperledger-identus/sdk-ts.git
+	branch = fix/improve_documentation
