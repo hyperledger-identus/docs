@@ -2,6 +2,8 @@ import React from 'react';
 import clsx from 'clsx';
 import styles from './styles.module.css';
 import HomeResources from '../resources';
+import { FutureOfIdentity } from '../resources';
+
 
 const FeatureList = [
     {
@@ -21,13 +23,13 @@ const FeatureList = [
             <>
                 Build secure, private, and verifiable interactions between individuals, organizations, and devices using
                 open standards and protocols such as <a href="https://www.w3.org/TR/did-core/" target="_blank"
-                                                        rel="noreferrer">W3C DID spec</a>, <a
-                href="https://www.w3.org/TR/vc-data-model/" target="_blank" rel="noreferrer">W3C VC-JWT</a>, <a
-                href="https://hyperledger.github.io/anoncreds-spec/"
-                target="_blank"
-                rel="noreferrer">HL
-                Anoncreds</a> , and <a href="https://identity.foundation/didcomm-messaging/spec/" target="_blank"
-                                       rel="noreferrer">DIDComm V2</a> .
+                    rel="noreferrer">W3C DID spec</a>, <a
+                        href="https://www.w3.org/TR/vc-data-model/" target="_blank" rel="noreferrer">W3C VC-JWT</a>, <a
+                            href="https://hyperledger.github.io/anoncreds-spec/"
+                            target="_blank"
+                            rel="noreferrer">HL
+                    Anoncreds</a> , and <a href="https://identity.foundation/didcomm-messaging/spec/" target="_blank"
+                        rel="noreferrer">DIDComm V2</a> .
             </>
         ),
     },
@@ -43,11 +45,11 @@ const FeatureList = [
     },
 ];
 
-function Feature({Svg, title, description}) {
+function Feature({ Svg, title, description }) {
     return (
         <div className={clsx('col col--4')}>
             <div className="text--center">
-                <Svg className={styles.featureSvg} role="img"/>
+                <Svg className={styles.featureSvg} role="img" />
             </div>
             <div className="text--center padding-horiz--md">
                 <h3>{title}</h3>
@@ -61,13 +63,15 @@ export default function HomepageFeatures() {
     return (
         <section className={styles.features}>
             <div className="container">
+                <FutureOfIdentity />
                 <div className="row">
                     {FeatureList.map((props, idx) => (
                         <Feature key={idx} {...props} />
                     ))}
                 </div>
-                <HomeResources/>
+                <HomeResources />
             </div>
         </section>
     );
 }
+
