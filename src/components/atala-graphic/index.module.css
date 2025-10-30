@@ -5,6 +5,7 @@
 .hero__graphic__wrapper {
     position: relative;
     margin-left: auto;
+    margin-right: auto;
     z-index: 100;
     transform: translateX(-5%) translateY(-60%);
 }
@@ -13,8 +14,8 @@
     position: relative;
     left: 0;
     right: auto;
-    width: clamp(15.25rem, 100vw, 60.25rem);
-    height: clamp(15.6875rem, 100vw, 58.6875rem);
+    width: clamp(16.25rem, 40vw, 32rem);
+    height: clamp(16.25rem, 40vw, 32rem);
     overflow: hidden;
     margin-right: auto;
     mask-image: url("/static/img/graphics/identus-hero.svg");

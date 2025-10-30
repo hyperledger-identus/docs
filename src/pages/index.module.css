@@ -12,7 +12,7 @@
 
 .heroBanner {
   overflow: hidden;
-  height: 100vh;
+  height: 40vh;
 }
 
 .container {
@@ -34,7 +34,7 @@
 .hero__title {
   color: var(--ifm-hero-text-color);
   font-weight: 500;
-  font-size: clamp(2rem, 5vw,4rem);
+  font-size: clamp(2rem, 5vw, 4rem);
 }
 
 @media screen and (max-width: 996px) {
@@ -65,6 +65,7 @@
   .heroBanner {
     height: auto;
   }
+
   .hero__content {
     height: auto;
   }
@@ -73,6 +74,6 @@
 
 @media screen and (min-height: 667px) {
   .hero__content {
-    top: clamp(9.125rem, 100vw, 11.125rem);
+    top: clamp(5.125rem, 100vw, 9.125rem);
   }
 }

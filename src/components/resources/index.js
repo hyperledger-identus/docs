@@ -1,11 +1,11 @@
-import React, {useCallback, useRef, useState} from 'react'
+import React, { useCallback, useRef, useState } from 'react'
 import styles from './index.module.css';
 import Link from '@docusaurus/Link';
-import {useColorMode} from '@docusaurus/theme-common';
+import { useColorMode } from '@docusaurus/theme-common';
 import Button from '../button';
 
 const Graphics = {
-    apis({color = "#5559F2"}) {
+    apis({ color = "#5559F2" }) {
         return (
             <svg xmlns="http://www.w3.org/2000/svg" width={51} height={51} fill="none">
                 <path
@@ -18,7 +18,7 @@ const Graphics = {
             </svg>
         )
     },
-    docs({color = "#5559F2"}) {
+    docs({ color = "#5559F2" }) {
         return (
             <svg xmlns="http://www.w3.org/2000/svg" width={51} height={51} fill="none">
                 <path
@@ -31,7 +31,7 @@ const Graphics = {
             </svg>
         )
     },
-    getStarted({color = "#767AF5"}) {
+    getStarted({ color = "#767AF5" }) {
         return (
             <svg xmlns="http://www.w3.org/2000/svg" width={201} height={201} fill="none">
                 <path
@@ -44,7 +44,7 @@ const Graphics = {
             </svg>
         )
     },
-    resources({color = "#5559F2"}) {
+    resources({ color = "#5559F2" }) {
         return (
             <svg xmlns="http://www.w3.org/2000/svg" width={51} height={51} fill="none">
                 <path
@@ -57,7 +57,7 @@ const Graphics = {
             </svg>
         )
     },
-    tutorials({color = "#5559F2"}) {
+    tutorials({ color = "#5559F2" }) {
         return (
             <svg xmlns="http://www.w3.org/2000/svg" width={51} height={51} fill="none">
                 <path
@@ -77,7 +77,7 @@ const Graphics = {
             </svg>
         )
     },
-    walletSdkSwift({color = "#5559F2"}) {
+    walletSdkSwift({ color = "#5559F2" }) {
         return (
             <svg xmlns="http://www.w3.org/2000/svg" width={51} height={51} fill="none">
                 <path
@@ -90,7 +90,7 @@ const Graphics = {
             </svg>
         )
     },
-    walletSdkKmm({color = "#5559F2"}) {
+    walletSdkKmm({ color = "#5559F2" }) {
         return (
             <svg xmlns="http://www.w3.org/2000/svg" width={51} height={51} fill="none">
                 <path
@@ -103,7 +103,7 @@ const Graphics = {
             </svg>
         )
     },
-    walletSdkTS({color = "#5559F2"}) {
+    walletSdkTS({ color = "#5559F2" }) {
         return (
             <svg xmlns="http://www.w3.org/2000/svg" width={51} height={51} fill="none">
                 <path
@@ -161,8 +161,8 @@ function ResourceLink() {
     return (
         <div className={styles.resource__link}>
             <svg width={32} height={22} fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path className={styles.resource__link__svg__0} d="M3.33789 5.99976C5.06694 3.01075 8.29866 0.999756 12.0001 0.999756C17.5229 0.999756 22.0001 5.47691 22.0001 10.9998C22.0001 16.5226 17.5229 20.9998 12.0001 20.9998C8.29866 20.9998 5.06694 18.9888 3.33789 15.9998" stroke="#667085" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                <path className={styles.resource__link__svg__1} d="M11 14.9998L15 10.9998M15 10.9998L11 6.99976M15 10.9998H1" stroke="#667085" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                <path className={styles.resource__link__svg__0} d="M3.33789 5.99976C5.06694 3.01075 8.29866 0.999756 12.0001 0.999756C17.5229 0.999756 22.0001 5.47691 22.0001 10.9998C22.0001 16.5226 17.5229 20.9998 12.0001 20.9998C8.29866 20.9998 5.06694 18.9888 3.33789 15.9998" stroke="#667085" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                <path className={styles.resource__link__svg__1} d="M11 14.9998L15 10.9998M15 10.9998L11 6.99976M15 10.9998H1" stroke="#667085" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
         </div>
     )
@@ -172,10 +172,10 @@ function Resource(props) {
     const ref = useRef(null);
     const lightRef = useRef(null)
     const backgroundRef = useRef(null);
-    const {colorMode} = useColorMode();
+    const { colorMode } = useColorMode();
 
     const handleMouseMove = useCallback((event) => {
-        const {clientX, clientY, currentTarget} = event;
+        const { clientX, clientY, currentTarget } = event;
         const {
             height: targetHeight,
             width: targetWidth,
@@ -188,16 +188,16 @@ function Resource(props) {
         const mouseY = (clientY - offsetY);
         const x = ((mouseX - centerX) * .06);
         const y = ((mouseY - centerY) * .06);
-        ref.current.animate({transform: `rotateX(${x}deg) rotateY(${y}deg)`}, {fill: "forwards"})
+        ref.current.animate({ transform: `rotateX(${x}deg) rotateY(${y}deg)` }, { fill: "forwards" })
         lightRef.current.animate({
             top: `${mouseY}px`,
             left: `${mouseX}px`,
-        }, {fill: "forwards", duration: 500})
+        }, { fill: "forwards", duration: 500 })
     }, [ref, lightRef])
 
     const handleMouseLeave = useCallback((event) => {
         event.preventDefault()
-        ref.current.animate({transform: `rotateX(${0}deg) rotateY(${0}deg)`}, {fill: "forwards", duration: 1000})
+        ref.current.animate({ transform: `rotateX(${0}deg) rotateY(${0}deg)` }, { fill: "forwards", duration: 1000 })
 
     }, [backgroundRef])
 
@@ -209,13 +209,24 @@ function Resource(props) {
             onMouseMove={handleMouseMove}
         >
             <Link href={props.linkTo} className={`${styles.resource}`}>
-                <props.Svg color={colorMode === 'dark' ? "#767AF5" : "#5559F2"}/>
+                <props.Svg color={colorMode === 'dark' ? "#767AF5" : "#5559F2"} />
                 <h3>{props.title}</h3>
                 <p>{props.content}</p>
-                <ResourceLink linkTo={props.linkTo}/>
-                <div className={styles.resource__light} ref={lightRef}/>
+                <ResourceLink linkTo={props.linkTo} />
+                <div className={styles.resource__light} ref={lightRef} />
             </Link>
         </div>
+    );
+}
+
+export function FutureOfIdentity() {
+    return (
+        <>
+            <div className={styles.project__description}>
+                <h5>Build the Future of Digital Identity</h5>
+                <p>Hyperledger Identus is an open-source platform for building secure, standards-based digital identity solutions. With complete DID and verifiable credential functionality, it gives developers everything they need to create and integrate self-sovereign identity into apps and workflows - bridging trust between users, organizations, and systems.</p>
+            </div>
+        </>
     );
 }
 
@@ -232,10 +243,11 @@ export default function HomeResources() {
             <div className={styles.home__resources}>
                 {
                     RESOURCES.map((resource, index) => (
-                        <Resource {...resource} key={index}/>
+                        <Resource {...resource} key={index} />
                     ))
                 }
             </div>
         </>
     );
 }
+
