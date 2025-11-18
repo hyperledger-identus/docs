@@ -135,7 +135,7 @@ const RESOURCES = [
         title: "Wallet SDK TypeScript",
         Svg: Graphics.walletSdkTS,
         content: "Build web-based applications using our SDKs",
-        linkTo: "https://hyperledger-identus.github.io/docs/sdk-ts/sdk/"
+        linkTo: "/sdk-ts/docs/sdk/"
     },
     {
         title: "Wallet SDK KMM",
@@ -147,7 +147,7 @@ const RESOURCES = [
         title: "APIs",
         Svg: Graphics.apis,
         content: "Our APIs simplify agent management and reduce time and cost-to-solution for developers",
-        linkTo: "/agent-api"
+        linkTo: "/category/cloud-agent-api"
     },
     {
         title: "Resources",
@@ -234,12 +234,6 @@ export default function HomeResources() {
     return (
         <>
 
-            <div className={styles.resource__intro}>
-                <h5>Hyperledger Identus Docs</h5>
-                <h2>This guide will help you understand the principles of SSI and how to start deploying solutions
-                    quickly with Identus</h2>
-                <Button to="/home/">Start now</Button>
-            </div>
             <div className={styles.home__resources}>
                 {
                     RESOURCES.map((resource, index) => (

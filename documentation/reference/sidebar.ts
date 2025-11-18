@@ -5,25 +5,47 @@ const sidebar: SidebarsConfig[keyof SidebarsConfig] = [
   { type: 'doc', id: 'documentation/reference/README', className: 'hidden-sidebar-item' },
   {
     type: 'category',
-    label: 'Typescript SDK Reference',
+    label: 'SDKs',
+    collapsed: true,
     link: {
-      type: 'generated-index',
-      title: 'Typescript SDK Reference',
-      description: 'Typescript SDK Reference'
+        type: 'generated-index',
+        title: 'SDKs',
+        description: 'SDKs'
     },
     items: [
-      ...buildTypeDocCategorySidebar('sdk-ts/docs/sdk/overview', 'Overview').map((item) => (item as any).items ?? []),
       {
         type: 'category',
-        label: 'Plugins',
+        label: 'Typescript SDK',
+        link: {
+          type: 'generated-index',
+          title: 'Typescript SDK',
+          description: 'Typescript SDK'
+        },
         items: [
-          ...buildTypeDocCategorySidebar('sdk-ts/docs/sdk/plugins/internal/anoncreds', 'AnonCreds'),
-          ...buildTypeDocCategorySidebar('sdk-ts/docs/sdk/plugins/internal/didcomm', 'DIDComm'),
-          ...buildTypeDocCategorySidebar('sdk-ts/docs/sdk/plugins/internal/dif', 'DIF'),
-          ...buildTypeDocCategorySidebar('sdk-ts/docs/sdk/plugins/internal/oea', 'OEA'),
-          ...buildTypeDocCategorySidebar('sdk-ts/docs/sdk/plugins/internal/oidc', 'OIDC'),
+          ...buildTypeDocCategorySidebar('sdk-ts/docs/sdk/overview', 'Overview').map((item) => (item as any).items ?? []),
+          {
+            type: 'category',
+            label: 'Plugins',
+            items: [
+              ...buildTypeDocCategorySidebar('sdk-ts/docs/sdk/plugins/internal/anoncreds', 'AnonCreds'),
+              ...buildTypeDocCategorySidebar('sdk-ts/docs/sdk/plugins/internal/didcomm', 'DIDComm'),
+              ...buildTypeDocCategorySidebar('sdk-ts/docs/sdk/plugins/internal/dif', 'DIF'),
+              ...buildTypeDocCategorySidebar('sdk-ts/docs/sdk/plugins/internal/oea', 'OEA'),
+              ...buildTypeDocCategorySidebar('sdk-ts/docs/sdk/plugins/internal/oidc', 'OIDC'),
+            ]
+          }
         ]
-      }
+      },
+      {
+        type: 'link',
+        label: 'Swift',
+        href: 'https://hyperledger-identus.github.io/sdk-swift/documentation/edgeagentsdk/',
+    },
+    {
+        type: 'link',
+        label: 'Kotlin',
+        href: 'https://hyperledger-identus.github.io/sdk-kmp/',
+    }
     ]
   },
   {

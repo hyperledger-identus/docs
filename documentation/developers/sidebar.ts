@@ -24,7 +24,11 @@ const converted = tutorialsSidebar
     });
 
 const sidebar: SidebarsConfig[keyof SidebarsConfig] = [
-
+    {
+        type: 'doc',
+        id: 'documentation/developers/README',
+        className: 'hidden-sidebar-item',
+    },
     {
         type: 'category',
         label: 'SDKs',

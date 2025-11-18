@@ -9,9 +9,9 @@ export const headerMenu: NavbarItem[] = [
         label: 'Learn',
     },
     {
-        to: '/category/cloud-agent',
+        to: '/documentation/developers/',
         position: 'left',
-        activeBaseRegex: `/category/(cloud-agent|sdk-ts)/`,
+        activeBaseRegex: `/documentation/developers/`,
         label: 'Developers',
     },
     {
