@@ -19,7 +19,7 @@ function HomepageHeader() {
           <h1 className={clsx('hero__title', styles.hero__title)} dangerouslySetInnerHTML={{ __html: siteConfig.title }} />
           <Button
             className={clsx("button button--lg", styles.hero__button)}
-            to="/home/">
+            to="/documentation/developers/quick-start">
             Get Started
           </Button>
         </div>
@@ -36,7 +36,6 @@ export default function Home() {
       title={`Hyperledger Identus - ${siteConfig.title}`}
       description="Description will go into a meta tag in <head />">
       <Blob />
-      <HomepageHeader />
       <main>
         <HomepageFeatures />
       </main>

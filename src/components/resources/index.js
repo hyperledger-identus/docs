@@ -123,7 +123,7 @@ const RESOURCES = [
         title: "Tutorials",
         Svg: Graphics.tutorials,
         content: "Learn how to build with Identus through our tutorials",
-        linkTo: "/tutorials"
+        linkTo: "/cloud-agent/docs/docusaurus/"
     },
     {
         title: "Wallet SDK Swift",
@@ -153,7 +153,7 @@ const RESOURCES = [
         title: "Resources",
         Svg: Graphics.resources,
         content: "Everything you need to learn more about Identus",
-        linkTo: "https://github.com/input-output-hk/prism-did-method-spec/blob/main/w3c-spec/PRISM-method.md"
+        linkTo: "/documentation/learn/"
     },
 ]
 

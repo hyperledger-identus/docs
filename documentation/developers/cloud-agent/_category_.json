@@ -1,0 +1,10 @@
+{
+    "label": "Cloud Agent",
+    "position": 2,
+    "collapsed": false,
+    "collapsible": false,
+    "link": {
+      "type": "generated-index",
+      "title": "Cloud Agent"
+    }
+  }
