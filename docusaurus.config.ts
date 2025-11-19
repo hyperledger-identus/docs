@@ -12,12 +12,15 @@ const config: Config = {
     url: 'https://hyperledger-identus.github.io/',
     baseUrl: '/',
     onBrokenLinks: 'throw',
-    onBrokenMarkdownLinks: 'warn',
+    onBrokenAnchors:'ignore',
     favicon: 'img/favicon.ico',
     organizationName: 'hyperledger-identus',
     projectName: 'docs',
     markdown: {
         mermaid: true,
+        hooks:  {
+            onBrokenMarkdownLinks:'warn'
+        }
     },
     i18n: {
         defaultLocale: 'en',
@@ -25,12 +28,12 @@ const config: Config = {
     },
     presets,
     plugins: [
-        require.resolve('docusaurus-lunr-search'),
+        require.resolve('docusaurus-lunr-search')
     ],
     themeConfig: {
         navbar: {
             logo: {
-                alt: ' Identus logo',
+                alt: 'Identus logo',
                 src: 'img/identus-navbar-light.png',
                 srcDark: "img/identus-navbar-light.png",
             },

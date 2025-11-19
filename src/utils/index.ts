@@ -1,3 +1,4 @@
+import fs from 'node:fs';
 import type { SidebarItemConfig } from '@docusaurus/plugin-content-docs/src/sidebars/types.js';
 
 /**
@@ -14,7 +15,9 @@ export function buildTypeDocCategorySidebar(path: string, label: string): Sideba
         'Type Aliases',
         'Variables',
     ];
-    const items = elements.map((element) => {
+    const items = elements
+    .filter((element) => fs.existsSync(`${path}/${element.toLowerCase()}`))
+    .map((element) => {
         return {
             type: 'category',
             label: element,

@@ -15,11 +15,11 @@ const sidebar: SidebarsConfig[keyof SidebarsConfig] = [
     items: [
       {
         type: 'category',
-        label: 'Typescript SDK',
+        label: 'Typescript',
         link: {
           type: 'generated-index',
-          title: 'Typescript SDK',
-          description: 'Typescript SDK'
+          title: 'Typescript',
+          description: 'Typescript'
         },
         items: [
           ...buildTypeDocCategorySidebar('sdk-ts/docs/sdk/overview', 'Overview').map((item) => (item as any).items ?? []),

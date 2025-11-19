@@ -7,17 +7,17 @@ import TabItem from '@theme/TabItem';
 
 # Quick Start Guide
 ## Introduction into Self Sovereign Identity (SSI)
-[Self-sovereign identity (SSI)](/home/concepts/glossary/#self-sovereign-identity) is complex. This Quick Start Guide explains the fundamental concepts to get up and running with Hyperledger Identus. This guide will familiarize you with the general concepts and how to create [decentralized identifiers (DIDs)](/home/concepts/glossary/#decentralized-identifier), issue credentials, make connections, and verify credentials with [verifiable presentations](/home/concepts/glossary/#verifiable-presentation). Refer to the Concepts and Components sections for a more in-depth explanation.
+[Self-sovereign identity (SSI)](/documentation/learn/glossary/#self-sovereign-identity) is complex. This Quick Start Guide explains the fundamental concepts to get up and running with Hyperledger Identus. This guide will familiarize you with the general concepts and how to create [decentralized identifiers (DIDs)](/documentation/learn/glossary/#decentralized-identifier), issue credentials, make connections, and verify credentials with [verifiable presentations](/documentation/learn/glossary/#verifiable-presentation). Refer to the Concepts and Components sections for a more in-depth explanation.
 
-The trust triangle is the most basic process for conveying trust in the digital world. There are three roles in an SSI ecosystem: [Holders](/home/concepts/glossary/#holder), [Issuers](/home/concepts/glossary/#issuer), and [Verifiers](/home/concepts/glossary/#verifier).
+The trust triangle is the most basic process for conveying trust in the digital world. There are three roles in an SSI ecosystem: [Holders](/documentation/learn/glossary/#holder), [Issuers](/documentation/learn/glossary/#issuer), and [Verifiers](/documentation/learn/glossary/#verifier).
 
 ![Component Diagram](/img/trust-triangle.png)
 
-Holders can be any entity, such as individuals, organizations, and digital or physical things. They will hold [verifiable credentials (VCs)](/home/concepts/glossary/#verifiable-credential) and use a verifiable presentation to share their VCs.
+Holders can be any entity, such as individuals, organizations, and digital or physical things. They will hold [verifiable credentials (VCs)](/documentation/learn/glossary/#verifiable-credential) and use a verifiable presentation to share their VCs.
 
-Issuers can also be any entity that makes [claims](/home/concepts/glossary/#claim) about an [entity](/home/concepts/glossary/#entity). These claims are attestations, or evidence of something, about the Holder. As an example, an insurance company would provide proof of valid insurance.
+Issuers can also be any entity that makes [claims](/documentation/learn/glossary/#claim) about an [entity](/documentation/learn/glossary/#entity). These claims are attestations, or evidence of something, about the Holder. As an example, an insurance company would provide proof of valid insurance.
 
-Verifiers are the [relying party](/home/concepts/glossary/#relying-party) in the triangle. They will request information from the Holder, such as proof of insurance, and the Holder will use a verifiable presentation to share the appropriate VCs with the Verifier. The Holder's digital signature, the issuer DID get verified, and the contents therein to ensure nothing has been tampered with.
+Verifiers are the [relying party](/documentation/learn/glossary/#relying-party) in the triangle. They will request information from the Holder, such as proof of insurance, and the Holder will use a verifiable presentation to share the appropriate VCs with the Verifier. The Holder's digital signature, the issuer DID get verified, and the contents therein to ensure nothing has been tampered with.
 
 
 
@@ -29,32 +29,32 @@ The diagram details how the concepts fit alongside the Identus components in a t
 
 
 ## An overview of Hyperledger Identus components
-Identus consists of core libraries that facilitate typical SSI interactions between [Issuers](/home/concepts/glossary/#issuer), [Holders](/home/concepts/glossary/#holder), and [Verifiers](/home/concepts/glossary/#verifier).
+Identus consists of core libraries that facilitate typical SSI interactions between [Issuers](/documentation/learn/glossary/#issuer), [Holders](/documentation/learn/glossary/#holder), and [Verifiers](/documentation/learn/glossary/#verifier).
 
 
 ### A Cloud Agent
-A Cloud Agent can issue, hold, and verify [verifiable credentials (VCs)](/home/concepts/glossary/#verifiable-credential) for any entity and manage [decentralized identifiers (DIDs)](/home/concepts/glossary/#decentralized-identifier) and DID-based connections. The Cloud Agent has an easy-to-use REST API to enable easy integration into any solution and uses [DIDComm V2](/home/concepts/glossary/#didcomm) as a messaging protocol for Cloud Agent-to-Cloud Agent communication.
+A Cloud Agent can issue, hold, and verify [verifiable credentials (VCs)](/documentation/learn/glossary/#verifiable-credential) for any entity and manage [decentralized identifiers (DIDs)](/documentation/learn/glossary/#decentralized-identifier) and DID-based connections. The Cloud Agent has an easy-to-use REST API to enable easy integration into any solution and uses [DIDComm V2](/documentation/learn/glossary/#didcomm) as a messaging protocol for Cloud Agent-to-Cloud Agent communication.
 
 It is maintained as an open source through the [Hyperledger Identus](https://www.hyperledger.org/projects/identus).
 
-More in depth documentation about [Cloud Agent](/home/concepts/glossary/#cloud-agent) can be found [here](/home/identus/cloud-agent/overview).
+More in depth documentation about [Cloud Agent](/documentation/learn/glossary/#cloud-agent) can be found [here](/home/identus/cloud-agent/overview).
 
 
 
 ### Wallet SDKs
-[Wallet SDKs](/home/concepts/glossary/#wallet-sdk) for web and mobile (iOS, Android, TypeScript) enable identity holders to store credentials and respond to proof requests. They are typically used in applications that allow identity holders to interact with issuers and verifiers.
+[Wallet SDKs](/documentation/learn/glossary/#wallet-sdk) for web and mobile (iOS, Android, TypeScript) enable identity holders to store credentials and respond to proof requests. They are typically used in applications that allow identity holders to interact with issuers and verifiers.
 
 More in-depth documentation about the different Wallet SDKs can be found here ([TypeScript](https://hyperledger-identus.github.io/docs/sdk-ts/sdk/), [Swift](https://hyperledger-identus.github.io/sdk-swift/documentation/edgeagentsdk/), [KMP](https://hyperledger-identus.github.io/sdk-kmp/))
 
 
 
 ### Mediator
-[Mediators](/home/concepts/glossary/#mediator) are for storing and relaying messages between Cloud Agents and Wallet SDKs. They act as a proxy that remains connected to the network and receives any message, credential, or proof request on behalf of the Wallet SDKs (which can be offline occasionally).
+[Mediators](/documentation/learn/glossary/#mediator) are for storing and relaying messages between Cloud Agents and Wallet SDKs. They act as a proxy that remains connected to the network and receives any message, credential, or proof request on behalf of the Wallet SDKs (which can be offline occasionally).
 
 More in-depth documentation about Mediator can be found [here](/home/identus/mediator).
 
 #### Node for a Verifiable Data Registry (VDR)
-To issue and verify VCs to and from DIDs, we need a [Verifiable Data Registry (VDR)](/home/concepts/glossary/#verifiable-data-registry) that is globally resolvable and always on. In Identus's case, it is `prism-node`, [anchoring](/home/concepts/glossary/#anchoring) key information required for issuance and verification on the Distributed Ledger.
+To issue and verify VCs to and from DIDs, we need a [Verifiable Data Registry (VDR)](/documentation/learn/glossary/#verifiable-data-registry) that is globally resolvable and always on. In Identus's case, it is `prism-node`, [anchoring](/documentation/learn/glossary/#anchoring) key information required for issuance and verification on the Distributed Ledger.
 
 
 
@@ -196,7 +196,7 @@ curl --location \
 
 #### Create a credential schema (JWT W3C Credential)
 
-1. To create a [credential schema](/home/concepts/glossary/#credential-schema) on the Issuer API instance, run the following request:
+1. To create a [credential schema](/documentation/learn/glossary/#credential-schema) on the Issuer API instance, run the following request:
 
 :::info
 
@@ -370,7 +370,7 @@ MEDIATOR_VERSION=1.1.0 SERVICE_ENDPOINTS="http://$(ip addr show $(ip route show 
 
 
 
-4. Now you need to capture the Mediator's [Peer DID](/home/concepts/glossary/#peer-did) in order to start DIDCOMM V2 Mediation protocol, you can do so by opening you browser at the mediators [endpoint](/home/concepts/glossary/#endpoints).
+4. Now you need to capture the Mediator's [Peer DID](/documentation/learn/glossary/#peer-did) in order to start DIDCOMM V2 Mediation protocol, you can do so by opening you browser at the mediators [endpoint](/documentation/learn/glossary/#endpoints).
 
 #### Demo application
 
@@ -599,7 +599,7 @@ agent.acceptOutOfBandInvitation(invitation)
 
 ## Issue a Credential from the Issuer to the holder
 
-The credential issuance flow consists of multiple steps, detailed in this section. It starts with the Issuer sending a [Credential Offer](/home/concepts/glossary/#credential-offer) to the Holder, which would accept or reject this invitation and create a `credentialRequest` from it. The [credential request](/home/concepts/glossary/#credential-request) gets sent through DIDComm to the Issuer, issuing and sending the credential back to the Holder.
+The credential issuance flow consists of multiple steps, detailed in this section. It starts with the Issuer sending a [Credential Offer](/documentation/learn/glossary/#credential-offer) to the Holder, which would accept or reject this invitation and create a `credentialRequest` from it. The [credential request](/documentation/learn/glossary/#credential-request) gets sent through DIDComm to the Issuer, issuing and sending the credential back to the Holder.
 
 The Issuer can create a credential offer in two ways:
 1. As a direct credential offer DIDComm message for a holder with an existing connection

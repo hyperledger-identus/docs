@@ -29,7 +29,7 @@ OpenAPI specification and interactive documentation for the Identus Cloud Agent 
 - Connection management
 - Multi-tenancy support
 
-[Explore the Cloud Agent API →](./Cloud%20Agent%20API/identus-cloud-agent-api-reference)
+[Explore the Cloud Agent API →](/documentation/reference/Cloud%20Agent%20API/identus-cloud-agent-api-reference)
 
 ### 📋 Specifications
 

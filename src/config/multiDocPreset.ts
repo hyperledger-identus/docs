@@ -16,10 +16,15 @@ export default function preset(context, opts: Opts) {
         themes: [
             ['@docusaurus/theme-classic', opts.theme],
             '@docusaurus/theme-mermaid',
-            'docusaurus-theme-redoc',
             'docusaurus-theme-openapi-docs',
         ],
         plugins: [
+            [
+                '@docusaurus/plugin-svgr',
+                {
+                  svgrConfig: {},
+                },
+              ],
             '@docusaurus/plugin-content-pages',
             ...docs.map(contentConfig => ['docsPluginId' in contentConfig ? CONTENT_OPENAPI_PLUGIN : CONTENT_DOCS_PLUGIN, contentConfig]),
         ],

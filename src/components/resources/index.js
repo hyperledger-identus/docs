@@ -147,7 +147,7 @@ const RESOURCES = [
         title: "APIs",
         Svg: Graphics.apis,
         content: "Our APIs simplify agent management and reduce time and cost-to-solution for developers",
-        linkTo: "/category/cloud-agent-api"
+    linkTo: "/documentation/reference/Cloud Agent API/identus-cloud-agent-api-reference"
     },
     {
         title: "Resources",
