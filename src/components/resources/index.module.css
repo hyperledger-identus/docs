@@ -1,7 +1,7 @@
 .home__resources {
     padding: 0;
     display: grid;
-    margin-top: clamp(4rem, 10vw, 6.625rem);
+    margin-top: 35px;
     margin-bottom: 6.25rem;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     grid-gap: 2rem;

@@ -301,3 +301,8 @@ html[data-theme='dark'] .docusaurus-highlight-code-line {
 button[aria-expanded] {
     border-radius: 10px;
 }
+
+/* Hide specific sidebar items */
+.hidden-sidebar-item {
+    display: none !important;
+}
