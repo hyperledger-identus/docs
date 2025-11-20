@@ -10,7 +10,7 @@ const config: Config = {
     title: 'Hyperledger Identus',
     tagline: 'Hyperledger Identus Docs',
     url: 'https://hyperledger-identus.github.io/',
-    baseUrl: '/',
+    baseUrl: '/docs/',
     onBrokenLinks: 'throw',
     onBrokenAnchors:'ignore',
     favicon: 'img/favicon.ico',
