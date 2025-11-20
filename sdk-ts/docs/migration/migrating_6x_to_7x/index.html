@@ -1,0 +1,331 @@
+<!doctype html>
+<html lang="en" dir="ltr" class="docs-wrapper plugin-docs plugin-id-docs docs-version-current docs-doc-page docs-doc-id-sdk-ts/docs/migration/migrating_6x_to_7x" data-has-hydrated="false">
+<head>
+<meta charset="UTF-8">
+<meta name="generator" content="Docusaurus v3.9.2">
+<title data-rh="true">Migration guide from 6.X to 7.X | Hyperledger Identus</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:url" content="https://hyperledger-identus.github.io/sdk-ts/docs/migration/migrating_6x_to_7x"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-docs-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-docs-current"><meta data-rh="true" property="og:title" content="Migration guide from 6.X to 7.X | Hyperledger Identus"><meta data-rh="true" name="description" content="This migration guide applies to both @hyperledger/identus-edge-agent-sdk and @hyperledger/identus-sdk."><meta data-rh="true" property="og:description" content="This migration guide applies to both @hyperledger/identus-edge-agent-sdk and @hyperledger/identus-sdk."><link data-rh="true" rel="icon" href="/img/favicon.ico"><link data-rh="true" rel="canonical" href="https://hyperledger-identus.github.io/sdk-ts/docs/migration/migrating_6x_to_7x"><link data-rh="true" rel="alternate" href="https://hyperledger-identus.github.io/sdk-ts/docs/migration/migrating_6x_to_7x" hreflang="en"><link data-rh="true" rel="alternate" href="https://hyperledger-identus.github.io/sdk-ts/docs/migration/migrating_6x_to_7x" hreflang="x-default"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"SDKs","item":"https://hyperledger-identus.github.io/category/sdks"},{"@type":"ListItem","position":2,"name":"Typescript","item":"https://hyperledger-identus.github.io/sdk-ts/docs/sdk/"},{"@type":"ListItem","position":3,"name":"Migration guides","item":"https://hyperledger-identus.github.io/category/migration-guides"},{"@type":"ListItem","position":4,"name":"Migration guide from 6.X to 7.X","item":"https://hyperledger-identus.github.io/sdk-ts/docs/migration/migrating_6x_to_7x"}]}</script><link rel="stylesheet" href="/assets/css/styles.a091b521.css">
+<script src="/assets/js/runtime~main.62c9a467.js" defer="defer"></script>
+<script src="/assets/js/main.967f7e55.js" defer="defer"></script>
+</head>
+<body class="navigation-with-keyboard">
+<svg style="display: none;"><defs>
+<symbol id="theme-svg-external-link" viewBox="0 0 24 24"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
+</defs></svg>
+<script>!function(){var t=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme")}catch(t){}}();document.documentElement.setAttribute("data-theme",t||"light"),document.documentElement.setAttribute("data-theme-choice",t||"light")}(),function(){try{const c=new URLSearchParams(window.location.search).entries();for(var[t,e]of c)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><div role="region" aria-label="Skip to main content"><a class="skipToContent_fXgn" href="#__docusaurus_skipToContent_fallback">Skip to main content</a></div><nav aria-label="Main" class="theme-layout-navbar navbar navbar--fixed-top"><div class="navbar__inner"><div class="theme-layout-navbar-left navbar__items"><button aria-label="Toggle navigation bar" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/"><div class="navbar__logo"><img src="/img/identus-navbar-light.png" alt="Identus logo" class="themedComponent_mlkZ themedComponent--light_NVdE"><img src="/img/identus-navbar-light.png" alt="Identus logo" class="themedComponent_mlkZ themedComponent--dark_xIcU"></div></a><a class="navbar__item navbar__link" href="/documentation/learn/">Learn</a><a class="navbar__item navbar__link" href="/documentation/developers/">Developers</a><a class="navbar__item navbar__link" href="/documentation/reference/">Reference</a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type="button" disabled="" title="system mode" aria-label="Switch between dark and light mode (currently system mode)"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP lightToggleIcon_pyhR"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP darkToggleIcon_wfgR"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP systemToggleIcon_QzmC"><path fill="currentColor" d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"></path></svg></button></div><div class="navbarSearchContainer_Bca1"><div class="navbar__search"><span aria-label="expand searchbar" role="button" class="search-icon" tabindex="0"></span><input id="search_input_react" type="search" placeholder="Loading..." aria-label="Search" class="navbar__search-input search-bar" disabled=""></div></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="theme-layout-main main-wrapper mainWrapper_z2l0"><div class="docsWrapper_hBAB"><button aria-label="Scroll back to top" class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type="button"></button><div class="docRoot_UBD9"><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class="sidebarViewport_aRkj"><div class="sidebar_njMd"><nav aria-label="Docs sidebar" class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item hidden-sidebar-item"><a class="menu__link" href="/documentation/developers/"><span title="Developers" class="linkLabel_WmDU">Developers</span></a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--active" href="/category/sdks"><span title="SDKs" class="categoryLinkLabel_W154">SDKs</span></a><button aria-label="Collapse sidebar category &#x27;SDKs&#x27;" aria-expanded="true" type="button" class="clean-btn menu__caret"></button></div><ul class="menu__list"><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--active" tabindex="0" href="/sdk-ts/docs/sdk/"><span title="Typescript" class="categoryLinkLabel_W154">Typescript</span></a><button aria-label="Collapse sidebar category &#x27;Typescript&#x27;" aria-expanded="true" type="button" class="clean-btn menu__caret"></button></div><ul class="menu__list"><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" tabindex="0" href="/category/tutorials"><span title="Tutorials" class="categoryLinkLabel_W154">Tutorials</span></a><button aria-label="Expand sidebar category &#x27;Tutorials&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--active" tabindex="0" href="/category/migration-guides"><span title="Migration guides" class="categoryLinkLabel_W154">Migration guides</span></a><button aria-label="Collapse sidebar category &#x27;Migration guides&#x27;" aria-expanded="true" type="button" class="clean-btn menu__caret"></button></div><ul class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link menu__link--active" aria-current="page" tabindex="0" href="/sdk-ts/docs/migration/migrating_6x_to_7x"><span title="Migration guide from 6.X to 7.X" class="linkLabel_WmDU">Migration guide from 6.X to 7.X</span></a></li></ul></li></ul></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a href="https://hyperledger-identus.github.io/sdk-swift/documentation/edgeagentsdk/" target="_blank" rel="noopener noreferrer" class="menu__link menuExternalLink_NmtK" tabindex="0"><span title="Swift" class="linkLabel_WmDU">Swift</span><svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a href="https://hyperledger-identus.github.io/sdk-kmp/" target="_blank" rel="noopener noreferrer" class="menu__link menuExternalLink_NmtK" tabindex="0"><span title="Kotlin" class="linkLabel_WmDU">Kotlin</span><svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li></ul></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" href="/category/cloud-agent"><span title="Cloud Agent" class="categoryLinkLabel_W154">Cloud Agent</span></a><button aria-label="Expand sidebar category &#x27;Cloud Agent&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li></ul></nav></div></div></aside><main class="docMainContainer_TBSr"><div class="container padding-top--md padding-bottom--lg"><div class="row"><div class="col docItemCol_VOVn"><div class="docItemContainer_Djhp"><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label="Breadcrumbs"><ul class="breadcrumbs"><li class="breadcrumbs__item"><a aria-label="Home page" class="breadcrumbs__link" href="/"><svg viewBox="0 0 24 24" class="breadcrumbHomeIcon_YNFT"><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill="currentColor"></path></svg></a></li><li class="breadcrumbs__item"><a class="breadcrumbs__link" href="/category/sdks"><span>SDKs</span></a></li><li class="breadcrumbs__item"><a class="breadcrumbs__link" href="/sdk-ts/docs/sdk/"><span>Typescript</span></a></li><li class="breadcrumbs__item"><a class="breadcrumbs__link" href="/category/migration-guides"><span>Migration guides</span></a></li><li class="breadcrumbs__item breadcrumbs__item--active"><span class="breadcrumbs__link">Migration guide from 6.X to 7.X</span></li></ul></nav><div class="theme-doc-markdown markdown"><header><h1>Migration guide from 6.X to 7.X</h1></header>
+<p>This migration guide applies to both @hyperledger/identus-edge-agent-sdk and @hyperledger/identus-sdk.</p>
+<p>## Breaking Changes
+If core internals where not in use, this breaking changes are likely to not affect you, except if you weren&#x27;t relying on the Agent but using the internals directly for some things.</p>
+<p>### feat: making didcomm plugin (#425)</p>
+<p><strong>BREAKING CHANGE:</strong> Revocation handling is no longer automatic</p>
+<p><strong>What Changed:</strong></p>
+<ul>
+<li class="">DIDComm functionality has been refactored into a plugin architecture</li>
+<li class="">Credential revocation notifications are no longer handled automatically by the SDK</li>
+<li class="">Revocation messages must now be explicitly passed to the <code>agent.handle()</code> function for processing</li>
+<li class="">Major reorganization of DIDComm-related code into <code>src/plugins/internal/didcomm/</code> and <code>src/plugins/internal/oea/</code></li>
+<li class="">Connection management protocols (MediateDeny, MediateGrant, PickupDelivery, etc.) moved to plugin structure</li>
+<li class="">Protocol types and invitation handlers restructured</li>
+</ul>
+<p><strong>Migration Required:</strong></p>
+<ul>
+<li class="">Update code that expects automatic revocation handling to explicitly call <code>agent.handle()</code> with revocation messages</li>
+<li class="">Review any custom integrations with DIDComm protocols as file paths and module structures have changed</li>
+<li class="">If using Out-of-Band (OOB) invitations or presentation protocols, verify imports from new plugin locations</li>
+</ul>
+<p><strong>Files Changed:</strong> 89 files (630 insertions, 590 deletions)</p>
+<p>### feat!: Anoncreds moving to plugin export (#420)</p>
+<p><strong>BREAKING CHANGE:</strong> Anoncreds is no longer included in the core SDK bundle</p>
+<p><strong>What Changed:</strong></p>
+<ul>
+<li class="">Anoncreds functionality has been extracted from the core SDK bundle into a separate plugin</li>
+<li class="">Anoncreds is no longer exported by default from the main SDK</li>
+<li class="">A new plugin system entry point has been created at <code>src/plugins/internal/anoncreds/plugin.ts</code></li>
+<li class="">Anoncreds must now be explicitly loaded as a plugin if needed</li>
+<li class="">This significantly reduces the core bundle size for applications that don&#x27;t use Anoncreds</li>
+</ul>
+<p><strong>Migration Required:</strong></p>
+<ul>
+<li class="">Import and register the Anoncreds plugin explicitly in your application:<!-- -->
+<div class="language-typescript codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-typescript codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token keyword" style="color:#00009f">import</span><span class="token plain"> </span><span class="token punctuation" style="color:#393A34">{</span><span class="token plain"> AnoncredsPlugin </span><span class="token punctuation" style="color:#393A34">}</span><span class="token plain"> </span><span class="token keyword" style="color:#00009f">from</span><span class="token plain"> </span><span class="token string" style="color:#e3116c">&#x27;@atala/prism-wallet-sdk/plugins&#x27;</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token comment" style="color:#999988;font-style:italic">// Register plugin with your agent configuration</span><br></span></code></pre></div></div>
+</li>
+<li class="">Update any imports that previously expected Anoncreds to be available by default</li>
+<li class="">E2E tests updated to show plugin registration pattern</li>
+</ul>
+<p>### feat!: updating DIDComm connection protocols (#400)</p>
+<p><strong>BREAKING CHANGE:</strong> Removed <code>HandshakeRequest.safeParseBody</code> method</p>
+<p><strong>What Changed:</strong></p>
+<ul>
+<li class="">The <code>HandshakeRequest.safeParseBody</code> static method has been completely removed</li>
+<li class="">Protocol parsing logic has been refactored and centralized</li>
+<li class="">Changes to how connection protocols handle message body parsing</li>
+<li class="">Updates to MediationKeysUpdateList, PickupReceived, PickupRequest, and RevocationNotification protocols</li>
+<li class="">Protocol types file has been cleaned up (removed 26 lines of unused types)</li>
+</ul>
+<p><strong>Migration Required:</strong></p>
+<ul>
+<li class="">Replace any calls to <code>HandshakeRequest.safeParseBody()</code> with the new parsing mechanism</li>
+<li class="">Review connection establishment code for any dependencies on the removed method</li>
+<li class="">Update tests that relied on <code>safeParseBody</code> functionality</li>
+</ul>
+<p>feat(Pluto)!: updating Pluto to extend Startable (#399)</p>
+<p><strong>BREAKING CHANGE:</strong> <code>Pluto.stop()</code> is now a required method</p>
+<p><strong>What Changed:</strong></p>
+<ul>
+<li class="">The <code>Pluto</code> interface now extends the <code>Startable</code> interface</li>
+<li class="">All Pluto implementations must now provide a <code>stop()</code> method for proper cleanup</li>
+<li class="">The <code>stop()</code> method was previously optional but is now mandatory</li>
+<li class="">This ensures consistent lifecycle management across all storage implementations</li>
+<li class="">RxDB Store implementation updated to properly implement the <code>stop()</code> method</li>
+</ul>
+<p><strong>Migration Required:</strong></p>
+<ul>
+<li class="">If you have a custom Pluto implementation, you must implement the <code>stop()</code> method</li>
+<li class="">The <code>stop()</code> method should handle cleanup of database connections, event listeners, and any other resources</li>
+<li class="">Update initialization code to call <code>pluto.stop()</code> during application shutdown or cleanup</li>
+<li class="">Example implementation:<!-- -->
+<div class="language-typescript codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-typescript codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token keyword" style="color:#00009f">async</span><span class="token plain"> </span><span class="token function" style="color:#d73a49">stop</span><span class="token punctuation" style="color:#393A34">(</span><span class="token punctuation" style="color:#393A34">)</span><span class="token operator" style="color:#393A34">:</span><span class="token plain"> </span><span class="token builtin">Promise</span><span class="token operator" style="color:#393A34">&lt;</span><span class="token keyword" style="color:#00009f">void</span><span class="token operator" style="color:#393A34">&gt;</span><span class="token plain"> </span><span class="token punctuation" style="color:#393A34">{</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  </span><span class="token comment" style="color:#999988;font-style:italic">// Clean up database connections</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  </span><span class="token comment" style="color:#999988;font-style:italic">// Remove event listeners</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  </span><span class="token comment" style="color:#999988;font-style:italic">// Close any open resources</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token punctuation" style="color:#393A34">}</span><br></span></code></pre></div></div>
+</li>
+</ul>
+<p>### feat!: updating DIDComm other protocols (#397)</p>
+<p><strong>BREAKING CHANGE:</strong> Protocol helper methods removed and message handling refactored</p>
+<p><strong>What Changed:</strong></p>
+<ul>
+<li class="">Removed 51 lines of protocol helper functions from <code>ProtocolHelpers.ts</code></li>
+<li class=""><code>BasicMessage</code> protocol simplified (reduced from more complex implementation)</li>
+<li class=""><code>ProblemReport</code> protocol significantly refactored (84 lines changed)</li>
+<li class=""><code>OutOfBandInvitation</code> and <code>PrismOnboardingInvitation</code> protocol handling updated</li>
+<li class="">Removed 24 lines of type definitions from protocol types file</li>
+<li class="">Overall simplification and cleanup of protocol handling code</li>
+</ul>
+<p><strong>Migration Required:</strong></p>
+<ul>
+<li class="">Review any code using BasicMessage or ProblemReport protocols</li>
+<li class="">Update OutOfBand invitation handling if you have custom implementations</li>
+<li class="">Check for any dependencies on removed helper functions from ProtocolHelpers</li>
+</ul>
+<p>fix!: refactor JWK implementation into a pollux task (#386)</p>
+<p><strong>BREAKING CHANGE:</strong> Removed <code>KeyProperties.type</code> field from Apollo key management</p>
+<p><strong>What Changed:</strong></p>
+<ul>
+<li class="">The <code>KeyProperties.type</code> field has been completely removed</li>
+<li class="">This field previously stored curve type information (e.g., &quot;Curve25519&quot;, &quot;EC&quot;)</li>
+<li class="">Curve type information is now determined automatically from other key properties</li>
+<li class="">New JWK (JSON Web Key) utilities added to Pollux at <code>src/pollux/utils/jwt/FromJWK.ts</code> (145 new lines)</li>
+<li class="">Apollo key creation simplified - no longer needs or accepts the <code>type</code> parameter</li>
+<li class="">Extensive new test coverage added for JWK functionality (253 lines of tests)</li>
+</ul>
+<p><strong>Migration Required:</strong></p>
+<ul>
+<li class="">Remove any code that sets <code>KeyProperties.type</code> when creating keys with Apollo</li>
+<li class="">The <code>type</code> field will be silently ignored if provided, but should be removed from your code</li>
+<li class="">If you have custom key creation logic, verify it works without the <code>type</code> parameter</li>
+<li class="">Example migration:<!-- -->
+<div class="language-typescript codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-typescript codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token comment" style="color:#999988;font-style:italic">// Before:</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">apollo</span><span class="token punctuation" style="color:#393A34">.</span><span class="token function" style="color:#d73a49">createPrivateKey</span><span class="token punctuation" style="color:#393A34">(</span><span class="token punctuation" style="color:#393A34">{</span><span class="token plain"> type</span><span class="token operator" style="color:#393A34">:</span><span class="token plain"> </span><span class="token string" style="color:#e3116c">&quot;EC&quot;</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"> curve</span><span class="token operator" style="color:#393A34">:</span><span class="token plain"> </span><span class="token string" style="color:#e3116c">&quot;secp256k1&quot;</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"> </span><span class="token operator" style="color:#393A34">...</span><span class="token plain"> </span><span class="token punctuation" style="color:#393A34">}</span><span class="token punctuation" style="color:#393A34">)</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token comment" style="color:#999988;font-style:italic">// After:</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">apollo</span><span class="token punctuation" style="color:#393A34">.</span><span class="token function" style="color:#d73a49">createPrivateKey</span><span class="token punctuation" style="color:#393A34">(</span><span class="token punctuation" style="color:#393A34">{</span><span class="token plain"> curve</span><span class="token operator" style="color:#393A34">:</span><span class="token plain"> </span><span class="token string" style="color:#e3116c">&quot;secp256k1&quot;</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"> </span><span class="token operator" style="color:#393A34">...</span><span class="token plain"> </span><span class="token punctuation" style="color:#393A34">}</span><span class="token punctuation" style="color:#393A34">)</span><br></span></code></pre></div></div>
+</li>
+</ul>
+<p>### feat!: refactor ConnectionManager (#394)</p>
+<p><strong>BREAKING CHANGE:</strong> Major Agent API changes - removed connection management from constructor</p>
+<p><strong>What Changed:</strong></p>
+<ul>
+<li class="">Removed <code>connectionManager</code> parameter from Agent constructor</li>
+<li class="">Removed <code>mediationHandler</code> parameter from Agent constructor</li>
+<li class="">Removed <code>PlutoMediatorStore</code> from public exports</li>
+<li class="">Deleted entire <code>ConnectionsManager</code> class (304 lines removed)</li>
+<li class="">Deleted <code>BasicMediatorHandler</code> class (263 lines removed)</li>
+<li class="">Deleted <code>PlutoMediatorStore</code> class (43 lines removed)</li>
+<li class="">Connection management now handled internally through new architecture:<!-- -->
+<ul>
+<li class="">New <code>ConnectionsManager</code> implementation (86 lines)</li>
+<li class="">New <code>Connection</code> and <code>JobManager</code> classes</li>
+<li class="">DIDComm connection handling moved to dedicated modules</li>
+</ul>
+</li>
+<li class="">New standalone functions: <code>StartFetchingMessages</code> and <code>StartMediator</code></li>
+<li class="">Removed <code>MediationGrant</code> and <code>PickupRunner</code> protocols (replaced with new implementations)</li>
+</ul>
+<p><strong>Migration Required:</strong></p>
+<ul>
+<li class=""><strong>Agent Initialization:</strong> Remove <code>connectionManager</code> and <code>mediationHandler</code> from Agent constructor<!-- -->
+<div class="language-typescript codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-typescript codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token comment" style="color:#999988;font-style:italic">// Before:</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token keyword" style="color:#00009f">const</span><span class="token plain"> agent </span><span class="token operator" style="color:#393A34">=</span><span class="token plain"> Agent</span><span class="token punctuation" style="color:#393A34">.</span><span class="token function" style="color:#d73a49">initialize</span><span class="token punctuation" style="color:#393A34">(</span><span class="token punctuation" style="color:#393A34">{</span><span class="token plain"> </span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  connectionManager</span><span class="token operator" style="color:#393A34">:</span><span class="token plain"> myConnectionManager</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  mediationHandler</span><span class="token operator" style="color:#393A34">:</span><span class="token plain"> myMediationHandler</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  </span><span class="token comment" style="color:#999988;font-style:italic">// ... other options</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token punctuation" style="color:#393A34">}</span><span class="token punctuation" style="color:#393A34">)</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token comment" style="color:#999988;font-style:italic">// After:</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token keyword" style="color:#00009f">const</span><span class="token plain"> agent </span><span class="token operator" style="color:#393A34">=</span><span class="token plain"> Agent</span><span class="token punctuation" style="color:#393A34">.</span><span class="token function" style="color:#d73a49">initialize</span><span class="token punctuation" style="color:#393A34">(</span><span class="token punctuation" style="color:#393A34">{</span><span class="token plain"> </span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  </span><span class="token comment" style="color:#999988;font-style:italic">// ... other options (connection management is now internal)</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token punctuation" style="color:#393A34">}</span><span class="token punctuation" style="color:#393A34">)</span><br></span></code></pre></div></div>
+</li>
+<li class="">The Agent now manages connections internally - no need to provide external connection management</li>
+<li class="">If you extended or customized <code>BasicMediatorHandler</code> or <code>PlutoMediatorStore</code>, you&#x27;ll need to refactor to use the new internal APIs</li>
+<li class="">Review any code that imported <code>ConnectionsManager</code>, <code>MediatorHandler</code>, or <code>PlutoMediatorStore</code> types</li>
+</ul>
+<p>### feat!: updating DIDComm presentation protocols (#383)</p>
+<p><strong>BREAKING CHANGE:</strong> Removed static factory methods from presentation protocol classes</p>
+<p><strong>What Changed:</strong></p>
+<ul>
+<li class=""><strong>Removed Methods:</strong>
+<ul>
+<li class=""><code>Presentation.makePresentationFromRequest()</code> - removed</li>
+<li class=""><code>ProposePresentation.makeProposalFromRequest()</code> - removed</li>
+<li class=""><code>RequestPresentation.makeRequestFromProposal()</code> - removed</li>
+<li class=""><code>ProofTypes</code> interface - removed entirely</li>
+</ul>
+</li>
+<li class="">Removed 93 lines of helper functions from <code>ProtocolHelpers.ts</code></li>
+<li class="">Presentation, ProposePresentation, and RequestPresentation classes refactored to remove convenience factory methods</li>
+<li class="">Protocol construction now requires explicit instantiation with all required parameters</li>
+<li class="">Test files significantly updated to reflect new construction patterns</li>
+</ul>
+<p><strong>Migration Required:</strong></p>
+<ul>
+<li class="">Replace factory method calls with direct class construction:<!-- -->
+<div class="language-typescript codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-typescript codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token comment" style="color:#999988;font-style:italic">// Before:</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token keyword" style="color:#00009f">const</span><span class="token plain"> presentation </span><span class="token operator" style="color:#393A34">=</span><span class="token plain"> Presentation</span><span class="token punctuation" style="color:#393A34">.</span><span class="token function" style="color:#d73a49">makePresentationFromRequest</span><span class="token punctuation" style="color:#393A34">(</span><span class="token plain">request</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"> credentials</span><span class="token punctuation" style="color:#393A34">)</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token keyword" style="color:#00009f">const</span><span class="token plain"> proposal </span><span class="token operator" style="color:#393A34">=</span><span class="token plain"> ProposePresentation</span><span class="token punctuation" style="color:#393A34">.</span><span class="token function" style="color:#d73a49">makeProposalFromRequest</span><span class="token punctuation" style="color:#393A34">(</span><span class="token plain">request</span><span class="token punctuation" style="color:#393A34">)</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token keyword" style="color:#00009f">const</span><span class="token plain"> request </span><span class="token operator" style="color:#393A34">=</span><span class="token plain"> RequestPresentation</span><span class="token punctuation" style="color:#393A34">.</span><span class="token function" style="color:#d73a49">makeRequestFromProposal</span><span class="token punctuation" style="color:#393A34">(</span><span class="token plain">proposal</span><span class="token punctuation" style="color:#393A34">)</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token comment" style="color:#999988;font-style:italic">// After:</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token keyword" style="color:#00009f">const</span><span class="token plain"> presentation </span><span class="token operator" style="color:#393A34">=</span><span class="token plain"> </span><span class="token keyword" style="color:#00009f">new</span><span class="token plain"> </span><span class="token class-name">Presentation</span><span class="token punctuation" style="color:#393A34">(</span><span class="token punctuation" style="color:#393A34">{</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  </span><span class="token comment" style="color:#999988;font-style:italic">// explicitly provide all required fields</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token punctuation" style="color:#393A34">}</span><span class="token punctuation" style="color:#393A34">)</span><br></span></code></pre></div></div>
+</li>
+<li class="">Update any code using the <code>ProofTypes</code> interface</li>
+<li class="">Review presentation protocol flows to ensure all required fields are provided during construction</li>
+</ul>
+<p>### feat: update DIDComm json message types (#375)</p>
+<p><strong>BREAKING CHANGE:</strong> <code>AttachmentDescriptor</code> now only accepts bodies with <code>json</code> property</p>
+<p><strong>What Changed:</strong></p>
+<ul>
+<li class="">Tightened type safety for <code>AttachmentDescriptor.body</code></li>
+<li class="">The body of an <code>AttachmentDescriptor</code> must now explicitly include a <code>json</code> property</li>
+<li class="">Removed support for other body formats in <code>AttachmentDescriptor</code></li>
+<li class="">Message attachment handling simplified in Mercury wrapper (36 lines reduced)</li>
+<li class="">Added comprehensive test coverage for message attachments (47 new test lines)</li>
+<li class="">This aligns with DIDComm v2 specification requirements</li>
+</ul>
+<p><strong>Migration Required:</strong></p>
+<ul>
+<li class="">Ensure all message attachments use the <code>json</code> property in their body:<!-- -->
+<div class="language-typescript codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-typescript codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token comment" style="color:#999988;font-style:italic">// Before (may have worked):</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token keyword" style="color:#00009f">const</span><span class="token plain"> attachment </span><span class="token operator" style="color:#393A34">=</span><span class="token plain"> </span><span class="token punctuation" style="color:#393A34">{</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  data</span><span class="token operator" style="color:#393A34">:</span><span class="token plain"> </span><span class="token punctuation" style="color:#393A34">{</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    base64</span><span class="token operator" style="color:#393A34">:</span><span class="token plain"> encodedData</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  </span><span class="token punctuation" style="color:#393A34">}</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token punctuation" style="color:#393A34">}</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token comment" style="color:#999988;font-style:italic">// After (required):</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token keyword" style="color:#00009f">const</span><span class="token plain"> attachment </span><span class="token operator" style="color:#393A34">=</span><span class="token plain"> </span><span class="token punctuation" style="color:#393A34">{</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  data</span><span class="token operator" style="color:#393A34">:</span><span class="token plain"> </span><span class="token punctuation" style="color:#393A34">{</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    json</span><span class="token operator" style="color:#393A34">:</span><span class="token plain"> jsonData  </span><span class="token comment" style="color:#999988;font-style:italic">// Must use json property</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  </span><span class="token punctuation" style="color:#393A34">}</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token punctuation" style="color:#393A34">}</span><br></span></code></pre></div></div>
+</li>
+<li class="">Review any custom message creation code that uses attachments</li>
+<li class="">Update tests that create AttachmentDescriptor instances</li>
+</ul>
+<p>### feat!: updating DIDComm protocols closer to specification (#373)</p>
+<p><strong>BREAKING CHANGE:</strong> Removed static factory methods from credential issuance protocols</p>
+<p><strong>What Changed:</strong></p>
+<ul>
+<li class=""><strong>Removed Methods:</strong>
+<ul>
+<li class=""><code>IssueCredential.build()</code> - removed</li>
+<li class=""><code>IssueCredential.makeIssueFromRequestCredential()</code> - removed</li>
+<li class=""><code>OfferCredential.build()</code> - removed</li>
+<li class=""><code>OfferCredential.makeOfferFromProposedCredential()</code> - removed</li>
+</ul>
+</li>
+<li class="">Protocol construction now requires explicit parameter specification</li>
+<li class="">Extensive test updates to reflect new construction patterns</li>
+</ul>
+<p><strong>Migration Required:</strong></p>
+<ul>
+<li class="">Replace factory method calls with direct class construction:<!-- -->
+<div class="language-typescript codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-typescript codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token comment" style="color:#999988;font-style:italic">// Before:</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token keyword" style="color:#00009f">const</span><span class="token plain"> offer </span><span class="token operator" style="color:#393A34">=</span><span class="token plain"> OfferCredential</span><span class="token punctuation" style="color:#393A34">.</span><span class="token function" style="color:#d73a49">build</span><span class="token punctuation" style="color:#393A34">(</span><span class="token punctuation" style="color:#393A34">)</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token keyword" style="color:#00009f">const</span><span class="token plain"> issue </span><span class="token operator" style="color:#393A34">=</span><span class="token plain"> IssueCredential</span><span class="token punctuation" style="color:#393A34">.</span><span class="token function" style="color:#d73a49">makeIssueFromRequestCredential</span><span class="token punctuation" style="color:#393A34">(</span><span class="token plain">request</span><span class="token punctuation" style="color:#393A34">)</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token comment" style="color:#999988;font-style:italic">// After:</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token keyword" style="color:#00009f">const</span><span class="token plain"> offer </span><span class="token operator" style="color:#393A34">=</span><span class="token plain"> </span><span class="token keyword" style="color:#00009f">new</span><span class="token plain"> </span><span class="token class-name">OfferCredential</span><span class="token punctuation" style="color:#393A34">(</span><span class="token punctuation" style="color:#393A34">{</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  </span><span class="token comment" style="color:#999988;font-style:italic">// explicitly provide all required fields</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  from</span><span class="token operator" style="color:#393A34">:</span><span class="token plain"> did</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  to</span><span class="token operator" style="color:#393A34">:</span><span class="token plain"> recipientDid</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  body</span><span class="token operator" style="color:#393A34">:</span><span class="token plain"> credentialBody</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  </span><span class="token comment" style="color:#999988;font-style:italic">// ... other required fields</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token punctuation" style="color:#393A34">}</span><span class="token punctuation" style="color:#393A34">)</span><br></span></code></pre></div></div>
+</li>
+<li class="">Update credential issuance flows to explicitly construct protocol messages</li>
+<li class="">Review test files for examples of the new construction patterns</li>
+</ul>
+<p>### feat(Pollux)!: plugins (#349)</p>
+<p><strong>BREAKING CHANGE:</strong> Complete architectural overhaul - Pollux class removed, plugin system introduced</p>
+<p><strong>What Changed:</strong>
+This is the <strong>largest breaking change</strong> in this release, fundamentally restructuring how credential operations work:</p>
+<ul>
+<li class="">
+<p><strong>Pollux Class Removed:</strong> The entire <code>Pollux</code> class (1,355 lines) has been removed</p>
+</li>
+<li class="">
+<p><strong>Plugin System Introduced:</strong> All credential functionality moved to plugin-based architecture</p>
+</li>
+<li class="">
+<p><strong>Three Main Plugin Categories:</strong></p>
+<ol>
+<li class="">
+<p><strong>Anoncreds Plugin</strong> (<code>src/plugins/internal/anoncreds/</code>)</p>
+<ul>
+<li class="">CredentialIssue, CredentialOffer, PresentationRequest, PresentationVerify</li>
+<li class="">AnoncredsLoader module (220 lines)</li>
+<li class="">Must be explicitly loaded if Anoncreds support is needed</li>
+</ul>
+</li>
+<li class="">
+<p><strong>DIF (Decentralized Identity Foundation) Plugin</strong> (<code>src/plugins/internal/dif/</code>)</p>
+<ul>
+<li class="">IsCredentialRevoked, PresentationRequest, PresentationVerify</li>
+<li class="">CreatePresentationDefinition module</li>
+<li class="">Handles DIF Presentation Exchange protocol</li>
+</ul>
+</li>
+<li class="">
+<p><strong>OEA (OpenID for Verifiable Credentials) Plugin</strong> (<code>src/plugins/internal/oea/</code>)</p>
+<ul>
+<li class="">JWT and SD-JWT credential support</li>
+<li class="">CredentialIssue, CredentialOffer, PresentationRequest for both formats</li>
+</ul>
+</li>
+</ol>
+</li>
+<li class="">
+<p><strong>Agent Constructor Changes:</strong></p>
+<ul>
+<li class="">Removed <code>mediationHandler</code> parameter (no longer required)</li>
+<li class="">Removed <code>connectionManager</code> parameter (no longer required)</li>
+<li class="">Agent initialization significantly simplified</li>
+</ul>
+</li>
+<li class="">
+<p><strong>New Core Infrastructure:</strong></p>
+<ul>
+<li class="">Plugin system with <code>Plugin</code> interface and <code>PluginManager</code> (36 + 30 lines)</li>
+<li class="">Task-based architecture for credential operations (<code>src/utils/tasks.ts</code>)</li>
+<li class="">Protocol payload handling improved (<code>src/domain/protocols/Payload.ts</code>)</li>
+</ul>
+</li>
+<li class="">
+<p><strong>Credential Model Changes:</strong></p>
+<ul>
+<li class=""><code>VerifiableCredential</code> class streamlined (466 lines reduced)</li>
+<li class="">JWT and SD-JWT credential models refactored</li>
+<li class="">New utility modules in <code>src/pollux/utils/jwt/</code></li>
+</ul>
+</li>
+<li class="">
+<p><strong>Removed Utilities:</strong></p>
+<ul>
+<li class=""><code>src/domain/utils/hash.ts</code> (26 lines removed)</li>
+<li class=""><code>src/domain/utils/randomBytes.ts</code> (8 lines removed)</li>
+<li class="">Various Pollux utils consolidated into plugin-specific implementations</li>
+</ul>
+</li>
+</ul>
+<p><strong>Migration Required:</strong></p>
+<ol>
+<li class="">
+<p><strong>Remove Pollux Initialization:</strong></p>
+<div class="language-typescript codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-typescript codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token comment" style="color:#999988;font-style:italic">// Before:</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token keyword" style="color:#00009f">const</span><span class="token plain"> pollux </span><span class="token operator" style="color:#393A34">=</span><span class="token plain"> </span><span class="token keyword" style="color:#00009f">new</span><span class="token plain"> </span><span class="token class-name">Pollux</span><span class="token punctuation" style="color:#393A34">(</span><span class="token operator" style="color:#393A34">...</span><span class="token punctuation" style="color:#393A34">)</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token keyword" style="color:#00009f">const</span><span class="token plain"> agent </span><span class="token operator" style="color:#393A34">=</span><span class="token plain"> Agent</span><span class="token punctuation" style="color:#393A34">.</span><span class="token function" style="color:#d73a49">initialize</span><span class="token punctuation" style="color:#393A34">(</span><span class="token punctuation" style="color:#393A34">{</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  pollux</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  mediationHandler</span><span class="token operator" style="color:#393A34">:</span><span class="token plain"> handler</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  connectionManager</span><span class="token operator" style="color:#393A34">:</span><span class="token plain"> manager</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  </span><span class="token comment" style="color:#999988;font-style:italic">// ...</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token punctuation" style="color:#393A34">}</span><span class="token punctuation" style="color:#393A34">)</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token comment" style="color:#999988;font-style:italic">// After:</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token keyword" style="color:#00009f">const</span><span class="token plain"> agent </span><span class="token operator" style="color:#393A34">=</span><span class="token plain"> Agent</span><span class="token punctuation" style="color:#393A34">.</span><span class="token function" style="color:#d73a49">initialize</span><span class="token punctuation" style="color:#393A34">(</span><span class="token punctuation" style="color:#393A34">{</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  </span><span class="token comment" style="color:#999988;font-style:italic">// pollux, mediationHandler, connectionManager no longer needed</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  </span><span class="token comment" style="color:#999988;font-style:italic">// ...</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token punctuation" style="color:#393A34">}</span><span class="token punctuation" style="color:#393A34">)</span><br></span></code></pre></div></div>
+</li>
+<li class="">
+<p><strong>Load Required Plugins:</strong>
+This is just an example on how the SDK can be extended with new DIDComm protocols, allowing you to customize your own flows but is not require for most implementations that are using the Agent export.</p>
+<div class="language-typescript codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-typescript codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token keyword" style="color:#00009f">import</span><span class="token plain"> </span><span class="token punctuation" style="color:#393A34">{</span><span class="token plain"> AnoncredsPlugin </span><span class="token punctuation" style="color:#393A34">}</span><span class="token plain"> </span><span class="token keyword" style="color:#00009f">from</span><span class="token plain"> </span><span class="token string" style="color:#e3116c">&#x27;@atala/prism-wallet-sdk/plugins/anoncreds&#x27;</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token keyword" style="color:#00009f">import</span><span class="token plain"> </span><span class="token punctuation" style="color:#393A34">{</span><span class="token plain"> DIFPlugin </span><span class="token punctuation" style="color:#393A34">}</span><span class="token plain"> </span><span class="token keyword" style="color:#00009f">from</span><span class="token plain"> </span><span class="token string" style="color:#e3116c">&#x27;@atala/prism-wallet-sdk/plugins/dif&#x27;</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token keyword" style="color:#00009f">import</span><span class="token plain"> </span><span class="token punctuation" style="color:#393A34">{</span><span class="token plain"> OEAPlugin </span><span class="token punctuation" style="color:#393A34">}</span><span class="token plain"> </span><span class="token keyword" style="color:#00009f">from</span><span class="token plain"> </span><span class="token string" style="color:#e3116c">&#x27;@atala/prism-wallet-sdk/plugins/oea&#x27;</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">agent</span><span class="token punctuation" style="color:#393A34">.</span><span class="token function" style="color:#d73a49">registerPlugin</span><span class="token punctuation" style="color:#393A34">(</span><span class="token plain">AnoncredsPlugin</span><span class="token punctuation" style="color:#393A34">)</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">agent</span><span class="token punctuation" style="color:#393A34">.</span><span class="token function" style="color:#d73a49">registerPlugin</span><span class="token punctuation" style="color:#393A34">(</span><span class="token plain">DIFPlugin</span><span class="token punctuation" style="color:#393A34">)</span><span class="token plain">  </span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">agent</span><span class="token punctuation" style="color:#393A34">.</span><span class="token function" style="color:#d73a49">registerPlugin</span><span class="token punctuation" style="color:#393A34">(</span><span class="token plain">OEAPlugin</span><span class="token punctuation" style="color:#393A34">)</span><br></span></code></pre></div></div>
+</li>
+<li class="">
+<p><strong>Update Credential Operations:</strong></p>
+<ul>
+<li class="">Credential issuance, verification, and presentation operations now go through the plugin system</li>
+<li class="">The Agent will automatically route operations to the appropriate plugin based on credential type</li>
+<li class="">No need to call Pollux methods directly anymore</li>
+</ul>
+</li>
+<li class="">
+<p><strong>Update Imports:</strong></p>
+<ul>
+<li class="">Many internal types are no longer exported</li>
+<li class="">Import credential types from the main SDK export</li>
+<li class="">Plugin-specific types available from plugin modules</li>
+</ul>
+</li>
+<li class="">
+<p><strong>Review Custom Integrations:</strong></p>
+<ul>
+<li class="">Any custom code extending or wrapping Pollux must be completely rewritten</li>
+<li class="">Use the plugin interface to add custom credential format support</li>
+<li class="">Review backup/restore functionality as it has changed</li>
+</ul>
+</li>
+</ol></div></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href="/category/migration-guides"><div class="pagination-nav__sublabel">Previous</div><div class="pagination-nav__label">Migration guides</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/category/cloud-agent"><div class="pagination-nav__sublabel">Next</div><div class="pagination-nav__label">Cloud Agent</div></a></nav></div></div></div></div></main></div></div></div><div class="container"><footer class="footer_J6tW"><svg xmlns="http://www.w3.org/2000/svg" width="145" height="38" fill="none"></svg><span class="copyright_C6JK">Hyperledger Identus CC BY 4.0</span></footer></div></div>
+</body>
+</html>
