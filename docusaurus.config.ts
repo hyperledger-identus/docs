@@ -28,7 +28,14 @@ const config: Config = {
     },
     presets,
     plugins: [
-        require.resolve('docusaurus-lunr-search')
+        require.resolve('docusaurus-lunr-search'),
+        [
+            '@docusaurus/plugin-google-gtag',
+            {
+                trackingID: 'G-BLNS09BXBY',
+                anonymizeIP: true,
+            },
+        ],
     ],
     themeConfig: {
         navbar: {
