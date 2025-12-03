@@ -47,7 +47,7 @@ The Cloud Agent supports multiple VDR drivers for different use cases:
 |--------|----|----|---------|-------------|----------|
 | In-memory | `memory` | `memory` | `0.1.0` | Ephemeral in-memory storage | Testing, non-persistent data |
 | Database | `database` | `database` | `0.1.0` | Local database storage | Development, testing |
-| PRISM | `PRISMDriverInMemory` | `PRISM` | `1.0` | Cardano blockchain storage | Production, public verification |
+| PRISM | `PRISMDriverInMemory` | `PRISM` | `1.0` | Cardano blockchain storage | Blockchain-backed, public verification |
 
 ### Driver Configuration
 
@@ -61,22 +61,22 @@ For all VDR environment variables, see the [Environment Variables](./environment
 
 **Choosing a driver**:
 - **Development/Testing**: Use `memory` or `database` drivers for fast iteration without blockchain overhead
-- **Production**: Use `PRISM` driver for decentralized, permanent, publicly verifiable storage
+- **Blockchain-backed storage**: Use `PRISM` driver for decentralized, permanent, publicly verifiable storage
 
 ## PRISM Driver
 
 ### Overview
 
-The PRISM driver stores data on the Cardano blockchain, providing decentralized, permanent, and verifiable storage. Unlike the in-memory and database drivers which store data locally for testing, the PRISM driver offers blockchain-backed guarantees suitable for production deployments.
+The PRISM driver stores data on the Cardano blockchain, providing decentralized, permanent, and verifiable storage. Unlike the in-memory and database drivers which store data locally for testing, the PRISM driver offers blockchain-backed guarantees suitable for deployments requiring blockchain permanence.
 
 **Key capabilities**:
 - Data stored on Cardano blockchain, not controlled by any single entity
 - Permanent, immutable storage that persists beyond agent lifecycle
 - Publicly verifiable by anyone with blockchain access
-- Designed for production use cases requiring auditability
+- Designed for scenarios requiring blockchain auditability
 
 **Best suited for**:
-- Production deployments requiring public, decentralized verification
+- Deployments requiring public, decentralized verification
 - Credential status lists that must remain accessible indefinitely
 - Use cases with regulatory requirements for tamper-proof storage
 
@@ -132,7 +132,7 @@ The Cloud Agent will reject configurations that set both options simultaneously.
 
 #### Example 1: Public Blockfrost (Mainnet)
 
-This example shows a production configuration using Blockfrost's mainnet service:
+This example shows a mainnet configuration using Blockfrost's mainnet service:
 
 ```bash
 export VDR_PRISM_DRIVER_ENABLED=true
@@ -206,7 +206,7 @@ All implementations share the same protocol parameters:
 
 ### Important Considerations
 
-**Security**: Store your wallet mnemonic and VDR private key securely. Never commit these values to version control or expose them in logs. Consider using secret management solutions like HashiCorp Vault in production environments.
+**Security**: Store your wallet mnemonic and VDR private key securely. Never commit these values to version control or expose them in logs. Consider using secret management solutions like HashiCorp Vault in operational environments.
 
 **State Directory**: Ensure the state directory has appropriate permissions and sufficient disk space. The indexer will create required subdirectories automatically on first run.
 
