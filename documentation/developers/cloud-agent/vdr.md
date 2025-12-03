@@ -228,7 +228,7 @@ The underlying [PRISM VDR driver library](https://github.com/hyperledger-identus
 - **NOT available**: Cannot be used via Cloud Agent's HTTP API
 - **Source code**: [PRISMDriverMongoDBWithIndexer.scala](https://github.com/hyperledger-identus/prism-vdr-driver/blob/main/src/main/scala/hyperledger/identus/vdr/prism/PRISMDriverMongoDBWithIndexer.scala)
 
-#### Summary
+#### Comparison Table
 
 | Implementation | Storage Backend | Cloud Agent | Library Integration |
 |----------------|-----------------|-------------|---------------------|
