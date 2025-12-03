@@ -116,17 +116,17 @@ Configure the PRISM driver using these environment variables:
 | `VDR_PRISM_DRIVER_PRIVATE_NETWORK_URL` | Option B | URL of private Blockfrost instance | `http://localhost:18082` |
 | `VDR_PRISM_DRIVER_PRIVATE_NETWORK_PROTOCOL_MAGIC` | Option B | Protocol magic number for private network | `42` |
 
-#### Optional Configuration
-
-| Variable | Required? | Description | Example/Default |
-|----------|-----------|-------------|-----------------|
-| `VDR_PRISM_DRIVER_INDEX_INTERVAL_SECOND` | No | Blockchain polling interval (seconds) | `60` (default) |
-
 **⚠️ Network Configuration**: You MUST configure exactly ONE network option:
 - **Option A** (Public Blockfrost): Set `VDR_PRISM_DRIVER_BLOCKFROST_API_KEY` only
 - **Option B** (Private Network): Set both `VDR_PRISM_DRIVER_PRIVATE_NETWORK_URL` and `VDR_PRISM_DRIVER_PRIVATE_NETWORK_PROTOCOL_MAGIC`
 
 The Cloud Agent will reject configurations that set both options simultaneously.
+
+#### Optional Configuration
+
+| Variable | Required? | Description | Example/Default |
+|----------|-----------|-------------|-----------------|
+| `VDR_PRISM_DRIVER_INDEX_INTERVAL_SECOND` | No | Blockchain polling interval (seconds) | `60` (default) |
 
 ### Configuration Examples
 
