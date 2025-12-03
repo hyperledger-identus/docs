@@ -158,46 +158,6 @@ export VDR_PRISM_DRIVER_WALLET_MNEMONIC="word1 word2 word3 word4 word5 word6 wor
 export VDR_PRISM_DRIVER_VDR_STATE_DIR="/var/lib/cloud-agent/vdr-state"
 ```
 
-### Usage Example
-
-Once configured, you can create VDR entries using the PRISM driver through the Cloud Agent's REST API.
-
-#### Creating a VDR Entry
-
-To create a new entry on the blockchain, specify `drid=PRISMDriverInMemory` in the query parameters:
-
-```bash
-# Create sample data file
-echo -ne '\x01\x02\x03\x04' > data.bin
-
-# Create VDR entry using PRISM driver
-curl -X POST "http://localhost:8080/cloud-agent/vdr/entries?drid=PRISMDriverInMemory" \
-  -H "Content-Type: application/octet-stream" \
-  --data-binary @data.bin
-```
-
-#### Expected Response
-
-The API returns a VDR URL that can be used to resolve the data:
-
-```json
-{
-  "url": "vdr://?drf=PRISM&drid=PRISMDriverInMemory&drv=1.0&m=0#4a5b6c7d-8e9f-0a1b-2c3d-4e5f6a7b8c9d"
-}
-```
-
-The URL contains all the information needed to resolve the data, including the driver family (`drf=PRISM`), driver ID (`drid=PRISMDriverInMemory`), and version (`drv=1.0`).
-
-#### Resolving a VDR Entry
-
-Anyone with access to the Cloud Agent can resolve the data using the VDR URL:
-
-```bash
-curl -X GET "http://localhost:8080/cloud-agent/vdr/entries?url=vdr%3A%2F%2F%3Fdrf%3DPRISM%26drid%3DPRISMDriverInMemory%26drv%3D1.0%26m%3D0%234a5b6c7d-8e9f-0a1b-2c3d-4e5f6a7b8c9d"
-```
-
-**Note**: Remember to URL-encode the VDR URL when passing it as a query parameter.
-
 ### Driver Variants
 
 **⚠️ Cloud Agent Users**: The Cloud Agent is configured to use `PRISMDriverInMemory` ONLY. This is the sole PRISM driver implementation available via the Cloud Agent's HTTP API.
@@ -243,23 +203,6 @@ All implementations share the same protocol parameters:
 **For Cloud Agent users**: Use the environment variables documented above. The `PRISMDriverInMemory` implementation is automatically configured when you enable the PRISM driver.
 
 **For library integrators**: If you need MongoDB-backed storage, you must integrate the PRISM VDR driver library directly into your Scala application. Refer to the driver source code and library documentation for integration details.
-
-### How It Works
-
-The PRISM driver integrates with the Cardano blockchain to provide decentralized storage:
-
-1. **Background Indexer**: The driver runs a background indexer that polls the Cardano blockchain at regular intervals (default: every 60 seconds) to synchronize the latest state.
-
-2. **State Management**: The indexer maintains local state in the configured state directory, which contains several subdirectories:
-   - `cardano-21325`: Cardano-specific data
-   - `diddoc`: DID document cache
-   - `events`: PRISM events
-   - `ssi`: SSI-related data
-   - `vdr`: VDR-specific state
-
-3. **Blockchain Integration**: The driver uses your configured Blockfrost connection (public or private) to interact with the Cardano blockchain for reading and writing data.
-
-4. **DID Ownership**: All VDR operations are signed using your VDR private key and associated with your PRISM DID, ensuring data ownership and authenticity.
 
 ### Important Considerations
 
