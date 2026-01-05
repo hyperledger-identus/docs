@@ -93,7 +93,7 @@ Additionally, you need:
 
 - **Database:** PostgreSQL or SQLite for storing indexed blockchain data
 - **Cardano Wallet:** A configured Cardano wallet for submitting operations to the blockchain
-- **Cardano Network Sources:** Connectivity to the Cardano network (mainnet, preprod, or testnet). Might be cardano relay node or dbsync instance
+- **Cardano Network Sources:** Connectivity to the Cardano network (mainnet, preprod, or testnet). This might be a Cardano relay node or a DBSync instance
 
 For detailed instructions on deploying and running NeoPRISM in standalone mode, see the [Running NeoPRISM](/docs/documentation/learn/components/neoprism/running-neoprism) documentation.
 
