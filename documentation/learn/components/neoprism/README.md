@@ -42,4 +42,4 @@ The Standalone mode combines both Indexer and Submitter functionality into a sin
 
 #### Dev Mode
 
-The Dev mode provides a simplified setup for local development and testing, typically using an in-memory SQLite database and minimal configuration.
+The Dev mode provides a simplified setup for local development and testing, using an in-memory SQLite database and an in-memory blockchain with minimal configuration.

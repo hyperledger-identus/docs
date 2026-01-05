@@ -76,7 +76,7 @@ docker run -p 8080:8080 \
   hyperledgeridentus/identus-neoprism:$NEOPRISM_VERSION dev
 ```
 
-This mode provides a simplified setup ideal for local testing without requiring external dependencies.
+This example provides a simplified setup ideal for local testing without requiring external dependencies. It uses both an in-memory database and an in-memory blockchain, eliminating the need for external Cardano network connectivity.
 
 #### Indexer Mode
 
