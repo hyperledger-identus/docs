@@ -40,10 +40,6 @@ The Submitter mode handles the submission of signed DID operations to the Cardan
 
 The Standalone mode combines both Indexer and Submitter functionality into a single service, providing complete DID management capabilities.
 
-:::note
-When integrating with Cloud Agent, NeoPRISM **must** be run in **standalone mode** to provide both indexing and operation submission capabilities required by the Cloud Agent.
-:::
-
 #### Dev Mode
 
 The Dev mode provides a simplified setup for local development and testing, typically using an in-memory SQLite database and minimal configuration.

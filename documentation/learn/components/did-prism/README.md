@@ -40,7 +40,7 @@ The publicly available NeoPRISM can be used to resolve PRISM DIDs and retrieve t
 The instance of NeoPRISM for the PRISM DIDs published in the Cardano mainnet is:
 [https://neoprism.patlo.dev/resolver](https://neoprism.patlo.dev/resolver)
 
-For more details on integrating NeoPRISM with the Cloud Agent, see the [NeoPRISM documentation](../neoprism/README.md).
+For more details on integrating NeoPRISM with the Cloud Agent, see the [NeoPRISM documentation](/docs/documentation/learn/components/neoprism/).
 
 ### PRISM Indexer
 
