@@ -9,19 +9,17 @@ sidebar_position: 2
 
 NeoPRISM is a Rust-based service for managing PRISM [Decentralized Identifiers (DIDs)](/home/concepts/glossary#decentralized-identifier) anchored on the Cardano blockchain. It exposes a W3C-compliant HTTP REST API for DID resolution, indexing, and operation submission. The [Cloud Agent](/home/concepts/glossary#cloud-agent) communicates with NeoPRISM through this API to perform all DID-related operations.
 
+The following documentation explains how to deploy NeoPRISM, including the environment variables required and how to integrate it with the Cloud Agent for both development and production environments.
+
 :::note
 This documentation provides a high-level overview of running NeoPRISM. For comprehensive deployment guides and internal configuration details, refer to the [official NeoPRISM documentation](https://hyperledger-identus.github.io/neoprism/).
 :::
-
-The following documentation explains how to deploy NeoPRISM, including the environment variables required and how to integrate it with the Cloud Agent for both development and production environments.
 
 ## Configuration
 
 NeoPRISM is configured through environment variables that correspond to CLI options. The available configuration options vary depending on the deployment mode (dev, standalone, indexer, or submitter).
 
-:::note
 For a comprehensive and up-to-date list of all configuration options, environment variables, CLI arguments, default values, and descriptions for each deployment mode, refer to the [official NeoPRISM CLI Options documentation](https://hyperledger-identus.github.io/neoprism/references/cli-options.html).
-:::
 
 ## Running NeoPRISM
 
