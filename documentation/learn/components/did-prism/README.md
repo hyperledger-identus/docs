@@ -32,12 +32,15 @@ The publicly available Blocktrust Node can be used to resolve PRISM DIDs and ret
 The list of the Blocktrust endpoints for the PRISM DIDs is:
 [https://statistics.blocktrust.dev/resolve](https://statistics.blocktrust.dev/resolve)
 
-### Neoprism
-The [Neoprism](https://github.com/patextreme/neoprism) is a community alternative to the Prism Node, providing similar functionality for resolving DIDs and managing DID Documents.
-The publicly available Neoprism can be used to resolve PRISM DIDs and retrieve their associated DID Documents.
+### NeoPRISM
+[NeoPRISM](https://github.com/hyperledger-identus/neoprism) is a community alternative to the Prism Node, providing similar functionality for resolving DIDs and managing DID Documents. Written in Rust, NeoPRISM offers a lightweight, resource-efficient solution that can also be configured as a DID node backend for the Cloud Agent.
 
-The instance of the Neoprism for the PRISM DIDs published in the Cardano mainnet is:
+The publicly available NeoPRISM can be used to resolve PRISM DIDs and retrieve their associated DID Documents.
+
+The instance of NeoPRISM for the PRISM DIDs published in the Cardano mainnet is:
 [https://neoprism.patlo.dev/resolver](https://neoprism.patlo.dev/resolver)
+
+For more details on integrating NeoPRISM with the Cloud Agent, see the [NeoPRISM documentation](/docs/documentation/learn/components/neoprism/).
 
 ### PRISM Indexer
 
