@@ -19,14 +19,14 @@
 }
 
 /* Mobile: Stack vertically */
-@media screen and (max-width: 768px) {
+@media (max-width: 996px) {
     .buttonGroup {
         flex-direction: column;
         width: 100%;
         max-width: 300px;
         margin: 0 auto;
     }
-    
+
     .buttonGroup > * {
         width: 100%;
     }
