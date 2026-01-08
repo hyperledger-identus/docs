@@ -11,7 +11,7 @@ export default function GetInvolved() {
                     <Button to="#" color="primary">
                         Chat to Us
                     </Button>
-                    <Button to="#" color="secondary">
+                    <Button to="https://zoom-lfx.platform.linuxfoundation.org/meetings/identus?view=week" color="secondary">
                         Join Community Calls
                     </Button>
                 </div>
