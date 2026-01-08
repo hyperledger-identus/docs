@@ -18,8 +18,7 @@
     flex-wrap: wrap;
 }
 
-/* Mobile: Stack vertically */
-@media (max-width: 996px) {
+@media (max-width: var(--ifm-breakpoint-lg)) {
     .buttonGroup {
         flex-direction: column;
         width: 100%;
