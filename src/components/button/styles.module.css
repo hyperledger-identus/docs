@@ -6,7 +6,6 @@
     padding: .7rem 1.5rem;
     font-weight: 500;
     overflow: hidden;
-    transition: all 0.3s ease;
 }
 
 .button.primary {
