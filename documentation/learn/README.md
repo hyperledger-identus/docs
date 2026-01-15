@@ -2,7 +2,6 @@
 id: README
 title: Introduction
 sidebar_position: 1
-sidebar_class_name: hidden-sidebar-item
 ---
 
 # Introduction

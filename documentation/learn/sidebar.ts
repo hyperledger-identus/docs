@@ -7,7 +7,6 @@ const sidebar: SidebarsConfig[keyof SidebarsConfig] = [
     {
         type: 'doc',
         id: 'documentation/learn/README',
-        className: 'hidden-sidebar-item',
     },
     {
         type: 'doc',
