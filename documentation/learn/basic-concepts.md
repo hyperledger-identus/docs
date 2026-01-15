@@ -102,7 +102,7 @@ The Identus ecosystem consists of three core components, each serving distinct f
 
 * **The mediator** acts as a message routing proxy, ensuring reliable communication in the decentralized ecosystem. It routes and stores messages between parties, enables offline message delivery for mobile devices, and provides privacy-preserving message forwarding without exposing communication patterns.
 
-For more information, refer to the [Advanced explainers](/documentation/learn/advanced-explainers/). 
+For more information, refer to the [Advanced explainers](/category/advanced-explainers). 
 
 **Typical interaction flow**
 
@@ -427,4 +427,4 @@ To implement these use cases:
 
 These use cases demonstrate that decentralized identity isn't just a technical improvement. It's a fundamental enhancement to how people and organizations interact in digital systems. The shift from institutional trust to cryptographic proof creates new possibilities for privacy, security, and user empowerment, potentially transforming entire industries.
 
-For technical implementation guidance, explore the [Advanced explainers](/documentation/learn/advanced-explainers/) and tutorial content.
+For technical implementation guidance, explore the [Advanced explainers](/category/advanced-explainers) and tutorial content.
