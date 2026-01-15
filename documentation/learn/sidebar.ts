@@ -5,22 +5,16 @@ import type { SidebarsConfig } from '@docusaurus/plugin-content-docs';
 
 const sidebar: SidebarsConfig[keyof SidebarsConfig] = [
     {
-        type: 'category',
-        label: 'About Hyperledger Identus',
-        link: {
-            type: 'doc',
-            id: 'documentation/learn/README',
-        },
-        items: [
-            {
-                type: 'doc',
-                id: 'documentation/learn/about-hyperledger-identus/what-is-hyperledger-identus',
-            },
-            {
-                type: 'doc',
-                id: 'documentation/learn/about-hyperledger-identus/basic-concepts',
-            },
-        ],
+        type: 'doc',
+        id: 'documentation/learn/README',
+    },
+    {
+        type: 'doc',
+        id: 'documentation/learn/what-is-hyperledger-identus',
+    },
+    {
+        type: 'doc',
+        id: 'documentation/learn/basic-concepts',
     },
     {
         type: 'category',
