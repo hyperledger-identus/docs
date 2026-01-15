@@ -21,8 +21,8 @@ const sidebar: SidebarsConfig[keyof SidebarsConfig] = [
         label: 'Advanced explainers',
         link: {
             type: 'generated-index',
-            title: 'Cloud Agent',
-            description: 'Cloud Agent'
+            title: 'Advanced explainers',
+            description: 'Technical deep-dive documentation for Identus components'
         },
         items: [
             {
