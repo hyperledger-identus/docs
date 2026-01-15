@@ -14,7 +14,7 @@ const sidebar: SidebarsConfig[keyof SidebarsConfig] = [
         items: [
             {
                 type: 'doc',
-                id: 'documentation/learn/about-hyperledger-identus/introduction',
+                id: 'documentation/learn/about-hyperledger-identus/what-is-hyperledger-identus',
             },
         ],
     },
