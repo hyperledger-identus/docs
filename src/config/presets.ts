@@ -26,7 +26,7 @@ const remarkLinkFixerRules = [
   {
     type: 'prefix',
     from: '/home/identus/cloud-agent/overview',
-    to: '/documentation/learn/components/cloud-agent',
+    to: '/documentation/learn/advanced-explainers/cloud-agent',
   },
   {
     type: 'prefix',
@@ -41,7 +41,7 @@ const remarkLinkFixerRules = [
   {
     type: 'prefix',
     from: '/home/identus/mediator',
-    to: '/documentation/learn/components/mediator',
+    to: '/documentation/learn/advanced-explainers/mediator',
   },
   {
     type: 'prefix',

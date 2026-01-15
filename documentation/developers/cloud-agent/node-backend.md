@@ -29,7 +29,7 @@ The legacy PRISM Node implementation uses gRPC for communication and has been th
 
 NeoPRISM is an open-source alternative implementation written in Rust. It provides the same DID management capabilities with improved resource efficiency and a modern HTTP/REST API. NeoPRISM is designed for easy deployment with Docker and supports multiple deployment modes.
 
-For more information about NeoPRISM, see the [NeoPRISM component documentation](/docs/documentation/learn/components/neoprism/).
+For more information about NeoPRISM, see the [NeoPRISM component documentation](/docs/documentation/learn/advanced-explainers/neoprism/).
 
 ## Configuration
 
@@ -76,7 +76,7 @@ To use PRISM Node as the backend, you need:
 - A deployed PRISM Node instance
 - Network connectivity to the PRISM Node service
 
-For detailed instructions on deploying and running PRISM Node, see the [Running PRISM Node](/docs/documentation/learn/components/prism-node/running-node) documentation.
+For detailed instructions on deploying and running PRISM Node, see the [Running PRISM Node](/docs/documentation/learn/advanced-explainers/prism-node/running-node) documentation.
 
 ### For NeoPRISM (Recommended)
 
@@ -95,7 +95,7 @@ Additionally, you need:
 - **Cardano Wallet:** A configured Cardano wallet for submitting operations to the blockchain
 - **Cardano Network Sources:** Connectivity to the Cardano network (mainnet, preprod, or testnet). This might be a Cardano relay node or a DBSync instance
 
-For detailed instructions on deploying and running NeoPRISM in standalone mode, see the [Running NeoPRISM](/docs/documentation/learn/components/neoprism/running-neoprism) documentation.
+For detailed instructions on deploying and running NeoPRISM in standalone mode, see the [Running NeoPRISM](/docs/documentation/learn/advanced-explainers/neoprism/running-neoprism) documentation.
 
 ## Migration Guide
 
