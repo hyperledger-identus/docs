@@ -16,6 +16,10 @@ const sidebar: SidebarsConfig[keyof SidebarsConfig] = [
                 type: 'doc',
                 id: 'documentation/learn/about-hyperledger-identus/what-is-hyperledger-identus',
             },
+            {
+                type: 'doc',
+                id: 'documentation/learn/about-hyperledger-identus/basic-concepts',
+            },
         ],
     },
     {
