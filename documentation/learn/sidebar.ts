@@ -10,7 +10,7 @@ const sidebar: SidebarsConfig[keyof SidebarsConfig] = [
     },
     {
         type: 'doc',
-        id: 'documentation/learn/identity',
+        id: 'documentation/learn/about-hyperledger-identus',
     },
     {
         type: 'category',
