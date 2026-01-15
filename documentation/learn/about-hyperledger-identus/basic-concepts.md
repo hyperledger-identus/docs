@@ -65,7 +65,7 @@ Identus enables secure, decentralized identity interactions through a simple but
 
 The trust triangle is the most basic process for conveying trust in the digital world. There are three roles in the SSI ecosystem – holders, issuers, and verifiers.
 
-![][image1]
+![Trust Triangle diagram](/img/trust-triangle.png)
 
 ### Holders {#holders}
 
@@ -89,7 +89,7 @@ The trust triangle is the most basic process for conveying trust in the digital 
 
 Identus comprises core libraries that facilitate typical SSI interactions among issuers, holders, and verifiers.
 
-![][image2]
+![Identus component diagram](/img/component-diagram.png)
 
 **Identus component capabilities** 
 
