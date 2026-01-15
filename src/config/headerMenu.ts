@@ -12,7 +12,7 @@ export const headerMenu: NavbarItem[] = [
         to: '/documentation/developers/',
         position: 'left',
         activeBaseRegex: `/documentation/developers/`,
-        label: 'Developers',
+        label: 'Develop',
     },
     {
         to: '/documentation/reference/',
