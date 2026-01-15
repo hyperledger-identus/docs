@@ -1,7 +1,3 @@
----
-sidebar_position: 2
----
-
 # Introduction
 
 Hyperledger Identus is a comprehensive toolset that provides the necessary infrastructure for decentralized identity systems. It operates as a layer-2 blockchain solution, using a distributed ledger as a [verifiable data registry (VDR)](./concepts/glossary#verifiable-data-registry). This innovative toolset facilitates the creation and management of decentralized identifiers (DIDs) and supports the issuance, updating, and revocation of verifiable credentials. With this technology, users can securely and efficiently manage their digital identities while ensuring the integrity and authenticity of their credentials.

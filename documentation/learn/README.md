@@ -1,7 +1,3 @@
----
-sidebar_position: 2
----
-
 # About Hyperledger Identus
 Identity is about access. It is the key that unlocks doors we wish to enter. To stream movies, we need access to get into the virtual theater. Today, we do that by having an account with a streaming service, which authenticates us into the lobby. 
 

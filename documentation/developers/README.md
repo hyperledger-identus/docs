@@ -96,7 +96,7 @@ Before diving deep, familiarize yourself with these essential concepts:
 - **[DIDComm](../learn/glossary.md#didcomm)** - Secure, private messaging protocol for DIDs
 - **[Trust Triangle](../learn/)** - The relationship between Issuers, Holders, and Verifiers
 
-[Learn more about Identus concepts →](../learn/introduction.md)
+[Learn more about Identus concepts →](../learn/README.md)
 
 ## Architecture & Building Blocks
 
