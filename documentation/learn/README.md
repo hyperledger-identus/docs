@@ -1,24 +1,19 @@
 ---
-id: README
-title: Introduction
-sidebar_position: 1
+sidebar_position: 2
 ---
 
-# Introduction
+# About Hyperledger Identus
+Identity is about access. It is the key that unlocks doors we wish to enter. To stream movies, we need access to get into the virtual theater. Today, we do that by having an account with a streaming service, which authenticates us into the lobby. 
 
-Hyperledger Identus is a comprehensive toolset that provides the necessary infrastructure for decentralized identity systems. It operates as a layer-2 blockchain solution, using a distributed ledger as a [verifiable data registry (VDR)](./concepts/glossary#verifiable-data-registry). This innovative toolset facilitates the creation and management of decentralized identifiers (DIDs) and supports the issuance, updating, and revocation of verifiable credentials. With this technology, users can securely and efficiently manage their digital identities while ensuring the integrity and authenticity of their credentials.
+We need authorization to enter the theater to watch the movie, which requires a service plan. Which selection will determine whether we can watch in standard, high definition, or 4k.
 
-Hyperledger Identus is deeply rooted in the concept of [self-sovereign identity (SSI)](./concepts/glossary#self-sovereign-identity), a powerful feature that empowers users to control their identity and personal information. With SSI, users can selectively disclose their data using asymmetric cryptography, giving them full control over their digital identity.
+This example is repeatable across all interactions: banking, insurance, online services, shopping, investing, education, traveling, driving, etc. Identity may be the most essential thing we undervalue in our lives. We use it to physically and digitally access goods and services locally and globally. 
 
-The documentation herein will explain the following:
+## Self-Sovereign Identity (SSI)
+[SSI](https://github.com/input-output-hk/atala-prism-docs/blob/doc-fixes/docs/concepts/glossary/#self-sovereign-identity) introduces new concepts that flip the existing identity models. The control shifts from the central authorities to the edges, with individuals. SSI is a set of principles that leverage decentralized identity technology. Sovrin compiled a list of the principles in an easy-to-digest format, available [here](https://sovrin.org/principles-of-ssi/). 
 
-* Decentralized identity concepts
-* How Hyperledger Identus works
-* Hyperledger Identus Quick Start Guide
+The World Wide Web Consortium (W3C) organization has been setting the standards for the Internet as we know it. Similarly, they are also working on next-generation technologies such as decentralized identity. In July 2022, the W3C approved the DID specification to become a [recommendation](https://www.w3.org/press-releases/2022/did-rec/).
 
-## Supported Standards
-* W3C DID Specification
-* DIDComm v2
-* W3C VC-JWT
-* Hyperledger Anoncreds
-* OpenID for Verifiable Credential Issuance
+The W3C has compiled a list in addition to the specifications for all DID methods available [here](https://www.w3.org/TR/did-spec-registries/).
+
+For a deep dive into the DID specification itself, the W3C standard is [here](https://www.w3.org/TR/did-core/). 
