@@ -77,3 +77,10 @@ Its fetchs the all PRISM events from one DID from the Prism-VDR Github repos and
 
 A instance of this tool can be found in [did.fmgp.app](https://did.fmgp.app/#/resolver/did:prism:00592a141a4c2bcb7a6aa691750511e2e9b048231820125e15ab70b12a210aae).
 Its capable of resolving some DID methods including the `did:prism`.
+
+## Related Tutorials
+
+- [Create DIDs](/cloud-agent/docs/docusaurus/dids/create) - Create Cloud Agent-managed DIDs
+- [Publish DIDs](/cloud-agent/docs/docusaurus/dids/publish) - Publish DIDs to the ledger
+- [Update DIDs](/cloud-agent/docs/docusaurus/dids/update) - Update existing DIDs
+- [Deactivate DIDs](/cloud-agent/docs/docusaurus/dids/deactivate) - Deactivate DIDs when no longer needed
