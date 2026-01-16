@@ -63,9 +63,9 @@ ADRs help developers understand the "why" behind technical choices and maintain 
 
 ## Quick Links
 
-- [Getting Started Guide](../developers/quick-start.md)
+- [Getting Started Guide](../develop/quick-start.md)
 - [Learn Identus Concepts](../learn/README.md)
-- [Developer Tutorials](../developers/README.md)
+- [Developer Tutorials](../develop/README.md)
 
 ## Contributing
 

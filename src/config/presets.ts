@@ -5,7 +5,7 @@ import type * as OpenApiPlugin from 'docusaurus-plugin-openapi-docs';
  * 
  * Each Repository will distribute the documentation in the same way we are implementing now.
  * docs/learning
- * docs/developers
+ * docs/develop
  * docs/reference
  * 
  * Each folder can have a sidebar.ts to define the sidebar items, but its not required.
@@ -21,7 +21,7 @@ const remarkLinkFixerRules = [
   {
     type: 'prefix',
     from: '/home/quick-start',
-    to: '/documentation/developers/quick-start',
+    to: '/documentation/develop/quick-start',
   },
   {
     type: 'prefix',
@@ -101,8 +101,8 @@ export const presets: PresetConfig[] = [
             'SECURITY.md',
             'documentation/adrs/**/*.md',
             'documentation/adrs/**/*.mdx',
-            'documentation/developers/**/*.md',
-            'documentation/developers/**/*.mdx',
+            'documentation/develop/**/*.md',
+            'documentation/develop/**/*.mdx',
             'documentation/learn/**/*.md',
             'documentation/learn/**/*.mdx',
             'documentation/reference/**/*.md',
@@ -113,7 +113,7 @@ export const presets: PresetConfig[] = [
  * 
  * Each Repository will distribute the documentation in the same way we are implementing now.
  * docs/learning
- * docs/developers
+ * docs/develop
  * docs/reference
  * 
  * Each folder can have a sidebar.ts to define the sidebar items, but its not required.
