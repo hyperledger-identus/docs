@@ -26,7 +26,7 @@ This example is repeatable across all interactions, including banking, insurance
 
 ### Self-sovereign identity  {#self-sovereign-identity}
 
-[SSI](https://github.com/input-output-hk/atala-prism-docs/blob/doc-fixes/docs/concepts/glossary/#self-sovereign-identity) directly addresses the challenges above. Instead of organizations holding control, SSI shifts power to individuals. Decentralized identity technology gives people ownership of their identity data, improves privacy, strengthens security, and enables portability across platforms. Sovrin has compiled [a clear overview of SSI principles](https://sovrin.org/principles-of-ssi/).
+[Self-sovereign identity](/documentation/learn/glossary/#self-sovereign-identity) directly addresses the challenges above. Instead of organizations holding control, SSI shifts power to individuals. Decentralized identity technology gives people ownership of their identity data, improves privacy, strengthens security, and enables portability across platforms. Sovrin has compiled [a clear overview of SSI principles](https://sovrin.org/principles-of-ssi/).
 
 ### How SSI compares to traditional identity frameworks {#how-ssi-compares-to-traditional-identity-frameworks}
 
