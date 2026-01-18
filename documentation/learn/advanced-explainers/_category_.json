@@ -1,11 +1,11 @@
 {
-    "label": "Components",
+    "label": "Advanced explainers",
     "position": 3,
     "collapsed": false,
     "collapsible": false,
     "link": {
       "type": "generated-index",
-      "title": "Components",
+      "title": "Advanced explainers",
       "description": "Technical reference documentation including ADRs, specifications, and API details."
     }
   }

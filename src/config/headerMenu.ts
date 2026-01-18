@@ -9,10 +9,10 @@ export const headerMenu: NavbarItem[] = [
         label: 'Learn',
     },
     {
-        to: '/documentation/developers/',
+        to: '/documentation/develop/',
         position: 'left',
-        activeBaseRegex: `/documentation/developers/`,
-        label: 'Developers',
+        activeBaseRegex: `/documentation/develop/`,
+        label: 'Develop',
     },
     {
         to: '/documentation/reference/',
