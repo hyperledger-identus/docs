@@ -23,7 +23,7 @@ https://dev.uniresolver.io/
 Each SDK provides a way to resolve DIDs and retrieve their associated DID Documents. The SDKs are designed to be easy to use and integrate into existing applications, allowing developers to quickly add DID resolution capabilities to their projects.
 Each SDK implements the `DIDResolver` interface via a URL. In order to configure the DIDResolver the corresponding endpoint should be set in the SDK configuration.
 
-## Identus Community Project
+## Alternative Implementations
 
 ### Blocktrust Node
 The Blocktrust Node is a community alternative to the Prism Node, providing similar functionality for resolving DIDs and managing DID Documents.
@@ -33,7 +33,7 @@ The list of the Blocktrust endpoints for the PRISM DIDs is:
 [https://statistics.blocktrust.dev/resolve](https://statistics.blocktrust.dev/resolve)
 
 ### NeoPRISM
-[NeoPRISM](https://github.com/hyperledger-identus/neoprism) is a community alternative to the Prism Node, providing similar functionality for resolving DIDs and managing DID Documents. Written in Rust, NeoPRISM offers a lightweight, resource-efficient solution that can also be configured as a DID node backend for the Cloud Agent.
+[NeoPRISM](https://github.com/hyperledger-identus/neoprism) is an alternative to the Prism Node, providing similar functionality for resolving DIDs and managing DID Documents. Written in Rust, NeoPRISM offers a lightweight, resource-efficient solution that can also be configured as a DID node backend for the Cloud Agent.
 
 The publicly available NeoPRISM can be used to resolve PRISM DIDs and retrieve their associated DID Documents.
 
