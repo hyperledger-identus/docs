@@ -9,7 +9,7 @@ sidebar_position: 2
 
 [NeoPRISM](https://github.com/hyperledger-identus/neoprism) is an open-source alternative implementation of a PRISM Node for managing PRISM [Decentralized Identifiers (DIDs)](/home/concepts/glossary#decentralized-identifier) anchored on the Cardano blockchain. Written in Rust, NeoPRISM provides a lightweight, resource-efficient solution for DID resolution, indexing, and operation submission capabilities for the `did:prism` method.
 
-As part of the Identus Community Projects ecosystem, NeoPRISM offers an alternative to the legacy PRISM Node, focusing on ease of deployment, efficient resource usage, and reliable performance. It integrates seamlessly with the [Cloud Agent](/home/concepts/glossary#cloud-agent) as a configurable DID node backend.
+NeoPRISM offers an alternative to the legacy PRISM Node, focusing on ease of deployment, efficient resource usage, and reliable performance. It integrates seamlessly with the [Cloud Agent](/home/concepts/glossary#cloud-agent) as a configurable DID node backend.
 
 ## Key Features
 
