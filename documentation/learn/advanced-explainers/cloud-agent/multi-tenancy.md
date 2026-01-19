@@ -76,3 +76,8 @@ graph TB;
             Entity(Entity) -->|Uses| AuthMethod(Authentication Method)
     end
 ```
+
+## Related Tutorials
+
+- [Tenant Onboarding](/cloud-agent/docs/docusaurus/multitenancy/tenant-onboarding) - Set up multi-tenant infrastructure
+- [Tenant Onboarding with External IAM](/cloud-agent/docs/docusaurus/multitenancy/tenant-onboarding-ext-iam) - Integrate with Keycloak for JWT authentication
