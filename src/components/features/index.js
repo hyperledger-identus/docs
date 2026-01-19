@@ -3,6 +3,7 @@ import clsx from 'clsx';
 import styles from './styles.module.css';
 import HomeResources from '../resources';
 import { FutureOfIdentity } from '../resources';
+import GetInvolved from '../get-involved';
 
 
 const FeatureList = [
@@ -70,7 +71,7 @@ export default function HomepageFeatures() {
                         <Feature key={idx} {...props} />
                     ))}
                 </div>
-               
+                <GetInvolved />
             </div>
         </section>
     );
