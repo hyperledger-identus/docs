@@ -198,7 +198,7 @@ Tenant management is the process of onboarding, provisioning, and managing entit
 
 Multi-tenancy requires implementation planning to configure the Cloud agent with multi-tenancy enabled. The system supports various authentication methods, including API keys, JWT tokens, and third-party identity providers.
 
-For detailed implementation guidance, refer to the [multi-tenancy tutorials](https://hyperledger-identus.github.io/docs/tutorials/multitenancy/tenant-onboarding). 
+For detailed implementation guidance, refer to the [multi-tenancy tutorials](/cloud-agent/docs/docusaurus/multitenancy/tenant-onboarding). 
 
 ## 5. Common use cases {#5-common-use-cases}
 
