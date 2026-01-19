@@ -4,10 +4,6 @@
 
 The Node is a level 2 proxy on top of the Cardano blockchain responsible for publishing, resolving, updating, and deactivating DIDs. It exposes a gRPC API to perform all the operations above. 
 
-:::note
-This documentation will not describe the gRPC API itself.
-:::
-
 The Identus cloud Agent communicates with the Node, with all operations conducted through it. The following documentation will provide a high-level overview of how the Node functions and explain its usage, including the environment variables required and how to deploy it to the Cardano mainnet and testnet.
 
 ## Node components
