@@ -41,7 +41,7 @@ NeoPRISM implements a Verifiable Data Registry (VDR) that enables storing, updat
 | Endpoint | Method | Description |
 |----------|--------|-------------|
 | `/api/vdr-data/{entry_hash}` | GET | Resolve VDR entry data (returns raw bytes) |
-| `/api/vdr-entries/{entry_hash}` | GET | Get VDR entry metadata (entry_hash, latest_event_hash, status) |
+| `/api/vdr-data/{entry_hash}/metadata` | GET | Get VDR entry metadata (entry_hash, latest_event_hash, status) |
 
 ### Integration with Cloud Agent
 
