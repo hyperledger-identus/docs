@@ -19,7 +19,11 @@ Cloud Agent supports two node backend implementations:
 | Implementation | Scala | Rust |
 | Resource Usage | Higher | Lightweight |
 | Default Backend | ✅ Yes | ❌ No |
-| VDR Storage Support | Partial | Full |
+| DID Management | ✅ Full | ✅ Full |
+| VDR Entry CRUD | ✅ Yes | ✅ Yes |
+| VDR Entry Metadata API | ❌ No | ✅ Yes |
+
+Both backends support DID management (create, update, deactivate, resolve) **and** VDR entry CRUD operations (create, read, update, deactivate). The Cloud Agent uses the node backend not only for DID lifecycle management but also for anchoring VDR entries to the Cardano blockchain. For VDR configuration details, see the [VDR Interface](./vdr) documentation.
 
 ### PRISM Node
 
