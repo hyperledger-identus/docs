@@ -7,8 +7,8 @@
 <link rel="preconnect" href="https://www.googletagmanager.com">
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-BLNS09BXBY"></script>
 <script>function gtag(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],gtag("js",new Date),gtag("config","G-BLNS09BXBY",{anonymize_ip:!0})</script><link rel="stylesheet" href="/docs/assets/css/styles.d504a8e9.css">
-<script src="/docs/assets/js/runtime~main.c5bd1cac.js" defer="defer"></script>
-<script src="/docs/assets/js/main.59dbc909.js" defer="defer"></script>
+<script src="/docs/assets/js/runtime~main.5a42fa1e.js" defer="defer"></script>
+<script src="/docs/assets/js/main.db081719.js" defer="defer"></script>
 </head>
 <body class="navigation-with-keyboard">
 <svg style="display: none;"><defs>
@@ -19,7 +19,8 @@
 <p>Two backend options are available: the legacy PRISM Node and NeoPRISM. <strong>We recommend NeoPRISM for new deployments</strong> due to its lightweight architecture, simple deployment, and modern REST API. Both backends are interchangeable via a simple configuration change.</p>
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="node-backend-options">Node Backend Options<a href="#node-backend-options" class="hash-link" aria-label="Direct link to Node Backend Options" title="Direct link to Node Backend Options" translate="no">​</a></h2>
 <p>Cloud Agent supports two node backend implementations:</p>
-<table><thead><tr><th>Feature</th><th>PRISM Node</th><th>NeoPRISM</th></tr></thead><tbody><tr><td>Status</td><td>Legacy</td><td><strong>Recommended</strong></td></tr><tr><td>Protocol</td><td>gRPC</td><td>HTTP/REST</td></tr><tr><td>Implementation</td><td>Scala</td><td>Rust</td></tr><tr><td>Resource Usage</td><td>Higher</td><td>Lightweight</td></tr><tr><td>Default Backend</td><td>✅ Yes</td><td>❌ No</td></tr><tr><td>VDR Storage Support</td><td>Partial</td><td>Full</td></tr></tbody></table>
+<table><thead><tr><th>Feature</th><th>PRISM Node</th><th>NeoPRISM</th></tr></thead><tbody><tr><td>Status</td><td>Legacy</td><td><strong>Recommended</strong></td></tr><tr><td>Protocol</td><td>gRPC</td><td>HTTP/REST</td></tr><tr><td>Implementation</td><td>Scala</td><td>Rust</td></tr><tr><td>Resource Usage</td><td>Higher</td><td>Lightweight</td></tr><tr><td>Default Backend</td><td>✅ Yes</td><td>❌ No</td></tr><tr><td>DID Management</td><td>✅ Full</td><td>✅ Full</td></tr><tr><td>VDR Entry CRUD</td><td>✅ Yes</td><td>✅ Yes</td></tr><tr><td>VDR Entry Metadata API</td><td>❌ No</td><td>✅ Yes</td></tr></tbody></table>
+<p>Both backends support DID management (create, update, deactivate, resolve) <strong>and</strong> VDR entry CRUD operations (create, read, update, deactivate). The Cloud Agent uses the node backend not only for DID lifecycle management but also for anchoring VDR entries to the Cardano blockchain. For VDR configuration details, see the <a class="" href="/docs/documentation/develop/cloud-agent/vdr">VDR Interface</a> documentation.</p>
 <h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="prism-node">PRISM Node<a href="#prism-node" class="hash-link" aria-label="Direct link to PRISM Node" title="Direct link to PRISM Node" translate="no">​</a></h3>
 <p>The legacy PRISM Node implementation uses gRPC for communication and has been the default backend since the initial release of Cloud Agent. While still supported for existing deployments, PRISM Node requires more resources and has a more complex deployment process.</p>
 <h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="neoprism-recommended">NeoPRISM (Recommended)<a href="#neoprism-recommended" class="hash-link" aria-label="Direct link to NeoPRISM (Recommended)" title="Direct link to NeoPRISM (Recommended)" translate="no">​</a></h3>
