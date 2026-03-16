@@ -6,6 +6,12 @@ The [Cloud Agent](/home/concepts/glossary#cloud-agent) simplifies identity manag
 
 The Cloud Agent employs hierarchical deterministic key derivation to manage the keys of the PRISM DID. The Cloud Agent calculates and stores the derivation path whenever an activity involves new key information, such as creating a new DID or adding a new key. It internally tracks the DID counter and key counter to increment the derivation path accordingly. Details about the Cloud Agent constructs key material from the seed are on the HD-key derivation decision record.
 
+## Deterministic DID Creation
+
+All Identus platform components (Cloud Agent, TypeScript SDK, Kotlin SDK, Swift SDK) support deterministic PRISM DID creation from a BIP-39 mnemonic phrase. The same mnemonic and passphrase always produce the same DID across all platforms, enabling stateless recovery and cross-platform interoperability.
+
+For detailed specification including key derivation paths, normalization rules, and test vectors, see [Deterministic PRISM DID Creation](./deterministic-did-creation.md).
+
 ## Managed Peer DID
 
 The Cloud Agent also manages [Peer DIDs](/home/concepts/glossary#peer-did) for [DIDComm](/home/concepts/glossary#didcomm) activities. The Key materials for Peer DIDs are randomly generated and stored securely in [secret storage](/home/concepts/glossary#secrets-storage), allowing control of the Peer DID.
