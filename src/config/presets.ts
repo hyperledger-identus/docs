@@ -72,6 +72,11 @@ const remarkLinkFixerRules = [
     type: 'prefix',
     from: '../../cloud-agent/docs/docusaurus/',
     to: './quick-start.md',
+  },
+  {
+    type: 'prefix',
+    from: '../../../documentation/',
+    to: '/documentation/',
   }
 ] as const;
 
