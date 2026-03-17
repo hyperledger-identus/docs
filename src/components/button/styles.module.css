@@ -3,15 +3,21 @@
     margin-top: 1.5rem;
     cursor: pointer;
     border-radius: 5rem;
-    background-color: var(--ifm-color-primary);
     padding: .7rem 1.5rem;
-    color: #fff;
     font-weight: 500;
     overflow: hidden;
 }
 
-.button:hover {
+.button.primary {
+    background-color: var(--ifm-color-primary);
     color: white;
+    border: 2px solid var(--ifm-color-primary);
+}
+
+.button.secondary {
+    background-color: transparent;
+    color: var(--ifm-color-primary);
+    border: 2px solid var(--ifm-color-primary);
 }
 
 .button:hover .light {
