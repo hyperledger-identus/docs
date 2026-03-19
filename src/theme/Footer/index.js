@@ -60,22 +60,21 @@ function Footer() {
                     <ul className={styles.linkList}>
                         <li>
                             <a href="https://discord.gg/hyperledger" target="_blank" rel="noopener noreferrer" className={styles.link}>
-                                <DiscordIcon color={iconColor} />
-                                <span>Join Discord</span>
+                                Join Discord
                             </a>
                         </li>
                         <li>
-                            <a href="https://lf-hyperledger.atlassian.net/wiki/spaces/identus/overview" target="_blank" rel="noopener noreferrer" className={styles.link}>
+                            <a href="https://zoom-lfx.platform.linuxfoundation.org/meetings/lf-decentralized-trust?view=week" target="_blank" rel="noopener noreferrer" className={styles.link}>
                                 Join Community Calls
                             </a>
                         </li>
                         <li>
-                            <a href="https://www.youtube.com/@lfdecentralizedtrust" target="_blank" rel="noopener noreferrer" className={styles.link}>
+                            <a href="https://www.youtube.com/playlist?list=PL0MZ85B_96CEl8wZizFUhDvNONS3AjZ7b" target="_blank" rel="noopener noreferrer" className={styles.link}>
                                 Watch Past Recordings
                             </a>
                         </li>
                         <li>
-                            <a href="https://github.com/hyperledger-identus/identus-docs/issues/new" target="_blank" rel="noopener noreferrer" className={styles.link}>
+                            <a href="https://services.iog.io/hyperledger-identus-contact" target="_blank" rel="noopener noreferrer" className={styles.link}>
                                 Leave Feedback
                             </a>
                         </li>
@@ -85,6 +84,9 @@ function Footer() {
                 <div className={styles.socialIcons}>
                     <h4 className={styles.communityTitle}>Follow Us</h4>
                     <div className={styles.iconContainer}>
+                        <a href="https://discord.gg/hyperledger" target="_blank" rel="noopener noreferrer" className={styles.socialIcon} aria-label="Discord">
+                            <DiscordIcon color={iconColor} />
+                        </a>
                         <a href="https://github.com/hyperledger-identus" target="_blank" rel="noopener noreferrer" className={styles.socialIcon} aria-label="GitHub">
                             <GitHubIcon color={iconColor} />
                         </a>
