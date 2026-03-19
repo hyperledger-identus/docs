@@ -12,15 +12,53 @@ const config: Config = {
     url: 'https://hyperledger-identus.github.io/',
     baseUrl: '/docs/',
     onBrokenLinks: 'throw',
-    onBrokenAnchors:'ignore',
+    onBrokenAnchors: 'ignore',
     favicon: 'img/favicon.ico',
     organizationName: 'hyperledger-identus',
     projectName: 'docs',
     markdown: {
         mermaid: true,
-        hooks:  {
-            onBrokenMarkdownLinks:'warn'
-        }
+        hooks: {
+            onBrokenMarkdownLinks: 'warn'
+        },
+        async parseFrontMatter(params) {
+            const result = await params.defaultParseFrontMatter(params);
+
+            // Only process typedoc-generated files that lack an explicit title
+            if (result.frontMatter.title || !params.filePath.includes('sdk-ts/docs/sdk/')) {
+                return result;
+            }
+
+            const content = params.fileContent;
+
+            // 1. Try first H1 heading
+            const h1Match = content.match(/^#\s+(.+)$/m);
+            let title = h1Match?.[1]?.trim();
+
+            // 2. For root README, fall back to package.json description
+            if (!title && params.filePath.endsWith('sdk/README.md')) {
+                try {
+                    const fs = await import('node:fs');
+                    const pkg = JSON.parse(fs.readFileSync('sdk-ts/package.json', 'utf8'));
+                    title = pkg.description;
+                } catch { /* ignore */ }
+            }
+
+            // 3. Bold project header (e.g. **@scope/pkg v1.0.0**)
+            if (!title) {
+                const boldMatch = content.match(/^\*\*(.+?)\*\*$/m);
+                title = boldMatch?.[1]?.trim();
+            }
+
+            if (title) {
+                // Strip backslash escapes typedoc adds (e.g. \<T\> → <T>)
+                title = title.replace(/\\([<>])/g, '$1');
+                result.frontMatter.title = title;
+                result.frontMatter.sidebar_label = title;
+            }
+
+            return result;
+        },
     },
     i18n: {
         defaultLocale: 'en',

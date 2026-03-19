@@ -10,9 +10,9 @@ const CONTENT_DOCS_PLUGIN = '@docusaurus/plugin-content-docs';
 const CONTENT_OPENAPI_PLUGIN = 'docusaurus-plugin-openapi-docs';
 
 
-export default function preset(context, opts: Opts) {
+export default function preset(_context: any, opts: Opts) {
     const { docs } = opts;
-    return  {
+    return {
         themes: [
             ['@docusaurus/theme-classic', opts.theme],
             '@docusaurus/theme-mermaid',
@@ -22,9 +22,9 @@ export default function preset(context, opts: Opts) {
             [
                 '@docusaurus/plugin-svgr',
                 {
-                  svgrConfig: {},
+                    svgrConfig: {},
                 },
-              ],
+            ],
             '@docusaurus/plugin-content-pages',
             ...docs.map(contentConfig => ['docsPluginId' in contentConfig ? CONTENT_OPENAPI_PLUGIN : CONTENT_DOCS_PLUGIN, contentConfig]),
         ],
