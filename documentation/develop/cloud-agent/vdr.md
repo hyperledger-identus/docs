@@ -39,6 +39,26 @@ To select the appropriate driver, specify the following parameters when creating
 
 For a full range of parameters and driver options, please refer to the [VDR specification](https://github.com/hyperledger-identus/vdr).
 
+## Architecture
+
+The Cloud Agent acts as a VDR proxy, supporting multiple drivers simultaneously. The driver to use is selected via request parameters (`drid`, `drf`, `drv`), allowing users to choose the appropriate backend for each operation.
+
+```mermaid
+graph TD
+    Client[Client Application] -->|"POST/GET/PUT/DELETE /vdr/entries"| CA[Cloud Agent VDR Proxy]
+    CA -->|"drid=memory"| MEM[In-Memory Driver]
+    CA -->|"drid=database"| DB[Database Driver]
+    CA -->|"drid=neoprism"| NEO[NeoPrism Driver]
+    CA -->|"drid=prism-node"| PN[PRISM Node Driver]
+    CA -->|"drf=PRISM"| PRISM[PRISM Blockfrost Driver]
+    NEO -->|"REST API"| NeoSvc[NeoPRISM Service]
+    PN -->|"gRPC"| PNSvc[PRISM Node Service]
+    PRISM -->|"Blockfrost API"| BF[Blockfrost]
+    NeoSvc --> Chain[(Cardano Blockchain)]
+    PNSvc --> Chain
+    BF --> Chain
+```
+
 ## Available Drivers
 
 The Cloud Agent supports multiple VDR drivers for different use cases:
@@ -47,7 +67,9 @@ The Cloud Agent supports multiple VDR drivers for different use cases:
 |--------|----|----|---------|-------------|----------|
 | In-memory | `memory` | `memory` | `0.1.0` | Ephemeral in-memory storage | Testing, non-persistent data |
 | Database | `database` | `database` | `0.1.0` | Local database storage | Development, testing |
-| PRISM | `PRISMDriverInMemory` | `PRISM` | `1.0` | Cardano blockchain storage | Blockchain-backed, public verification |
+| NeoPrism | `neoprism` | `neoprism` | `1.0.0` | Cardano blockchain via NeoPRISM REST API | **Recommended** for production |
+| PRISM Node | `prism-node` | `prism-node` | `1.0.0` | Cardano blockchain via PRISM Node gRPC | Legacy production deployments |
+| PRISM (Blockfrost) | `PRISMDriverInMemory` | `PRISM` | `1.0` | Cardano blockchain via Blockfrost | Direct blockchain access |
 
 ### Driver Configuration
 
@@ -55,13 +77,113 @@ The Cloud Agent supports multiple VDR drivers for different use cases:
 
 **Database Driver**: Enable with `VDR_DATABASE_DRIVER_ENABLED=true`. Uses the Cloud Agent's existing database configuration.
 
-**PRISM Driver**: See the [PRISM Driver](#prism-driver) section below.
+**NeoPrism Driver**: Enable with `VDR_NEOPRISM_DRIVER_ENABLED=true`. Requires a running NeoPRISM instance and `NEOPRISM_BASE_URL`. See the [NeoPrism Driver](#neoprism-driver) section below.
+
+**PRISM Node Driver**: Enable with `VDR_PRISM_NODE_DRIVER_ENABLED=true`. Requires a running PRISM Node instance. See the [PRISM Node Driver](#prism-node-driver) section below.
+
+**PRISM (Blockfrost) Driver**: See the [PRISM Driver](#prism-driver) section below.
 
 For all VDR environment variables, see the [Environment Variables](./environment-variables.md) documentation.
 
 **Choosing a driver**:
 - **Development/Testing**: Use `memory` or `database` drivers for fast iteration without blockchain overhead
-- **Blockchain-backed storage**: Use `PRISM` driver for decentralized, permanent, publicly verifiable storage
+- **Blockchain-backed storage (recommended)**: Use `neoprism` driver with NeoPRISM for modern REST-based integration
+- **Blockchain-backed storage (legacy)**: Use `prism-node` driver for existing PRISM Node deployments
+- **Direct blockchain access**: Use `PRISM` driver for Blockfrost-based access without an intermediary node
+
+## NeoPrism Driver
+
+### Overview
+
+The NeoPrism driver stores VDR entries on the Cardano blockchain through a [NeoPRISM](/documentation/learn/advanced-explainers/neoprism/) instance. This is the **recommended** blockchain-backed VDR driver for new deployments, offering a modern REST API, lightweight resource usage, and full VDR lifecycle management.
+
+The Cloud Agent communicates with NeoPRISM via HTTP to:
+- Submit signed VDR operations (create, update, deactivate) to the Cardano blockchain
+- Resolve VDR entry data and metadata
+- Query operation status
+
+### How It Works
+
+VDR entries are cryptographically bound to a `did:prism` DID. The Cloud Agent signs each VDR operation with the DID's VDR key, then submits the signed operation to NeoPRISM for blockchain anchoring.
+
+```mermaid
+sequenceDiagram
+    participant Client
+    participant CA as Cloud Agent
+    participant Neo as NeoPRISM
+    participant Chain as Cardano
+
+    Client->>CA: POST /vdr/entries?drid=neoprism
+    CA->>CA: Sign operation with VDR key
+    CA->>Neo: POST /api/submissions/signed-operations
+    Neo->>Chain: Publish as tx metadata
+    Chain-->>Neo: Transaction confirmed
+    Neo-->>CA: { operationId, txId }
+    CA-->>Client: { url: "vdr://...?drid=neoprism#entry_hash" }
+
+    Client->>CA: GET /vdr/entries?url=vdr://...?drid=neoprism#hash
+    CA->>Neo: GET /api/vdr-data/{entry_hash}
+    Neo-->>CA: Raw data bytes
+    CA-->>Client: 200 OK (application/octet-stream)
+```
+
+The `entry_hash` (SHA-256 of the inner PRISM operation) is deterministic — the Cloud Agent computes it locally without waiting for blockchain confirmation.
+
+### Prerequisites
+
+1. **NeoPRISM instance** running in standalone mode (see [Running NeoPRISM](/documentation/learn/advanced-explainers/neoprism/running-neoprism))
+2. **Active DID with VDR key** — the Cloud Agent's managed DID must have a VDR key (`KeyUsage::VDR_KEY`)
+3. **NeoPRISM base URL** configured via `NEOPRISM_BASE_URL`
+
+### Configuration
+
+| Variable | Required? | Description | Default |
+|----------|-----------|-------------|---------|
+| `VDR_NEOPRISM_DRIVER_ENABLED` | ✅ Yes | Enable the NeoPrism VDR driver | `false` |
+| `NEOPRISM_BASE_URL` | ✅ Yes | Base URL of the NeoPRISM service | `http://localhost:8080` |
+| `VDR_DEFAULT_KEY_ID` | No | Default VDR key ID to use for signing | `vdr-1` |
+
+### Configuration Example
+
+```bash
+VDR_NEOPRISM_DRIVER_ENABLED=true
+NEOPRISM_BASE_URL=http://neoprism:8080
+VDR_DEFAULT_KEY_ID=vdr-1
+```
+
+:::tip
+Any application holding the VDR private key can manage VDR entries directly through the NeoPRISM REST API — the Cloud Agent is not the only client. See the [NeoPRISM VDR documentation](https://github.com/hyperledger-identus/neoprism) for the direct API usage.
+:::
+
+## PRISM Node Driver
+
+### Overview
+
+The PRISM Node driver stores VDR entries on the Cardano blockchain through a [PRISM Node](/documentation/learn/advanced-explainers/prism-node/) instance using gRPC. This is the legacy blockchain-backed VDR driver, supported for existing deployments.
+
+:::warning
+PRISM Node is considered a legacy implementation. For new deployments, use the [NeoPrism Driver](#neoprism-driver) instead.
+:::
+
+### Configuration
+
+| Variable | Required? | Description | Default |
+|----------|-----------|-------------|---------|
+| `VDR_PRISM_NODE_DRIVER_ENABLED` | ✅ Yes | Enable the PRISM Node VDR driver | `false` |
+| `PRISM_NODE_HOST` | ✅ Yes | Hostname of the PRISM Node | `localhost` |
+| `PRISM_NODE_PORT` | ✅ Yes | Port of the PRISM Node gRPC service | `50053` |
+| `PRISM_NODE_USE_PLAIN_TEXT` | No | Use plaintext gRPC (no TLS) | `true` |
+| `VDR_DEFAULT_KEY_ID` | No | Default VDR key ID to use for signing | `vdr-1` |
+
+### Configuration Example
+
+```bash
+VDR_PRISM_NODE_DRIVER_ENABLED=true
+PRISM_NODE_HOST=prism-node
+PRISM_NODE_PORT=50053
+PRISM_NODE_USE_PLAIN_TEXT=true
+VDR_DEFAULT_KEY_ID=vdr-1
+```
 
 ## PRISM Driver
 
