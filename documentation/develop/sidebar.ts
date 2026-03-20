@@ -16,16 +16,6 @@ const sidebar: SidebarsConfig[keyof SidebarsConfig] = [
         className: 'hidden-sidebar-item',
     },
     {
-        type: 'link',
-        label: 'Swift SDK',
-        href: 'https://hyperledger-identus.github.io/sdk-swift/documentation/edgeagentsdk/',
-    },
-    {
-        type: 'link',
-        label: 'Kotlin SDK',
-        href: 'https://hyperledger-identus.github.io/sdk-kmp/',
-    },
-    {
         type: 'category',
         label: 'Cloud Agent',
         collapsed: true,
