@@ -31,9 +31,35 @@ const config: Config = {
 
             const content = params.fileContent;
 
-            // 1. Try first H1 heading
-            const h1Match = content.match(/^#\s+(.+)$/m);
-            let title = h1Match?.[1]?.trim();
+            // 1. Check for custom overrides embedded via HTML comments from TypeDoc
+            const customTitleMatch = content.match(/<!--\s*title:\s*(.+?)\s*-->/i);
+            const customSidebarLabelMatch = content.match(/<!--\s*sidebar_label:\s*(.+?)\s*-->/i);
+            const customSidebarPositionMatch = content.match(/<!--\s*sidebar_position:\s*(\d+(\.\d+)?)\s*-->/i);
+            
+            let title = customTitleMatch?.[1]?.trim();
+
+            if (customSidebarLabelMatch?.[1]) {
+                result.frontMatter.sidebar_label = customSidebarLabelMatch[1].trim();
+            }
+            if (customSidebarPositionMatch?.[1]) {
+                result.frontMatter.sidebar_position = parseFloat(customSidebarPositionMatch[1].trim());
+            }
+
+            // 2. Try first H1 heading for the page title fallback
+            if (!title) {
+                const h1Match = content.match(/^#\s+(.+)$/m);
+                title = h1Match?.[1]?.trim();
+                
+                if (title) {
+                    // Strip out TypeDoc reflection prefixes
+                    title = title.replace(/^(?:Class|Interface|Type\s+alias|Variable|Function|Namespace|Enum|Enumeration):\s+/i, '');
+                }
+                
+                // Auto-capitalize if it's a simple, unformatted fallback
+                if (title && /^[a-z]+$/.test(title)) {
+                    title = title.charAt(0).toUpperCase() + title.slice(1);
+                }
+            }
 
             // 2. For root README, fall back to package.json description
             if (!title && params.filePath.endsWith('sdk/README.md')) {
@@ -51,10 +77,9 @@ const config: Config = {
             }
 
             if (title) {
-                // Strip backslash escapes typedoc adds (e.g. \<T\> → <T>)
-                title = title.replace(/\\([<>])/g, '$1');
+                // Strip all backslash escapes typedoc proactively adds (e.g. \<T\> → <T>, \_ → _)
+                title = title.replace(/\\([^a-zA-Z0-9])/g, '$1');
                 result.frontMatter.title = title;
-                result.frontMatter.sidebar_label = title;
             }
 
             return result;

@@ -1,22 +1,10 @@
 import type { SidebarsConfig } from '@docusaurus/plugin-content-docs';
-
-import learnSidebar from './documentation/learn/sidebar';
-import developersSidebar from './documentation/develop/sidebar';
-import referenceSidebar from './documentation/reference/sidebar';
+import { discoverSidebar } from './src/utils/discovery';
 
 const sidebars: SidebarsConfig = {
-  learnSidebar,
-  developersSidebar,
-  referenceSidebar,
+  learnSidebar: discoverSidebar('learn'),
+  developersSidebar: discoverSidebar('develop'),
+  referenceSidebar: discoverSidebar('reference'),
 };
 
 export default sidebars;
-
-
-
-
-
-
-
-
-

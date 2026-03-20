@@ -17,8 +17,32 @@ function getTitleFromMd(filePath: string, fallback: string): string {
     if (!fs.existsSync(filePath)) return fallback;
     try {
         const content = fs.readFileSync(filePath, 'utf8');
+        
+        // Priority 1: Explicit sidebar_label HTML comment
+        const customSidebarLabel = content.match(/<!--\s*sidebar_label:\s*(.+?)\s*-->/i);
+        if (customSidebarLabel?.[1]) return customSidebarLabel[1].trim();
+        
+        // Priority 2: Explicit title HTML comment
+        const customTitleMatch = content.match(/<!--\s*title:\s*(.+?)\s*-->/i);
+        if (customTitleMatch?.[1]) return customTitleMatch[1].trim();
+
+        // Priority 3: First H1 heading
         const match = content.match(/^#\s+(.*)$/m);
-        return match && match[1] ? match[1].trim() : fallback;
+        
+        let title = match && match[1] ? match[1].trim() : fallback;
+        
+        // Strip out TypeDoc reflection prefixes (e.g., "Class: AnoncredsLoader" -> "AnoncredsLoader")
+        title = title.replace(/^(?:Class|Interface|Type\s+alias|Variable|Function|Namespace|Enum|Enumeration):\s+/i, '');
+        
+        // Strip out any backslash escapes TypeDoc proactively adds (e.g. \_ -> _, \< -> <)
+        title = title.replace(/\\([^a-zA-Z0-9])/g, '$1');
+        
+        // Auto-capitalize if it's a simple, lowercase string (like 'overview' or 'anoncreds')
+        if (title && /^[a-z]+$/.test(title)) {
+            title = title.charAt(0).toUpperCase() + title.slice(1);
+        }
+        
+        return title;
     } catch {
         return fallback;
     }
@@ -42,50 +66,109 @@ export function mapCategories(item: SidebarItemConfig) {
 export function getSidebarItemsForDir(dirPath: string): SidebarItemConfig[] {
     if (!fs.existsSync(dirPath)) return [];
 
-    return fs.readdirSync(dirPath, { withFileTypes: true })
-        .filter(dirent => !dirent.name.startsWith('.'))
-        .map(dirent => {
+    const dirents = fs.readdirSync(dirPath, { withFileTypes: true })
+        .filter(dirent => !dirent.name.startsWith('.'));
+    dirents.sort((a, b) => a.name.localeCompare(b.name));
+
+    return dirents.map(dirent => {
             if (dirent.isDirectory()) {
                 const childPath = `${dirPath}/${dirent.name}`;
-                const hasReadme = fs.existsSync(`${childPath}/README.md`);
-                const hasIndex = fs.existsSync(`${childPath}/index.md`);
+                const hasReadme = fs.existsSync(`${childPath}/README.md`) || fs.existsSync(`${childPath}/README.mdx`);
+                const hasIndex = fs.existsSync(`${childPath}/index.md`) || fs.existsSync(`${childPath}/index.mdx`);
                 const isDirIndex = hasIndex || hasReadme;
                 const indexName = hasIndex ? 'index' : 'README';
                 const indexPath = `${childPath}/${indexName}.md`;
+                const indexPathMdx = `${childPath}/${indexName}.mdx`;
                 const childItems = getSidebarItemsForDir(childPath);
 
-                const cleanChildItems = childItems.filter(item => !(typeof item === 'object' && item !== null && 'type' in item && item.type === 'doc' && 'id' in item && item.id === `${childPath}/${indexName}`));
+                const categoryJsonPath = `${childPath}/_category_.json`;
+                let catProps: any = {};
+                if (fs.existsSync(categoryJsonPath)) {
+                    try {
+                        catProps = JSON.parse(fs.readFileSync(categoryJsonPath, 'utf8'));
+                    } catch (e) {}
+                }
+
+                let categoryLink = catProps.link;
+                if (categoryLink && categoryLink.type === 'doc' && categoryLink.id) {
+                    let docId: string = categoryLink.id.replace(/\.mdx?$/, '');
+                    // if they provided just the filename without the path, append the component's path
+                    if (!docId.includes('/')) {
+                        docId = `${childPath}/${docId}`;
+                    }
+                    categoryLink = { ...categoryLink, id: docId };
+                } else if (!categoryLink && isDirIndex) {
+                    categoryLink = { type: 'doc', id: `${childPath}/${indexName}` };
+                }
+
+                // Filter out the document that acts as the index for this category so it doesn't appear twice
+                const cleanChildItems = childItems.filter(item => {
+                    const isIndexDoc = categoryLink && categoryLink.type === 'doc' &&
+                        typeof item === 'object' && item !== null && 'type' in item && item.type === 'doc' && 'id' in item && item.id === categoryLink.id;
+                    return !isIndexDoc;
+                });
+
+                let embeddedItems: SidebarItemConfig[] = [];
+                if (categoryLink && categoryLink.type === 'doc' && categoryLink.id) {
+                    // Teleport into externally linked module domains to prevent orphaning nested docs in Docusaurus's registry
+                    const mappedDir = categoryLink.id.replace(/\/index$/i, '').replace(/\/README$/i, '');
+                    if (mappedDir !== childPath && fs.existsSync(mappedDir) && fs.statSync(mappedDir).isDirectory()) {
+                        embeddedItems = getSidebarItemsForDir(mappedDir).filter(item => {
+                            const isIndexDoc = typeof item === 'object' && item !== null && 'type' in item && item.type === 'doc' && 'id' in item && item.id === categoryLink.id;
+                            return !isIndexDoc;
+                        });
+                    }
+                }
+
+                const finalChildItems = [...cleanChildItems, ...embeddedItems];
 
                 const baseLabel = formatLabel(dirent.name);
-                const label = isDirIndex ? getTitleFromMd(indexPath, baseLabel) : baseLabel;
+                let fallbackLabel = baseLabel;
+
+                // Try to infer a nice label from the specifically targeted index document
+                if (categoryLink && categoryLink.type === 'doc' && categoryLink.id !== `${childPath}/${indexName}`) {
+                    const customDocMd = `${dirPath}/${dirent.name}/${categoryLink.id.split('/').pop()}.md`;
+                    const customDocMdx = `${customDocMd}x`;
+                    fallbackLabel = fs.existsSync(customDocMdx) ? getTitleFromMd(customDocMdx, baseLabel) : 
+                                    (fs.existsSync(customDocMd) ? getTitleFromMd(customDocMd, baseLabel) : baseLabel);
+                } else {
+                    const actualIndexPath = fs.existsSync(indexPathMdx) ? indexPathMdx : indexPath;
+                    fallbackLabel = isDirIndex ? getTitleFromMd(actualIndexPath, baseLabel) : baseLabel;
+                }
+
+                const label = catProps.label || fallbackLabel;
 
                 // If the directory only has an index/README file (no other files or folders),
                 // just return the doc item to avoid empty categories
-                if (isDirIndex && cleanChildItems.length === 0) {
+                if (categoryLink && categoryLink.type === 'doc' && finalChildItems.length === 0) {
                     return {
                         type: 'doc',
-                        id: `${childPath}/${indexName}`,
+                        id: categoryLink.id,
                         label: label
                     } as SidebarItemConfig;
                 }
 
                 // Skip directories with no content at all (no index, no children)
-                if (!isDirIndex && cleanChildItems.length === 0) {
+                if (!categoryLink && finalChildItems.length === 0) {
                     return null;
                 }
 
                 return {
                     type: 'category',
                     label: label,
-                    link: isDirIndex ? {
-                        type: 'doc',
-                        id: `${childPath}/${indexName}`
-                    } : undefined,
-                    items: cleanChildItems
+                    ...(catProps.collapsed !== undefined && { collapsed: catProps.collapsed }),
+                    ...(catProps.collapsible !== undefined && { collapsible: catProps.collapsible }),
+                    ...(catProps.className && { className: catProps.className }),
+                    customProps: {
+                         ...catProps.customProps,
+                         ...(typeof catProps.position === 'number' && { position: catProps.position })
+                    },
+                    ...(categoryLink && { link: categoryLink }),
+                    items: finalChildItems
                 } as SidebarItemConfig;
-            } else if (dirent.name.endsWith('.md')) {
-                const isReadmeOrIndex = dirent.name === 'README.md' || dirent.name === 'index.md';
-                const baseName = dirent.name.replace(/\.md$/, '');
+            } else if (dirent.name.endsWith('.md') || dirent.name.endsWith('.mdx')) {
+                const isReadmeOrIndex = dirent.name === 'README.md' || dirent.name === 'index.md' || dirent.name === 'README.mdx' || dirent.name === 'index.mdx';
+                const baseName = dirent.name.replace(/\.mdx?$/, '');
                 const mdPath = `${dirPath}/${dirent.name}`;
 
                 const fallback = isReadmeOrIndex ? formatLabel(path.basename(dirPath)) : formatLabel(baseName);

@@ -1,53 +1,52 @@
 import type { SidebarsConfig } from '@docusaurus/plugin-content-docs';
-import { buildTypeDocCategorySidebar } from '../../src/utils';
 import { LocalDocs, SDKPath } from '../../src/config/constants';
 
 const sidebar: SidebarsConfig[keyof SidebarsConfig] = [
   { type: 'doc', id: 'documentation/reference/README', className: 'hidden-sidebar-item' },
-  {
-    type: 'category',
-    label: 'SDKs',
-    collapsed: true,
-    link: {
-      type: 'generated-index',
-      title: 'SDKs',
-      description: 'SDKs'
-    },
-    items: [
-      {
-        type: 'category',
-        label: 'Typescript',
-        link: {
-          type: 'doc',
-          id: SDKPath('sdk/overview/README')
-        },
-        items: [
-          ...buildTypeDocCategorySidebar(SDKPath('sdk/overview'), 'Overview').map((item) => (item as any).items ?? []),
-          {
-            type: 'category',
-            label: 'Plugins',
-            items: [
-              ...buildTypeDocCategorySidebar(SDKPath('sdk/plugins/internal/anoncreds'), 'AnonCreds'),
-              ...buildTypeDocCategorySidebar(SDKPath('sdk/plugins/internal/didcomm'), 'DIDComm'),
-              ...buildTypeDocCategorySidebar(SDKPath('sdk/plugins/internal/dif'), 'DIF'),
-              ...buildTypeDocCategorySidebar(SDKPath('sdk/plugins/internal/oea'), 'OEA'),
-              ...buildTypeDocCategorySidebar(SDKPath('sdk/plugins/internal/oidc'), 'OIDC'),
-            ]
-          }
-        ]
-      },
-      {
-        type: 'link',
-        label: 'Swift',
-        href: 'https://hyperledger-identus.github.io/sdk-swift/documentation/edgeagentsdk/',
-      },
-      {
-        type: 'link',
-        label: 'Kotlin',
-        href: 'https://hyperledger-identus.github.io/sdk-kmp/',
-      }
-    ]
-  },
+  // {
+  //   type: 'category',
+  //   label: 'SDKs',
+  //   collapsed: true,
+  //   link: {
+  //     type: 'generated-index',
+  //     title: 'SDKs',
+  //     description: 'SDKs'
+  //   },
+  //   items: [
+  //     {
+  //       type: 'category',
+  //       label: 'Typescript',
+  //       link: {
+  //         type: 'doc',
+  //         id: SDKPath('sdk/overview/README')
+  //       },
+  //       items: [
+  //         ...buildTypeDocCategorySidebar(SDKPath('sdk/overview'), 'Overview').map((item) => (item as any).items ?? []),
+  //         {
+  //           type: 'category',
+  //           label: 'Plugins',
+  //           items: [
+  //             ...buildTypeDocCategorySidebar(SDKPath('sdk/plugins/internal/anoncreds'), 'AnonCreds'),
+  //             ...buildTypeDocCategorySidebar(SDKPath('sdk/plugins/internal/didcomm'), 'DIDComm'),
+  //             ...buildTypeDocCategorySidebar(SDKPath('sdk/plugins/internal/dif'), 'DIF'),
+  //             ...buildTypeDocCategorySidebar(SDKPath('sdk/plugins/internal/oea'), 'OEA'),
+  //             ...buildTypeDocCategorySidebar(SDKPath('sdk/plugins/internal/oidc'), 'OIDC'),
+  //           ]
+  //         }
+  //       ]
+  //     },
+  //     {
+  //       type: 'link',
+  //       label: 'Swift',
+  //       href: 'https://hyperledger-identus.github.io/sdk-swift/documentation/edgeagentsdk/',
+  //     },
+  //     {
+  //       type: 'link',
+  //       label: 'Kotlin',
+  //       href: 'https://hyperledger-identus.github.io/sdk-kmp/',
+  //     }
+  //   ]
+  // },
   {
     type: 'category',
     label: 'Cloud Agent API',
