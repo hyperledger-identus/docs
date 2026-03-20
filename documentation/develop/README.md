@@ -44,8 +44,8 @@ Build browser and Node.js applications with full support for:
 **Tutorials available:**
 - [Storage with Pluto](../../sdk-ts/docs/pluto/README.md)
 - [PRISM DID Management](../../sdk-ts/docs/prism/what-is-did-prism.md)
-- [Connectionless & Out-of-Band](../../sdk-ts/docs/examples/connectionless/ConnectionlessOffer.md)
-- [SDK Verification](../../sdk-ts/docs/examples/SDKVerification.md)
+- [Connectionless & Out-of-Band](../../sdk-ts/docs/develop/sdk/tutorials/connectionless/ConnectionlessOffer.md)
+- [SDK Verification](../../sdk-ts/docs/develop/sdk/tutorials/Verification.md)
 - [Migration Guides](/category/migration-guides)
 
 #### [Swift SDK](https://hyperledger-identus.github.io/sdk-swift/documentation/edgeagentsdk/)

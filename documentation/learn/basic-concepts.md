@@ -1,3 +1,7 @@
+---
+sidebar_position: 3
+---
+
 # Basic concepts
 
 This section covers the basics of decentralized identity and explains how  Identus functions.  

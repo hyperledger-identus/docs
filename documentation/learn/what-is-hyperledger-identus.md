@@ -1,3 +1,7 @@
+---
+sidebar_position: 2
+---
+
 # What is Hyperledger Identus
 
 Hyperledger Identus (henceforth, Identus) is an application platform that provides a comprehensive and innovative toolset for building decentralized identity systems, using a distributed ledger as a verifiable data registry (VDR). This toolset facilitates the creation and management of decentralized identifiers (DIDs) and supports the issuance, updating, and revocation of verifiable credentials. With this technology, users can securely and efficiently manage their digital identities while ensuring the integrity and authenticity of their credentials.
