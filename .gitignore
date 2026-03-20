@@ -25,3 +25,6 @@ yarn-error.log*
 
 documentation/reference/Cloud Agent API/**
 .yarn
+
+# Exclude repomix output
+repomix-output.xml

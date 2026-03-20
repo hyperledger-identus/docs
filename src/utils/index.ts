@@ -13,36 +13,44 @@ function formatLabel(name: string): string {
     return name;
 }
 
+export function extractMarkdownTitleInfo(content: string): { title?: string, sidebar_label?: string, sidebar_position?: number } {
+    const customTitleMatch = content.match(/<!--\s*title:\s*(.+?)\s*-->/i);
+    const customSidebarLabelMatch = content.match(/<!--\s*sidebar_label:\s*(.+?)\s*-->/i);
+    const customSidebarPositionMatch = content.match(/<!--\s*sidebar_position:\s*(\d+(\.\d+)?)\s*-->/i);
+    
+    let title = customTitleMatch?.[1]?.trim();
+
+    if (!title) {
+        const h1Match = content.match(/^#\s+(.*)$/m);
+        if (h1Match && h1Match[1]) {
+            title = h1Match[1].trim();
+        }
+    }
+    
+    if (title) {
+        title = title.replace(/^(?:Class|Interface|Type\s+alias|Variable|Function|Namespace|Enum|Enumeration):\s+/i, '');
+        title = title.replace(/\\([^a-zA-Z0-9])/g, '$1');
+        if (/^[a-z]+$/.test(title)) {
+            title = title.charAt(0).toUpperCase() + title.slice(1);
+        }
+    }
+
+    return {
+        title,
+        sidebar_label: customSidebarLabelMatch?.[1]?.trim(),
+        sidebar_position: customSidebarPositionMatch?.[1] ? parseFloat(customSidebarPositionMatch[1].trim()) : undefined
+    };
+}
+
 function getTitleFromMd(filePath: string, fallback: string): string {
     if (!fs.existsSync(filePath)) return fallback;
     try {
         const content = fs.readFileSync(filePath, 'utf8');
+        const info = extractMarkdownTitleInfo(content);
+        if (info.sidebar_label) return info.sidebar_label;
+        if (info.title) return info.title;
         
-        // Priority 1: Explicit sidebar_label HTML comment
-        const customSidebarLabel = content.match(/<!--\s*sidebar_label:\s*(.+?)\s*-->/i);
-        if (customSidebarLabel?.[1]) return customSidebarLabel[1].trim();
-        
-        // Priority 2: Explicit title HTML comment
-        const customTitleMatch = content.match(/<!--\s*title:\s*(.+?)\s*-->/i);
-        if (customTitleMatch?.[1]) return customTitleMatch[1].trim();
-
-        // Priority 3: First H1 heading
-        const match = content.match(/^#\s+(.*)$/m);
-        
-        let title = match && match[1] ? match[1].trim() : fallback;
-        
-        // Strip out TypeDoc reflection prefixes (e.g., "Class: AnoncredsLoader" -> "AnoncredsLoader")
-        title = title.replace(/^(?:Class|Interface|Type\s+alias|Variable|Function|Namespace|Enum|Enumeration):\s+/i, '');
-        
-        // Strip out any backslash escapes TypeDoc proactively adds (e.g. \_ -> _, \< -> <)
-        title = title.replace(/\\([^a-zA-Z0-9])/g, '$1');
-        
-        // Auto-capitalize if it's a simple, lowercase string (like 'overview' or 'anoncreds')
-        if (title && /^[a-z]+$/.test(title)) {
-            title = title.charAt(0).toUpperCase() + title.slice(1);
-        }
-        
-        return title;
+        return fallback;
     } catch {
         return fallback;
     }
@@ -86,7 +94,9 @@ export function getSidebarItemsForDir(dirPath: string): SidebarItemConfig[] {
                 if (fs.existsSync(categoryJsonPath)) {
                     try {
                         catProps = JSON.parse(fs.readFileSync(categoryJsonPath, 'utf8'));
-                    } catch (e) {}
+                    } catch (e) {
+                         console.warn(`Warning: Failed to parse ${categoryJsonPath}:`, e);
+                    }
                 }
 
                 let categoryLink = catProps.link;
@@ -104,17 +114,20 @@ export function getSidebarItemsForDir(dirPath: string): SidebarItemConfig[] {
                 // Filter out the document that acts as the index for this category so it doesn't appear twice
                 const cleanChildItems = childItems.filter(item => {
                     const isIndexDoc = categoryLink && categoryLink.type === 'doc' &&
-                        typeof item === 'object' && item !== null && 'type' in item && item.type === 'doc' && 'id' in item && item.id === categoryLink.id;
+                        typeof item === 'object' && item !== null && item.type === 'doc' && item.id === categoryLink.id;
                     return !isIndexDoc;
                 });
 
                 let embeddedItems: SidebarItemConfig[] = [];
                 if (categoryLink && categoryLink.type === 'doc' && categoryLink.id) {
                     // Teleport into externally linked module domains to prevent orphaning nested docs in Docusaurus's registry
+                    // This triggers when a category is manually linked to a document outside its own directory.
+                    // By fetching the items from that mapped directory and embedding them here, Docusaurus can correctly
+                    // associate the nested documents with this category's sidebar, avoiding "orphaned" document warnings.
                     const mappedDir = categoryLink.id.replace(/\/index$/i, '').replace(/\/README$/i, '');
                     if (mappedDir !== childPath && fs.existsSync(mappedDir) && fs.statSync(mappedDir).isDirectory()) {
                         embeddedItems = getSidebarItemsForDir(mappedDir).filter(item => {
-                            const isIndexDoc = typeof item === 'object' && item !== null && 'type' in item && item.type === 'doc' && 'id' in item && item.id === categoryLink.id;
+                            const isIndexDoc = typeof item === 'object' && item !== null && item.type === 'doc' && item.id === categoryLink.id;
                             return !isIndexDoc;
                         });
                     }

@@ -1,7 +1,7 @@
 import type { PresetConfig } from '@docusaurus/types';
 import type * as OpenApiPlugin from 'docusaurus-plugin-openapi-docs';
 import remarkLinkFixer from '../plugins/remarkLinkFixer';
-import { CloudAgentPath, LocalDocs, RootPath, SDKPath } from './constants';
+import { CloudAgentPath, LocalDocs, SDKPath } from './constants';
 
 
 export const presets: PresetConfig[] = [
@@ -28,8 +28,8 @@ export const presets: PresetConfig[] = [
             LocalDocs('**/*.md'),
             LocalDocs('**/*.mdx'),
             //Load the root files
-            RootPath('CONTRIBUTING.md'),
-            RootPath('SECURITY.md'),
+            'CONTRIBUTING.md',
+            'SECURITY.md',
           ],
           /**
            * TODO: REMOVE THIS AFTER MIGRATION TO NEW DOCS

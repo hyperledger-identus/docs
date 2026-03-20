@@ -8,7 +8,5 @@ export type CloudAgentPath<T extends string = string> = `${typeof cloudAgentDocs
 export const CloudAgentPath = <T extends string>(name: T): CloudAgentPath<T> => `${cloudAgentDocsPath}/${name}`;
 export type LocalDocs<T extends string = string> = `${typeof localDocsPath}/${T}`
 export const LocalDocs = <T extends string>(name: T): LocalDocs<T> => `${localDocsPath}/${name}`;
-export type RootPath<T extends string = string> = `${T}`
-export const RootPath = <T extends string>(name: T): RootPath<T> => `${name}`;
 
 export const projectsDocsPaths = [localDocsPath, sdkDocsPath, cloudAgentDocsPath];

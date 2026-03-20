@@ -18,7 +18,9 @@ function getSidebarPosition(filePath: string): number {
         try {
             const data = JSON.parse(fs.readFileSync(filePath, 'utf8'));
             if (typeof data.position === 'number') return data.position;
-        } catch { }
+        } catch (e) {
+            console.warn(`Warning: Failed to parse ${filePath}:`, e);
+        }
     }
     return Infinity;
 }
@@ -29,38 +31,31 @@ function resolveItemPosition(item: SidebarItemConfig, rootPath: string): number 
         if (mdPos !== Infinity) return mdPos;
         return getSidebarPosition(path.join(rootPath, item + '.mdx'));
     }
-    if (Object.prototype.hasOwnProperty.call(item, 'type')) {
-        const docItem = item as any;
-        
+    if (typeof item === 'object' && item !== null && 'type' in item) {
+
         // Always respect explicitly defined customProp positions universally
-        if (docItem.customProps && typeof docItem.customProps.position === 'number') {
-            return docItem.customProps.position;
+        if ('customProps' in item && item.customProps && typeof (item.customProps as any)?.position === 'number') {
+            return (item.customProps as any).position;
         }
 
-        if (docItem.type === 'doc' && docItem.id) {
-            const mdPos = getSidebarPosition(path.join(rootPath, docItem.id + '.md'));
+        if (item.type === 'doc' && item.id) {
+            const mdPos = getSidebarPosition(path.join(rootPath, item.id + '.md'));
             if (mdPos !== Infinity) return mdPos;
-            return getSidebarPosition(path.join(rootPath, docItem.id + '.mdx'));
+            return getSidebarPosition(path.join(rootPath, item.id + '.mdx'));
         }
-        if (docItem.type === 'category') {
-            if (docItem.link && docItem.link.type === 'doc' && docItem.link.id) {
-                const mdPos = getSidebarPosition(path.join(rootPath, docItem.link.id + '.md'));
+        if (item.type === 'category') {
+            if (item.link && item.link.type === 'doc' && item.link.id) {
+                const mdPos = getSidebarPosition(path.join(rootPath, item.link.id + '.md'));
                 if (mdPos !== Infinity) return mdPos;
-                return getSidebarPosition(path.join(rootPath, docItem.link.id + '.mdx'));
+                return getSidebarPosition(path.join(rootPath, item.link.id + '.mdx'));
             }
             // Optional: directory level fallback
-            if (docItem.items && docItem.items.length > 0) {
-                 // Try looking ahead at first item? Not reliable.
+            if (Array.isArray(item.items) && item.items.length > 0) {
+                // Try looking ahead at first item? Not reliable.
             }
         }
     }
     return Infinity;
-}
-
-function getLabel(item: SidebarItemConfig): string {
-    if (typeof item === 'string') return item;
-    const docItem = item as any;
-    return docItem.label || docItem.id || docItem.dirName || '';
 }
 
 /**
@@ -75,16 +70,16 @@ export function discoverSidebar(category: string): SidebarItemConfig[] {
     for (const projectRelPath of projectsDocsPaths) {
         const categoryRelPath = path.join(projectRelPath, category);
         const fullCategoryPath = path.join(rootPath, categoryRelPath);
-        
+
         if (!fs.existsSync(fullCategoryPath)) {
             continue;
         }
 
         const sidebarFileTs = path.join(fullCategoryPath, 'sidebar.ts');
         const sidebarFileJs = path.join(fullCategoryPath, 'sidebar.js');
-        
+
         let projectSidebar: SidebarItemConfig[] | null = null;
-        
+
         // Attempt to dynamically load specifically defined subset sidebars
         if (fs.existsSync(sidebarFileTs)) {
             try {
@@ -99,20 +94,20 @@ export function discoverSidebar(category: string): SidebarItemConfig[] {
                 console.error(`Error dynamically loading sidebar at ${sidebarFileJs}:`, e);
             }
         }
-        
+
         if (projectSidebar) {
-           sidebar.push(...projectSidebar);
+            sidebar.push(...projectSidebar);
         } else {
             const items = fs.readdirSync(fullCategoryPath);
             if (items.length > 0) {
                 const generatedItems = getSidebarItemsForDir(categoryRelPath);
-                
+
                 const categoryJsonPath = path.join(fullCategoryPath, '_category_.json');
                 if (fs.existsSync(categoryJsonPath)) {
                     try {
                         const catProps = JSON.parse(fs.readFileSync(categoryJsonPath, 'utf8'));
                         let categoryLink = catProps.link;
-                        
+
                         if (categoryLink && categoryLink.type === 'doc' && categoryLink.id) {
                             let docId: string = categoryLink.id.replace(/\.mdx?$/, '');
                             if (!docId.includes('/')) docId = `${categoryRelPath}/${docId}`;
@@ -139,8 +134,8 @@ export function discoverSidebar(category: string): SidebarItemConfig[] {
                             items: cleanChildItems
                         } as SidebarItemConfig);
                     } catch (e) {
-                         console.error("Error parsing _category_.json", e);
-                         sidebar.push(...generatedItems);
+                        console.error(`Error parsing _category_.json at ${categoryJsonPath}:`, e);
+                        sidebar.push(...generatedItems);
                     }
                 } else {
                     sidebar.push(...generatedItems);
@@ -148,7 +143,7 @@ export function discoverSidebar(category: string): SidebarItemConfig[] {
             }
         }
     }
-    
+
     // Sort recursively based on sidebar_position frontmatter
     function sortRecursive(items: SidebarItemConfig[]) {
         items.sort((a, b) => {
@@ -156,15 +151,15 @@ export function discoverSidebar(category: string): SidebarItemConfig[] {
             const posB = resolveItemPosition(b, rootPath);
             return posA - posB;
         });
-        
+
         for (const item of items) {
             if (typeof item !== 'string' && (item as any).type === 'category' && Array.isArray((item as any).items)) {
                 sortRecursive((item as any).items as SidebarItemConfig[]);
             }
         }
     }
-    
+
     sortRecursive(sidebar);
-    
+
     return sidebar;
 }
