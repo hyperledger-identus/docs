@@ -144,6 +144,54 @@ export function discoverSidebar(category: string): SidebarItemConfig[] {
         }
     }
 
+    // Remove duplicates from sidebar
+    function removeDuplicates(items: SidebarItemConfig[]): SidebarItemConfig[] {
+        const merged: SidebarItemConfig[] = [];
+        const seenDocIds = new Set<string>();
+        const categoryMap = new Map<string, any>();
+
+        for (const item of items) {
+            if (typeof item === 'string') {
+                if (!seenDocIds.has(item)) {
+                    seenDocIds.add(item);
+                    merged.push(item);
+                }
+            } else if (typeof item === 'object' && item !== null) {
+                if (item.type === 'doc' && item.id) {
+                    if (!seenDocIds.has(item.id)) {
+                        seenDocIds.add(item.id);
+                        merged.push(item);
+                    }
+                } else if (item.type === 'category' && item.label) {
+                    const label = item.label;
+                    if (categoryMap.has(label)) {
+                        const existing = categoryMap.get(label);
+                        if (Array.isArray(item.items)) {
+                            existing.items = existing.items || [];
+                            existing.items.push(...item.items);
+                        }
+                    } else {
+                        categoryMap.set(label, item);
+                        merged.push(item);
+                    }
+                } else {
+                    merged.push(item);
+                }
+            } else {
+                merged.push(item);
+            }
+        }
+
+        for (const item of merged) {
+            if (typeof item === 'object' && item.type === 'category' && Array.isArray(item.items)) {
+                item.items = removeDuplicates(item.items);
+            }
+        }
+        return merged;
+    }
+
+    const uniqueSidebar = removeDuplicates(sidebar);
+
     // Sort recursively based on sidebar_position frontmatter
     function sortRecursive(items: SidebarItemConfig[]) {
         items.sort((a, b) => {
@@ -159,7 +207,7 @@ export function discoverSidebar(category: string): SidebarItemConfig[] {
         }
     }
 
-    sortRecursive(sidebar);
+    sortRecursive(uniqueSidebar);
 
-    return sidebar;
+    return uniqueSidebar;
 }
