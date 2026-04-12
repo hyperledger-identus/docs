@@ -7,8 +7,8 @@
 <link rel="preconnect" href="https://www.googletagmanager.com">
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-BLNS09BXBY"></script>
 <script>function gtag(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],gtag("js",new Date),gtag("config","G-BLNS09BXBY",{anonymize_ip:!0})</script><link rel="stylesheet" href="/docs/assets/css/styles.28e6b695.css">
-<script src="/docs/assets/js/runtime~main.93432a7e.js" defer="defer"></script>
-<script src="/docs/assets/js/main.72af3b84.js" defer="defer"></script>
+<script src="/docs/assets/js/runtime~main.0e2b2127.js" defer="defer"></script>
+<script src="/docs/assets/js/main.a531d57c.js" defer="defer"></script>
 </head>
 <body class="navigation-with-keyboard">
 <svg style="display: none;"><defs>
@@ -61,8 +61,8 @@ The complete platform is separated into multiple repositories:</p>
 </ul>
 <p>Clone and build:</p>
 <div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">git clone git@github.com:hyperledger-identus/sdk-ts.git --recurse-submodules</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">cd sdk-ts</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">yarn</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">npm run build</span><br></span></code></pre></div></div>
-<p>If you have any issues while building you can try building from docker (this runs exaclty the same build):</p>
-<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">docker build -t atalaprismwalletsdkts:latest &quot;.&quot; </span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">docker run  -v $(pwd)/build:/app/build atalaprismwalletsdkts:latest</span><br></span></code></pre></div></div>
+<p>If you have any issues while building you can try building from docker (this runs exactly the same build):</p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">docker build -t identus-sdk-ts:latest &quot;.&quot; </span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">docker run  -v $(pwd)/build:/app/build identus-sdk-ts:latest</span><br></span></code></pre></div></div>
 <h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="run-the-demos">Run the demos<a href="#run-the-demos" class="hash-link" aria-label="Direct link to Run the demos" title="Direct link to Run the demos" translate="no">​</a></h4>
 <p>Once you have <a href="#build-demo-dependencies" class="">built the demo dependencies</a>, you can try out each of the demos:</p>
 <p>Browser React / NextJS</p>
