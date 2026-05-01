@@ -11,6 +11,9 @@ The act of anchoring is tying to something that is trusted by assumption. Usuall
 ### Administrator
 An administrator is a role who oversees the agent and releated resources, including tenant, Edge Agent management, or external services. Admistrator typically does not participate in day-to-day SSI interactions.
 
+### AnonCreds
+[AnonCreds](https://hyperledger.github.io/anoncreds-spec/) (Anonymous Credentials) is a verifiable credential format that offers privacy-preserving features like selective disclosure and zero-knowledge proofs.
+
 
 ## C
 ### Claim {#claim}
@@ -141,6 +144,16 @@ An entity that asserts claim(s) about one or more [subjects](#did-subject) then 
 ### Issue Credential Protocol
 Allows you to create, retrieve, and manage issued [verifiable credentials (VCs)](#verifiable-credential) between a VC issuer and a VC holder.
 
+## J
+### JSON-LD
+[JSON-LD](https://json-ld.org/spec/FCGS/json-ld/20130328/) (JSON for Linking Data) is a method of encoding Linked Data using JSON.
+
+### JWT
+[JWT](https://datatracker.ietf.org/doc/html/rfc7519) (JSON Web Token) is a compact, URL-safe means of representing claims to be transferred between two parties.
+
+### JWT-VC
+[JWT-VC](https://identity.foundation/jwt-vc-presentation-profile/) (JSON Web Token for Verifiable Credentials, also known as VC-JWT) is a verifiable credential encoded as a JSON Web Token.
+
 ## K
 ### Keycloak Service
 Keycloak is an open-source [IAM](#iam) solution that provides authentication, authorization, and single sign-on capabilities for applications and services. It allows organizations to secure their applications by managing user identities, enforcing security policies, and facilitating seamless and secure user authentication.
@@ -159,6 +172,9 @@ This segregation maintains data privacy and security, enhancing scalability and 
 
 
 ## O
+### OID4VC
+[OID4VC](https://openid.net/sg/openid4vc/) (OpenID for Verifiable Credentials) is an overarching framework and suite of specifications defining how to use OpenID Connect for issuing and presenting verifiable credentials.
+
 ### OIDC
 OIDC (OpenID Connect), is an authentication protocol built on top of OAuth 2.0. It enables secure user authentication and allows applications to obtain information about users, facilitating single sign-on (SSO) and identity verification in web and mobile applications.
 
@@ -212,6 +228,12 @@ Requesting Party Token (RPT) is a concept within the [UMA](#uma) framework. It r
 
 
 ## S
+### SD-JWT
+[SD-JWT](https://datatracker.ietf.org/doc/draft-ietf-oauth-selective-disclosure-jwt/) (Selective Disclosure for JWTs) is an extension to JSON Web Tokens that enables the selective disclosure of claims.
+
+### SD-JWT VC
+[SD-JWT VC](https://datatracker.ietf.org/doc/draft-ietf-oauth-sd-jwt-vc/) (SD-JWT-based Verifiable Credentials) represents a verifiable credential format built on top of SD-JWT.
+
 ### Secrets storage {#secrets-storage}
 This component securely stores sensitive information, such as private keys associated with an individual's digital identity, Edge Agent seed, etc.
 Secrets storage plays a crucial role in SSI implementations because it ensures that sensitive information is securely stored and protected against unauthorized access or disclosure
@@ -254,6 +276,12 @@ User-Managed Access (UMA) is an authorization framework that allows users to con
 ### Vault Service {#vault-service}
 HashiCorp Vault is a widely used open-source and enterprise-grade solution designed for securely storing, accessing, and managing secrets and sensitive data in modern computing environments.
 It offers a centralized platform for managing cryptographic keys, passwords, API keys, tokens, and other secrets.
+
+### VCDM 1.1
+[VCDM 1.1](https://www.w3.org/TR/vc-data-model/) (W3C Verifiable Credentials Data Model v1.1) is a standard data model specification for verifiable credentials.
+
+### VCDM 2.0
+[VCDM 2.0](https://www.w3.org/TR/vc-data-model-2.0/) (W3C Verifiable Credentials Data Model v2.0) is the updated standard data model specification for verifiable credentials, succeeding VCDM 1.1.
 
 ### Verifiable Credential (VC) {#verifiable-credential}
 A verifiable credential is a tamper-evident credential that contains one or more claims made by an issuer whose authorship can be cryptographically verified. It is possible to use VCs to create a [verifiable presentation](#verifiable-presentation). Also, the claims in a VC can be about different subjects.
