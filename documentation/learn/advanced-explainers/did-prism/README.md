@@ -6,11 +6,13 @@ Officially according to the specs the `did:prism` method only existed in the Car
 But for testing purposes, many of the users are using the Cardano `preprod` network.
 
 ## Cloud Agent and Prism Node
+
 The Cloud Agent together with the Prism Node provides a comprehensive solution for managing and resolving DIDs. The Prism Node is a microservice that exposes gRPC endpoints and implements `did:prism` events, allowing users to create, update, deactivate, and resolve DIDs in a secure and privacy-preserving manner.
 This solution is designed for the enterprise use case and requires setting up the full Cardano stack together with the Prism Node.
 
 ## Universal Resolver
-The Universal Resolver is a service that provides a unified interface for resolving DIDs across different DID methods. 
+
+The Universal Resolver is a service that provides a unified interface for resolving DIDs across different DID methods.
 It allows users to resolve DIDs from various DID methods, including PRISM, and retrieve their associated DID Documents.
 The `did:prism` has been integrated into the Universal Resolver, enabling users to resolve PRISM DIDs using the same interface as other DID methods.
 
@@ -20,12 +22,14 @@ The Universal Resolver endpoint for PRISM DIDs is:
 https://dev.uniresolver.io/
 
 ## SDKs
+
 Each SDK provides a way to resolve DIDs and retrieve their associated DID Documents. The SDKs are designed to be easy to use and integrate into existing applications, allowing developers to quickly add DID resolution capabilities to their projects.
 Each SDK implements the `DIDResolver` interface via a URL. In order to configure the DIDResolver the corresponding endpoint should be set in the SDK configuration.
 
 ## Alternative Implementations
 
 ### Blocktrust Node
+
 The Blocktrust Node is a community alternative to the Prism Node, providing similar functionality for resolving DIDs and managing DID Documents.
 The publicly available Blocktrust Node can be used to resolve PRISM DIDs and retrieve their associated DID Documents.
 
@@ -33,6 +37,7 @@ The list of the Blocktrust endpoints for the PRISM DIDs is:
 [https://statistics.blocktrust.dev/resolve](https://statistics.blocktrust.dev/resolve)
 
 ### NeoPRISM
+
 [NeoPRISM](https://github.com/hyperledger-identus/neoprism) is an alternative to the Prism Node, providing similar functionality for resolving DIDs and managing DID Documents. Written in Rust, NeoPRISM offers a lightweight, resource-efficient solution that can also be configured as a DID node backend for the Cloud Agent.
 
 The publicly available NeoPRISM can be used to resolve PRISM DIDs and retrieve their associated DID Documents.
@@ -56,14 +61,17 @@ This image store the status off all DIDs in the file system. But the image is li
 The code is also distributed as a library in [Maven Central repository](https://mvnrepository.com/repos/central) and it's capable to run on the JVM and JS Environments.
 
 #### Prism-VDR
+
 The [prism-vdr](https://github.com/FabioPinheiro/prism-vdr) is alternative PRISM DID indexer that stores all the PRISM DIDs events and their associated DID Documents in the GitHub repository.
 The PRISM-VDR supports the following Cardano networks:
+
 - [`mainnet` network](https://github.com/FabioPinheiro/prism-vdr/tree/main/mainnet/diddoc)
 - [`preprod` network](https://github.com/FabioPinheiro/prism-vdr/tree/main/preprod/diddoc)
 
-#### Blockfrost & PRISM 
+#### Blockfrost & PRISM
 
 Blockfrost is also constantly running the PRISM Indexer for all the Cardano networks and uploading the status to a [Blockfrost's GitHub repository](https://github.com/blockfrost/prism-vdr):
+
 - [`mainnet` network](https://github.com/blockfrost/prism-vdr/tree/main/mainnet/diddoc)
 - [`preprod` network](https://github.com/blockfrost/prism-vdr/tree/main/preprod/diddoc)
 - [`preview` network](https://github.com/blockfrost/prism-vdr/tree/main/preview/diddoc)

@@ -35,6 +35,7 @@ Build wallet applications for web and mobile platforms using our comprehensive S
 #### [TypeScript SDK](../../sdk-ts/docs/sdk/README.md)
 
 Build browser and Node.js applications with full support for:
+
 - DIDComm messaging
 - Credential issuance and presentation
 - AnonCreds, SD-JWT, and JWT credentials
@@ -42,6 +43,7 @@ Build browser and Node.js applications with full support for:
 - Backup and recovery
 
 **Tutorials available:**
+
 - [Storage with Pluto](../../sdk-ts/docs/pluto/README.md)
 - [PRISM DID Management](../../sdk-ts/docs/prism/what-is-did-prism.md)
 - [Connectionless & Out-of-Band](../../sdk-ts/docs/develop/sdk/tutorials/connectionless/ConnectionlessOffer.md)
@@ -133,6 +135,7 @@ This modular architecture provides flexibility to customize solutions for specif
 ### Connection Establishment
 
 Agents establish secure DIDComm connections using:
+
 - **Direct invitations** - For known parties with existing connections
 - **Out-of-Band (OOB) invitations** - QR codes or deep links for new connections
 - **Mediator routing** - Message delivery for offline/mobile wallets

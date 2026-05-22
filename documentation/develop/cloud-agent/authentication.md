@@ -19,19 +19,17 @@ entity is verified and authenticated during interactions with the platform:
 The Cloud Agent uses the Default Entity and the Default Wallet for all interactions with the Agent over the REST API and DIDComm in the single-tenant mode.
 A Default Entity is an entity with the id `00000000-0000-0000-0000-000000000000`, and a Default Wallet is a wallet with the id `00000000-0000-0000-0000-000000000000`.
 
-
 ## API Key Authentication
 
 ### Introduction
 
 API Key Authentication is a straightforward method used to authenticate entities by utilizing a secret key. This method requires the inclusion of an `apikey` header in HTTP requests, with the value corresponding to the issued secret key. The configuration of API Key Authentication for an entity is managed by the Administrator using the Entity API methods.
 
-
 ### Security and Restrictions
+
 - **API Key Length**: To maintain robust security, the length of the API Key value must exceed 16 bytes (128 bits). This length requirement is essential for enhancing the security of your API Key against potential attacks. The max length of the API Key value is limited to 128 bytes. Unique API Keys: Each API Key is unique to a specific entity. It cannot be shared or reused by other entities. If an attempt to assign the same API Key value to another entity, the API Key is considered compromised and must be considered unusable.
 - **Unique API Keys:** Each API Key is unique to a specific entity. It cannot be shared or reused by other entities. If an attempt to assign the same APIKey value to another entity, the APIKey is considered compromised and must be considered unusable.
 - **Revocation:** In case of a tenant's API Key revocation, it becomes invalid for authentication.
-
 
 ### Agent Responsibilities
 
@@ -39,8 +37,6 @@ The Agent manages API Keys for each tenant and maintains the security of the sys
 
 - **API Key Storage:** The Agent maintains each tenant's APIKeys list. However, it is essential to note that the original value of the APIKey is not stored in the Agent, ensuring additional security.
 - **Hashing and Authentication:** The Agent securely stores the hash of the APIKey in the database and uses it to authenticate the entity. The hashing process employs the `SHA-256` algorithm and a `salt` value to compute the hash value, ensuring data integrity and security during authentication. The length of the `salt` value must exceed 16 bytes (128 bits)
-
-
 
 Based on the configuration API Key authentication, the Cloud Agent can support the following interaction models:
 
@@ -52,11 +48,9 @@ Disable API key authentication and use the Default Wallet for all interactions w
 |----------------------|-------|
 | API_KEY_ENABLED      | false |
 
-
-
 ### Single Tenant with apikey authentication
 
-Enable API key authentication and use the Default Wallet for all interactions with the Cloud Agent over the REST API and DIDComm. 
+Enable API key authentication and use the Default Wallet for all interactions with the Cloud Agent over the REST API and DIDComm.
 
 | Environment Variable                 | Value |
 |--------------------------------------|-------|
@@ -71,7 +65,6 @@ Enable APIKey authentication and use the Entity and the Wallet associated with t
 |--------------------------------------|-------|
 | API_KEY_ENABLED                      | true  |
 | API_KEY_AUTHENTICATE_AS_DEFAULT_USER | false |
-
 
 ### Multi-Tenant with apikey authentication and auto-provisioning
 
@@ -95,7 +88,6 @@ The following REST APIs get protected by the Admin-Api-Key authentication method
 
 - Wallet Management REST API
 - Entity Management REST API
-
 
 ## JWT Token Authentication and Authorisation with the Keycloak
 
@@ -201,8 +193,8 @@ and the `KEYCLOAK_ROLES_CLAIM_PATH` should be set to `resource_access.<KEYCLOAK_
 
 The current authorization logic is built on the UMA specification, configuring permissions as user A controls resource W. In this model, user A is a registered user in Keycloak, and wallet W is a resource registered in Keycloak.
 
-These configurations are managed manually in Keycloak. However, for a better experience, the Agent can execute these actions through the REST API endpoint. 
-For each wallet, a corresponding resource gets created with the name wallet-`wallet_id` in Keycloak. 
+These configurations are managed manually in Keycloak. However, for a better experience, the Agent can execute these actions through the REST API endpoint.
+For each wallet, a corresponding resource gets created with the name wallet-`wallet_id` in Keycloak.
 Similarly, a corresponding policy is created for each user and resource with the name user `userId` on wallet `wallet_resource_name` permission.
 
 The REST API endpoint to configure permissions in Keycloak is:
@@ -246,4 +238,3 @@ The user can register the wallet only for himself, so the `x-api-key` header is 
 shared.
 
 The corresponding wallet resource is created in Keycloak, and the user is granted access to this resource.
-

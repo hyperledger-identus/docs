@@ -30,7 +30,6 @@ If an error occurs in this background job over DIDComm in Agent A, it is recorde
 What are our needs? Let’s try to sum up the required capabilities based on
 [Report Problem 2.0](https://identity.foundation/didcomm-messaging/spec/#problem-reports), we need:
 
-
 The Cloud Agent is designed to perform three distinct roles: `Issuer`, `Holder`, and `Verifier`. Within these roles,
 it operates across three protocol flows, namely `Connection`, `Issuance`, and `Verification`.
 
@@ -96,7 +95,6 @@ it operates across three protocol flows, namely `Connection`, `Issuance`, and `V
 - **C4** - Max retries (Cascading Problems): Connection state cannot be moved after max retries
 - **C5** - See G3
 
-
 ## Issuance Flow Scenarios
 
 [https://github.com/decentralized-identity/waci-didcomm/tree/main/issue_credential]
@@ -116,7 +114,6 @@ it operates across three protocol flows, namely `Connection`, `Issuance`, and `V
 - **I4** - Database connection or related issue
 - **I5** - Max retries (Cascading Problems): Issuance state cannot be moved after max retries
 - **I6** - See G3
-
 
 ## Verification(Present proof)  Flow Scenarios
 
@@ -164,5 +161,3 @@ In the event of an issue in the Cloud Agent, the following actions are taken:
 2. [Replying to Warnings](https://identity.foundation/didcomm-messaging/spec/#replying-to-warnings)
 
 3. [ACKs](https://identity.foundation/didcomm-messaging/spec/#acks)
-
-

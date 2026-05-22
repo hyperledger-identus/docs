@@ -12,6 +12,7 @@ Technical Story: [Apollo Cryptographic Module KMM | https://input-output.atlassi
 <br/>
 
 ### 1. Summary
+
 This proposal sets out to crystallize a long-term plan for Identus' cryptographic functionality. Rather than constructing an entirely new cryptographic functionality, our focus is on integrating robust, secure and tested libraries, meeting several key requirements in the process.
 
 By leveraging the flexibility of Kotlin Multiplatform, this library will ensure strong, provable security, centralized management of all cryptography, easy upgrades, and efficient code reuse across multiple platforms.
@@ -21,33 +22,41 @@ A significant additional advantage of our chosen framework, particularly for the
 <br/>
 
 ### 2. Introduction
+
 This proposal outlines a comprehensive plan to develop a cryptographic library using Kotlin Multiplatform. This library will meet our defined requirements and strategically position us for future technological advancements.
 
 #### 2.1 Provable Security
+
 Our cryptographic library will provide engineers with high assurances of security. This will be accomplished by using cryptographic primitives that are secure, with this security being provable through rigorous mathematical proofs. Documentation will accompany these proofs to offer transparency and enable a deeper understanding of the underlying logic and assurances.
 
 #### 2.2 Centralized Cryptography Management
+
 We propose the creation of a cryptographic library that serves as the central management hub for all cryptographic operations within the Identus platform. By preventing "DIY" implementations, we decrease potential vulnerabilities and establish a standard, thus enhancing overall security across our organization.
 
 #### 2.3 Easy Upgrade Path
+
 In light of emerging cryptographic needs such as the introduction of quantum-resistant cryptography, our library will be designed with easy upgrades in mind. Its modular design will allow for the seamless introduction of new cryptographic primitives as they become necessary or advisable. This adaptability will ensure that cryptographic upgrades across all of Identus' components are consistent and efficient.
 
 #### 2.4 Code Reusability
+
 Our library will make the most of Kotlin Multiplatform's capabilities for code reuse across different platforms. We aim to design cryptographic functions that promote this potential, thus minimizing the development effort required for adding new functionality or adapting to different platforms.
 
 <br/>
 
 ### 3. Advantages of Kotlin Multiplatform
+
 Choosing Kotlin Multiplatform for this project affords us several advantages, notably its potential to export to WASM. Not only this stack, but it significantly enhances the utility and versatility of our library, especially for our JavaScript version. While other languages like Rust offer similar capabilities, the use of Kotlin Multiplatform aligns more closely with our resource allocation and current technological strategy.
 
 <br/>
 
 ### 4. Trade Offs
+
 The trade-off gap analysis does not come from the debate between having 1 single language (agnostic) or multiple native platform implementations as this discussion could end super quickly by just reading the  4 points in the Introduction section (Easy upgrade path, code reusability).
 
 The real debate is between choosing the right language that suits us best. We have been analyzing the potential use of Rust or KMM to build the Apollo module.
 
 #### 4.1 Advantages of KMM
+
 Easier to have same interface for the cryptographic functionalities in all platforms
 Single Unit test suit to verify platform compatibility between platforms
 Version lock for supported library versions
@@ -55,10 +64,12 @@ Less pron to compatibility errors between platforms
 When a new Platform is added to KMM we can easily test and verify with our code quality standards, if it passes we can add a new platform support
 
 #### 4.2 Disadvantages of KMM
+
 KMM is very powerful but still has some issues the more complex the project is, in Apollo it should be quite straightforward
 High dependency on a single point of failure (This can be advantage and disadvantage)
 
 #### 4.3 Advantage of KMM against rust
+
 KMM in this situation has great advantageous against Rust
 It might be more difficult to find libraries in Rust that can do all we require for all the platforms.
 Testing would not be so straightforward and By platform. It would instead run only on the platform that is building the code.
@@ -67,6 +78,7 @@ Uniffi doesnt work for all platforms we provide, so some wrappers would have to 
 <br/>
 
 ### 5. Implementation Details
+
 We have established several key requirements for our team:
 
 1. Ownership of Apollo and its roadmap is clearly defined. If any issues, doubts, or concerns arise or if any decisions need to be made about the roadmap, tech debt, or any other related aspects, stakeholders know who to contact.
@@ -84,6 +96,7 @@ We have established several key requirements for our team:
 <br/>
 
 ### 6. Definition of Done
+
 In order to consider this completed or done the existing SDK's must have integrated with this new Module.
 
 <br/>
@@ -99,6 +112,7 @@ In order to consider this completed or done the existing SDK's must have integra
 <br/>
 
 #### Implementation resources
+
 | Engineer                              | Role                                        | Availability |
 |---------------------------------------|---------------------------------------------|--------------|
 | Francisco Javier Ribó                 | Engineering Lead + Developer                | Part time    |
@@ -112,10 +126,10 @@ In order to consider this completed or done the existing SDK's must have integra
 <br/>
 
 ### 8. Triage & future roadmap
+
 The main goal of this section is to describe the process where we choose what comes next in Apollo and how we take those decisions.
 
 **Comments**
-
 
 1. There is a risk of starting to add to Apollo "anything that looks like cryptography". For instance, the Anoncreds part that takes care of formatting the credentials (which is what anoncreds-rs does) should not go into Apollo.
 2. But the underlying cryptographic functionality (for which anoncreds-rs calls libursa) should go into Apollo.

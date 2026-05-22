@@ -20,11 +20,11 @@ Identus is built on industry-standard protocols and specifications to ensure int
 
 ## What you'll learn {#what-you'll-learn}
 
-This Learn section will guide you through understanding  Identus, from fundamental concepts to advanced implementations. 
+This Learn section will guide you through understanding  Identus, from fundamental concepts to advanced implementations.
 
 **Learning path overview**
 
-Begin with the **Basic concepts** section to understand the fundamental principles of decentralized identity. Then explore the **Advanced explainers** for a deeper exploration of the ecosystem components. 
+Begin with the **Basic concepts** section to understand the fundamental principles of decentralized identity. Then explore the **Advanced explainers** for a deeper exploration of the ecosystem components.
 
 The content assumes basic familiarity with digital identity concepts but explains all SSI-specific terminology. Follow the links to the glossary for detailed definitions throughout the documentation.
 

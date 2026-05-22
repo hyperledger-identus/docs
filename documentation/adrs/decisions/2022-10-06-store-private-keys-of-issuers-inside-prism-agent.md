@@ -8,13 +8,11 @@
 
 While each holder has a wallet application on the phone (edge agent) to store private keys, contacts, and credentials, Identus Cloud Agent will provide a custodial solution to Issuers and Verifiers. Thus they won't have their wallets or store/manage keys. There needs to be storage for the private keys of Issuers and Verifiers on the Cloud Agent side.
 
-
 ## Considered Options
 
 - Having issuers store and manage their own keys on the edge wallet (Prism 1.4 approach)
 - Storing keys in a dedicated wallet application that is connected to the Cloud Agent
 - Having the Cloud Agent store and manage keys directly
-
 
 ## Decision Outcome
 
@@ -23,7 +21,6 @@ Chosen option: Option 3, because it is the simplest approach that satisfies the 
 ### Negative Consequences <!-- optional -->
 
 While Option 3 is simpler to implement then Option 2 and provides basic functionality required to solve the problem emphasized in [Context and Problem Statement](#context-and-problem-statement), it does not provide full functionality and security of widely used and well tested wallet application. Therefore this decision is considered to be temporary and made only in the interest of solving the problem as fast as possible.
-
 
 ## Links
 

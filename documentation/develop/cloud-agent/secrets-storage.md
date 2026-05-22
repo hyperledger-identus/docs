@@ -69,7 +69,7 @@ The following path can store the key material of the DID peer:
 <wallet-id>/dids/peer/<did-ref>/keys/<key-purpose> value=<base64-encoded-value> <metadata>
 ```
 
-## Links:
+## Links
 
 - [HashiCorm Vault](https://www.vaultproject.io/)
 - [Vault KV Secrets Engine](https://www.vaultproject.io/docs/secrets/kv/kv-v2)

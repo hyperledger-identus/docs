@@ -33,15 +33,15 @@ export const presets: PresetConfig[] = [
           ],
           /**
            * TODO: REMOVE THIS AFTER MIGRATION TO NEW DOCS
-           * 
+           *
            * Each Repository will distribute the documentation in the same way we are implementing now.
            * docs/learning
            * docs/develop
            * docs/reference
-           * 
+           *
            * Each folder can have a sidebar.ts to define the sidebar items, but its not required.
-           * One sidebar will be automatically generated from the content of the folder and the order of the documents 
-           * can be set using mdx comments 
+           * One sidebar will be automatically generated from the content of the folder and the order of the documents
+           * can be set using mdx comments
            */
           remarkPlugins: [
             [

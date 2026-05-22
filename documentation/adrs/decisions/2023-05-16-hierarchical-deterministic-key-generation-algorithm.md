@@ -16,6 +16,7 @@ Current ADR is based on the Research Spike [Evaluation of Using a Single Mnemoni
 - Tony Rose (Atala Head of Product)
 
 Reviewed in 2024 by Atala engineers:
+
 - Jesus Diaz Vico
 - Ezequiel Postan
 - Pat Losoponkul
@@ -58,7 +59,6 @@ Secure store implementation is a matter of another ADR. By now, the Hashicorp Va
 
 The current decision doesn't have backward compatibility with the PRISM v1.4, but it can be mitigated by switching to the `unmanaged` way of key management for the DIDs created in v1.4 or by implementing the backward compatibility module in the Identus Platform
 
-
 ## Decision Drivers
 
 - Deterministic key derivation for the Identus Platform and in all components: Cloud Agent (JVM), Identity Wallets (Android, iOS, Web)
@@ -96,6 +96,7 @@ m/wallet-purpose'/did-method'/did-index'/key-purpose'/key-index'
 `key-index` - the index of the key pair
 
 In order to generate key material (private and public keys):
+
 - Secp256k1 ellipstic curve will be used with standard bip32 derivation
 - Curve25519 (Ed25519) will be used with the standard bip32 implementation for [ed25519](https://ieeexplore.ieee.org/document/7966967)
 - Future implementations will require their own implementations of the derive function, and very potentially at some point we may want to rework bip32 implementation to make it more agnostic, because a high percentage of the code is going to be the same.
