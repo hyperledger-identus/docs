@@ -7,8 +7,8 @@
 <link rel="preconnect" href="https://www.googletagmanager.com">
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-BLNS09BXBY"></script>
 <script>function gtag(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],gtag("js",new Date),gtag("config","G-BLNS09BXBY",{anonymize_ip:!0})</script><link rel="stylesheet" href="/docs/assets/css/styles.28e6b695.css">
-<script src="/docs/assets/js/runtime~main.0e2b2127.js" defer="defer"></script>
-<script src="/docs/assets/js/main.a531d57c.js" defer="defer"></script>
+<script src="/docs/assets/js/runtime~main.546fe207.js" defer="defer"></script>
+<script src="/docs/assets/js/main.a4e9a79a.js" defer="defer"></script>
 </head>
 <body class="navigation-with-keyboard">
 <svg style="display: none;"><defs>
@@ -48,11 +48,16 @@
 </ul>
 <p><strong>Migration Required:</strong></p>
 <ul>
-<li class="">Import and register the Anoncreds plugin explicitly in your application:<!-- -->
+<li class="">
+<p>Import and register the Anoncreds plugin explicitly in your application:</p>
 <div class="language-typescript codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-typescript codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token keyword" style="color:#00009f">import</span><span class="token plain"> </span><span class="token punctuation" style="color:#393A34">{</span><span class="token plain"> AnoncredsPlugin </span><span class="token punctuation" style="color:#393A34">}</span><span class="token plain"> </span><span class="token keyword" style="color:#00009f">from</span><span class="token plain"> </span><span class="token string" style="color:#e3116c">&#x27;@atala/prism-wallet-sdk/plugins&#x27;</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token comment" style="color:#999988;font-style:italic">// Register plugin with your agent configuration</span><br></span></code></pre></div></div>
 </li>
-<li class="">Update any imports that previously expected Anoncreds to be available by default</li>
-<li class="">E2E tests updated to show plugin registration pattern</li>
+<li class="">
+<p>Update any imports that previously expected Anoncreds to be available by default</p>
+</li>
+<li class="">
+<p>E2E tests updated to show plugin registration pattern</p>
+</li>
 </ul>
 <h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="feat-updating-didcomm-connection-protocols-400">feat!: updating DIDComm connection protocols (#400)<a href="#feat-updating-didcomm-connection-protocols-400" class="hash-link" aria-label="Direct link to feat!: updating DIDComm connection protocols (#400)" title="Direct link to feat!: updating DIDComm connection protocols (#400)" translate="no">​</a></h3>
 <p><strong>BREAKING CHANGE:</strong> Removed <code>HandshakeRequest.safeParseBody</code> method</p>
@@ -82,10 +87,17 @@
 </ul>
 <p><strong>Migration Required:</strong></p>
 <ul>
-<li class="">If you have a custom Pluto implementation, you must implement the <code>stop()</code> method</li>
-<li class="">The <code>stop()</code> method should handle cleanup of database connections, event listeners, and any other resources</li>
-<li class="">Update initialization code to call <code>pluto.stop()</code> during application shutdown or cleanup</li>
-<li class="">Example implementation:<!-- -->
+<li class="">
+<p>If you have a custom Pluto implementation, you must implement the <code>stop()</code> method</p>
+</li>
+<li class="">
+<p>The <code>stop()</code> method should handle cleanup of database connections, event listeners, and any other resources</p>
+</li>
+<li class="">
+<p>Update initialization code to call <code>pluto.stop()</code> during application shutdown or cleanup</p>
+</li>
+<li class="">
+<p>Example implementation:</p>
 <div class="language-typescript codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-typescript codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token keyword" style="color:#00009f">async</span><span class="token plain"> </span><span class="token function" style="color:#d73a49">stop</span><span class="token punctuation" style="color:#393A34">(</span><span class="token punctuation" style="color:#393A34">)</span><span class="token operator" style="color:#393A34">:</span><span class="token plain"> </span><span class="token builtin">Promise</span><span class="token operator" style="color:#393A34">&lt;</span><span class="token keyword" style="color:#00009f">void</span><span class="token operator" style="color:#393A34">&gt;</span><span class="token plain"> </span><span class="token punctuation" style="color:#393A34">{</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  </span><span class="token comment" style="color:#999988;font-style:italic">// Clean up database connections</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  </span><span class="token comment" style="color:#999988;font-style:italic">// Remove event listeners</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  </span><span class="token comment" style="color:#999988;font-style:italic">// Close any open resources</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token punctuation" style="color:#393A34">}</span><br></span></code></pre></div></div>
 </li>
 </ul>
@@ -119,10 +131,17 @@
 </ul>
 <p><strong>Migration Required:</strong></p>
 <ul>
-<li class="">Remove any code that sets <code>KeyProperties.type</code> when creating keys with Apollo</li>
-<li class="">The <code>type</code> field will be silently ignored if provided, but should be removed from your code</li>
-<li class="">If you have custom key creation logic, verify it works without the <code>type</code> parameter</li>
-<li class="">Example migration:<!-- -->
+<li class="">
+<p>Remove any code that sets <code>KeyProperties.type</code> when creating keys with Apollo</p>
+</li>
+<li class="">
+<p>The <code>type</code> field will be silently ignored if provided, but should be removed from your code</p>
+</li>
+<li class="">
+<p>If you have custom key creation logic, verify it works without the <code>type</code> parameter</p>
+</li>
+<li class="">
+<p>Example migration:</p>
 <div class="language-typescript codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-typescript codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token comment" style="color:#999988;font-style:italic">// Before:</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">apollo</span><span class="token punctuation" style="color:#393A34">.</span><span class="token function" style="color:#d73a49">createPrivateKey</span><span class="token punctuation" style="color:#393A34">(</span><span class="token punctuation" style="color:#393A34">{</span><span class="token plain"> type</span><span class="token operator" style="color:#393A34">:</span><span class="token plain"> </span><span class="token string" style="color:#e3116c">&quot;EC&quot;</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"> curve</span><span class="token operator" style="color:#393A34">:</span><span class="token plain"> </span><span class="token string" style="color:#e3116c">&quot;secp256k1&quot;</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"> </span><span class="token operator" style="color:#393A34">...</span><span class="token plain"> </span><span class="token punctuation" style="color:#393A34">}</span><span class="token punctuation" style="color:#393A34">)</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token comment" style="color:#999988;font-style:italic">// After:</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">apollo</span><span class="token punctuation" style="color:#393A34">.</span><span class="token function" style="color:#d73a49">createPrivateKey</span><span class="token punctuation" style="color:#393A34">(</span><span class="token punctuation" style="color:#393A34">{</span><span class="token plain"> curve</span><span class="token operator" style="color:#393A34">:</span><span class="token plain"> </span><span class="token string" style="color:#e3116c">&quot;secp256k1&quot;</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"> </span><span class="token operator" style="color:#393A34">...</span><span class="token plain"> </span><span class="token punctuation" style="color:#393A34">}</span><span class="token punctuation" style="color:#393A34">)</span><br></span></code></pre></div></div>
 </li>
 </ul>
@@ -148,12 +167,19 @@
 </ul>
 <p><strong>Migration Required:</strong></p>
 <ul>
-<li class=""><strong>Agent Initialization:</strong> Remove <code>connectionManager</code> and <code>mediationHandler</code> from Agent constructor<!-- -->
+<li class="">
+<p><strong>Agent Initialization:</strong> Remove <code>connectionManager</code> and <code>mediationHandler</code> from Agent constructor</p>
 <div class="language-typescript codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-typescript codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token comment" style="color:#999988;font-style:italic">// Before:</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token keyword" style="color:#00009f">const</span><span class="token plain"> agent </span><span class="token operator" style="color:#393A34">=</span><span class="token plain"> Agent</span><span class="token punctuation" style="color:#393A34">.</span><span class="token function" style="color:#d73a49">initialize</span><span class="token punctuation" style="color:#393A34">(</span><span class="token punctuation" style="color:#393A34">{</span><span class="token plain"> </span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  connectionManager</span><span class="token operator" style="color:#393A34">:</span><span class="token plain"> myConnectionManager</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  mediationHandler</span><span class="token operator" style="color:#393A34">:</span><span class="token plain"> myMediationHandler</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  </span><span class="token comment" style="color:#999988;font-style:italic">// ... other options</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token punctuation" style="color:#393A34">}</span><span class="token punctuation" style="color:#393A34">)</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token comment" style="color:#999988;font-style:italic">// After:</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token keyword" style="color:#00009f">const</span><span class="token plain"> agent </span><span class="token operator" style="color:#393A34">=</span><span class="token plain"> Agent</span><span class="token punctuation" style="color:#393A34">.</span><span class="token function" style="color:#d73a49">initialize</span><span class="token punctuation" style="color:#393A34">(</span><span class="token punctuation" style="color:#393A34">{</span><span class="token plain"> </span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  </span><span class="token comment" style="color:#999988;font-style:italic">// ... other options (connection management is now internal)</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token punctuation" style="color:#393A34">}</span><span class="token punctuation" style="color:#393A34">)</span><br></span></code></pre></div></div>
 </li>
-<li class="">The Agent now manages connections internally - no need to provide external connection management</li>
-<li class="">If you extended or customized <code>BasicMediatorHandler</code> or <code>PlutoMediatorStore</code>, you&#x27;ll need to refactor to use the new internal APIs</li>
-<li class="">Review any code that imported <code>ConnectionsManager</code>, <code>MediatorHandler</code>, or <code>PlutoMediatorStore</code> types</li>
+<li class="">
+<p>The Agent now manages connections internally - no need to provide external connection management</p>
+</li>
+<li class="">
+<p>If you extended or customized <code>BasicMediatorHandler</code> or <code>PlutoMediatorStore</code>, you&#x27;ll need to refactor to use the new internal APIs</p>
+</li>
+<li class="">
+<p>Review any code that imported <code>ConnectionsManager</code>, <code>MediatorHandler</code>, or <code>PlutoMediatorStore</code> types</p>
+</li>
 </ul>
 <h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="feat-updating-didcomm-presentation-protocols-383">feat!: updating DIDComm presentation protocols (#383)<a href="#feat-updating-didcomm-presentation-protocols-383" class="hash-link" aria-label="Direct link to feat!: updating DIDComm presentation protocols (#383)" title="Direct link to feat!: updating DIDComm presentation protocols (#383)" translate="no">​</a></h3>
 <p><strong>BREAKING CHANGE:</strong> Removed static factory methods from presentation protocol classes</p>
@@ -174,11 +200,16 @@
 </ul>
 <p><strong>Migration Required:</strong></p>
 <ul>
-<li class="">Replace factory method calls with direct class construction:<!-- -->
+<li class="">
+<p>Replace factory method calls with direct class construction:</p>
 <div class="language-typescript codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-typescript codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token comment" style="color:#999988;font-style:italic">// Before:</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token keyword" style="color:#00009f">const</span><span class="token plain"> presentation </span><span class="token operator" style="color:#393A34">=</span><span class="token plain"> Presentation</span><span class="token punctuation" style="color:#393A34">.</span><span class="token function" style="color:#d73a49">makePresentationFromRequest</span><span class="token punctuation" style="color:#393A34">(</span><span class="token plain">request</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"> credentials</span><span class="token punctuation" style="color:#393A34">)</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token keyword" style="color:#00009f">const</span><span class="token plain"> proposal </span><span class="token operator" style="color:#393A34">=</span><span class="token plain"> ProposePresentation</span><span class="token punctuation" style="color:#393A34">.</span><span class="token function" style="color:#d73a49">makeProposalFromRequest</span><span class="token punctuation" style="color:#393A34">(</span><span class="token plain">request</span><span class="token punctuation" style="color:#393A34">)</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token keyword" style="color:#00009f">const</span><span class="token plain"> request </span><span class="token operator" style="color:#393A34">=</span><span class="token plain"> RequestPresentation</span><span class="token punctuation" style="color:#393A34">.</span><span class="token function" style="color:#d73a49">makeRequestFromProposal</span><span class="token punctuation" style="color:#393A34">(</span><span class="token plain">proposal</span><span class="token punctuation" style="color:#393A34">)</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token comment" style="color:#999988;font-style:italic">// After:</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token keyword" style="color:#00009f">const</span><span class="token plain"> presentation </span><span class="token operator" style="color:#393A34">=</span><span class="token plain"> </span><span class="token keyword" style="color:#00009f">new</span><span class="token plain"> </span><span class="token class-name">Presentation</span><span class="token punctuation" style="color:#393A34">(</span><span class="token punctuation" style="color:#393A34">{</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  </span><span class="token comment" style="color:#999988;font-style:italic">// explicitly provide all required fields</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token punctuation" style="color:#393A34">}</span><span class="token punctuation" style="color:#393A34">)</span><br></span></code></pre></div></div>
 </li>
-<li class="">Update any code using the <code>ProofTypes</code> interface</li>
-<li class="">Review presentation protocol flows to ensure all required fields are provided during construction</li>
+<li class="">
+<p>Update any code using the <code>ProofTypes</code> interface</p>
+</li>
+<li class="">
+<p>Review presentation protocol flows to ensure all required fields are provided during construction</p>
+</li>
 </ul>
 <h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="feat-update-didcomm-json-message-types-375">feat: update DIDComm json message types (#375)<a href="#feat-update-didcomm-json-message-types-375" class="hash-link" aria-label="Direct link to feat: update DIDComm json message types (#375)" title="Direct link to feat: update DIDComm json message types (#375)" translate="no">​</a></h3>
 <p><strong>BREAKING CHANGE:</strong> <code>AttachmentDescriptor</code> now only accepts bodies with <code>json</code> property</p>
@@ -193,11 +224,16 @@
 </ul>
 <p><strong>Migration Required:</strong></p>
 <ul>
-<li class="">Ensure all message attachments use the <code>json</code> property in their body:<!-- -->
+<li class="">
+<p>Ensure all message attachments use the <code>json</code> property in their body:</p>
 <div class="language-typescript codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-typescript codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token comment" style="color:#999988;font-style:italic">// Before (may have worked):</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token keyword" style="color:#00009f">const</span><span class="token plain"> attachment </span><span class="token operator" style="color:#393A34">=</span><span class="token plain"> </span><span class="token punctuation" style="color:#393A34">{</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  data</span><span class="token operator" style="color:#393A34">:</span><span class="token plain"> </span><span class="token punctuation" style="color:#393A34">{</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    base64</span><span class="token operator" style="color:#393A34">:</span><span class="token plain"> encodedData</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  </span><span class="token punctuation" style="color:#393A34">}</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token punctuation" style="color:#393A34">}</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token comment" style="color:#999988;font-style:italic">// After (required):</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token keyword" style="color:#00009f">const</span><span class="token plain"> attachment </span><span class="token operator" style="color:#393A34">=</span><span class="token plain"> </span><span class="token punctuation" style="color:#393A34">{</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  data</span><span class="token operator" style="color:#393A34">:</span><span class="token plain"> </span><span class="token punctuation" style="color:#393A34">{</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    json</span><span class="token operator" style="color:#393A34">:</span><span class="token plain"> jsonData  </span><span class="token comment" style="color:#999988;font-style:italic">// Must use json property</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  </span><span class="token punctuation" style="color:#393A34">}</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token punctuation" style="color:#393A34">}</span><br></span></code></pre></div></div>
 </li>
-<li class="">Review any custom message creation code that uses attachments</li>
-<li class="">Update tests that create AttachmentDescriptor instances</li>
+<li class="">
+<p>Review any custom message creation code that uses attachments</p>
+</li>
+<li class="">
+<p>Update tests that create AttachmentDescriptor instances</p>
+</li>
 </ul>
 <h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="feat-updating-didcomm-protocols-closer-to-specification-373">feat!: updating DIDComm protocols closer to specification (#373)<a href="#feat-updating-didcomm-protocols-closer-to-specification-373" class="hash-link" aria-label="Direct link to feat!: updating DIDComm protocols closer to specification (#373)" title="Direct link to feat!: updating DIDComm protocols closer to specification (#373)" translate="no">​</a></h3>
 <p><strong>BREAKING CHANGE:</strong> Removed static factory methods from credential issuance protocols</p>
@@ -216,11 +252,16 @@
 </ul>
 <p><strong>Migration Required:</strong></p>
 <ul>
-<li class="">Replace factory method calls with direct class construction:<!-- -->
+<li class="">
+<p>Replace factory method calls with direct class construction:</p>
 <div class="language-typescript codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-typescript codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token comment" style="color:#999988;font-style:italic">// Before:</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token keyword" style="color:#00009f">const</span><span class="token plain"> offer </span><span class="token operator" style="color:#393A34">=</span><span class="token plain"> OfferCredential</span><span class="token punctuation" style="color:#393A34">.</span><span class="token function" style="color:#d73a49">build</span><span class="token punctuation" style="color:#393A34">(</span><span class="token punctuation" style="color:#393A34">)</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token keyword" style="color:#00009f">const</span><span class="token plain"> issue </span><span class="token operator" style="color:#393A34">=</span><span class="token plain"> IssueCredential</span><span class="token punctuation" style="color:#393A34">.</span><span class="token function" style="color:#d73a49">makeIssueFromRequestCredential</span><span class="token punctuation" style="color:#393A34">(</span><span class="token plain">request</span><span class="token punctuation" style="color:#393A34">)</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token comment" style="color:#999988;font-style:italic">// After:</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token keyword" style="color:#00009f">const</span><span class="token plain"> offer </span><span class="token operator" style="color:#393A34">=</span><span class="token plain"> </span><span class="token keyword" style="color:#00009f">new</span><span class="token plain"> </span><span class="token class-name">OfferCredential</span><span class="token punctuation" style="color:#393A34">(</span><span class="token punctuation" style="color:#393A34">{</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  </span><span class="token comment" style="color:#999988;font-style:italic">// explicitly provide all required fields</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  from</span><span class="token operator" style="color:#393A34">:</span><span class="token plain"> did</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  to</span><span class="token operator" style="color:#393A34">:</span><span class="token plain"> recipientDid</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  body</span><span class="token operator" style="color:#393A34">:</span><span class="token plain"> credentialBody</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  </span><span class="token comment" style="color:#999988;font-style:italic">// ... other required fields</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token punctuation" style="color:#393A34">}</span><span class="token punctuation" style="color:#393A34">)</span><br></span></code></pre></div></div>
 </li>
-<li class="">Update credential issuance flows to explicitly construct protocol messages</li>
-<li class="">Review test files for examples of the new construction patterns</li>
+<li class="">
+<p>Update credential issuance flows to explicitly construct protocol messages</p>
+</li>
+<li class="">
+<p>Review test files for examples of the new construction patterns</p>
+</li>
 </ul>
 <h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="featpollux-plugins-349">feat(Pollux)!: plugins (#349)<a href="#featpollux-plugins-349" class="hash-link" aria-label="Direct link to feat(Pollux)!: plugins (#349)" title="Direct link to feat(Pollux)!: plugins (#349)" translate="no">​</a></h3>
 <p><strong>BREAKING CHANGE:</strong> Complete architectural overhaul - Pollux class removed, plugin system introduced</p>
