@@ -136,7 +136,7 @@ curl --location \
 
 :::info
 
-📖Learn more about PRISM DIDs and why it is necessary to publish specific DIDs [here](https://staging-docs.atalaprism.io/tutorials/dids/publish).
+📖Learn more about PRISM DIDs and why it is necessary to publish specific DIDs [here](/documentation/learn/advanced-explainers/did-prism/).
 
 :::
 

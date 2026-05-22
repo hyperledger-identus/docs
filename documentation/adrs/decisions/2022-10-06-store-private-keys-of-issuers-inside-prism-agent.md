@@ -24,4 +24,4 @@ While Option 3 is simpler to implement then Option 2 and provides basic function
 
 ## Links
 
-- [Recording of the meeting where decision was made](https://drive.google.com/file/d/120YyW2IEpl-F-6kF0V0Fau4bM7BbQ6mT/view?usp=sharing)
+- Recording of the meeting where decision was made (link no longer available)

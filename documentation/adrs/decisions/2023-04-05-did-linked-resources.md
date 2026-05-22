@@ -229,7 +229,7 @@ Looks like the ToIP specification is inspired by Cheqd's ADR.
 
 ### DID URL dereferencing (W3C specification)
 
-The current solution is based on the dereferencing algorithm described in the [DID-Resolution#dereferencing](https://w3c-ccg.github.io/did-resolution/#dereferencing) specification and describes how the DID resolver can dereference the resource linked to the DID. It does not describe where the resource is stored.
+The current solution is based on the dereferencing algorithm described in the [DID-Resolution#dereferencing](https://www.w3.org/TR/did-resolution/#dereferencing) specification and describes how the DID resolver can dereference the resource linked to the DID. It does not describe where the resource is stored.
 
 The main idea is an algorithm that allows using the DID URL and the information about the services in the DID Document that allows DID Resolver to compose the final resource URL and return the requested resource.
 
@@ -475,7 +475,7 @@ Technical details and flows are described in the [AnonCreds](https://hyperledger
 The Trinsic solution is built on top of the Hyperledger Aries platform on the Indy blockchain
 The main benefit is the Trinsic application layer that defines the domain models, entities, REST API and SDK for working with these.
 
-The resource, such as credential schema, is stored on-chain, but the technical complexity and low-level details are hidden under `Template` and [`Template Service`](https://docs.trinsic.id/reference/services/template-service/#template-service)
+The resource, such as credential schema, is stored on-chain, but the technical complexity and low-level details are hidden under `Template` and `Template Service` (see Trinsic developer documentation).
 
 #### Positive & Negative Consequences
 
@@ -726,6 +726,6 @@ The main benefits of option #1 for the Identus platform are the following:
 - [ToIP - DID URL Resource Parameter Specification](https://wiki.trustoverip.org/display/HOME/DID+URL+Resource+Parameter+Specification)
 - [ToPI - DID-Linder Resources Specification](https://wiki.trustoverip.org/display/HOME/DID-Linked+Resources+Specification)
 - [DID-Core#did-parameters](https://www.w3.org/TR/did-core/#did-parameters)
-- [DID-Resolution#dereferencing](https://w3c-ccg.github.io/did-resolution/#dereferencing)
+- [DID-Resolution#dereferencing](https://www.w3.org/TR/did-resolution/#dereferencing)
 - [RootsID AnonCreds Methods](https://github.com/roots-id/cardano-anoncreds/blob/main/cardano-anoncred-methods.md)
 - [RootsID Cardano AnonCreds repo](https://github.com/roots-id/cardano-anoncreds)
