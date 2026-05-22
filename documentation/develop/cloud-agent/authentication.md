@@ -103,21 +103,21 @@ securing modern web applications.
 The Cloud Agent utilizes the following Keycloak features:
 
 - Authentication with JWT Token with a configured flow according to
-  the [ADR](https://staging-docs.atalaprism.io/adrs/adr/20230527-use-keycloak-and-jwt-tokens-for-authentication-and-authorisation-to-facilitate-multitenancy-in-cloud-agent/)
+  the [ADR](/documentation/adrs/decisions/2023-05-27-use-keycloak-and-jwt-tokens-for-authentication-and-authorisation-to-facilitate-multitenancy-in-cloud-agent)
 - Authentication with JWT Token
-  using [token exchange](https://www.keycloak.org/docs/latest/securing_apps/index.html#_token-exchange)
+  using [token exchange](https://www.keycloak.org/securing-apps/token-exchange)
 - Authorization with `roles` claim supporting both Keycloak [RealmRole](https://www.keycloak.org/docs/latest/server_admin/#proc-creating-realm-roles_server_administration_guide) and [ClientRole](https://www.keycloak.org/docs/latest/server_admin/#con-client-roles_server_administration_guide)
 - Authorization with JWT Token and RPT according
   to [authorization services](https://www.keycloak.org/docs/latest/authorization_services/index.html#authorization-services)
   based
   on [UMA 2.0 specification](https://docs.kantarainitiative.org/uma/wg/rec-oauth-uma-grant-2.0.html#:~:text=This%20specification%20defines%20a%20means,a%20resource%20owner%20authorizes%20access.)
-  and [ADR](https://staging-docs.atalaprism.io/adrs/adr/20230926-use-keycloak-authorisation-service-for-managing-wallet-permissions/)
+  and [ADR](/documentation/adrs/decisions/2023-09-26-use-keycloak-authorisation-service-for-managing-wallet-permissions)
 
 When the JWT Token authentication is enabled, it includes protection for all multi-tenant and administrative endpoints of the Cloud Agent.
 Two mechanisms get utilized in JWT authorization:
 
 1. __Role-based authorization__  
-   It implements this [ADR](https://staging-docs.atalaprism.io/adrs/adr/20240103-use-jwt-claims-for-agent-admin-auth/), which can authorize both the administrator and tenant role.
+   It implements this [ADR](/documentation/adrs/decisions/2024-01-03-use-jwt-claims-for-agent-admin-auth), which can authorize both the administrator and tenant role.
    Each role is allowed to operate on different parts of the Agent
    Administrators are permitted to oversee the wallet management, while tenants are allowed to utilize the wallet and engage in SSI interactions.
 

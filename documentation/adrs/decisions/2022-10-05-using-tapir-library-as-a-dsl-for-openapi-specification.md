@@ -25,7 +25,7 @@ Looks like Akka 2.6.x still can be used according to [License FQA](https://www.l
 Currently, we have a code generation for Akka that is wrapped up into ZIO. Code generation mustache templates for ZIO-http are not available in OpenAPI tools.
 
 Mustache templates and code generation doesn't work out of the box, so the original templates where copied to the project and fixed by @Shota and @Pat.
-Current templates and generator contains constraints that were reported by [@Pat](https://docs.google.com/document/d/1WhUtflM_o-5uSx9LW76lycz2kbk071cVZiv6EtVwhAQ/edit#heading=h.ywcvgffenpz) and [@Shota](https://input-output-rnd.slack.com/archives/G018JE9NHAM/p1664563129397819), this requires engineering time to adopt the OAS for a code generation. @Ben says that we can live with these constraints
+Current templates and generator contains constraints that were reported by @Pat and @Shota, this requires engineering time to adopt the OAS for a code generation. @Ben says that we can live with these constraints
 
 Generally, OAS files are written by the engineers with different experience and different view on formatting, schemas, normalization, datatype. For instance, in current templates don't have
 
@@ -218,8 +218,7 @@ Then all the endpoints are translated to Tapir, it will be possible to switch th
 ## Links <!-- optional -->
 
 - [OpenAPI Tools](https://github.com/OpenAPITools/openapi-generator)
-- [Goals of Tapir library](https://tapir.softwaremill.com/en/latest/goals.html)
-- [Tapir](https://tapir.softwaremill.com/en/latest/index.html)
+- [Tapir](https://tapir.softwaremill.com/)
 
 <!--
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mermaid/9.2.1/mermaid.min.js"/>

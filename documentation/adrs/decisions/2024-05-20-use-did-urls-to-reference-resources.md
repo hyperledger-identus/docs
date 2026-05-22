@@ -58,4 +58,4 @@ We leave a list of useful links for context
 
 - [AnonCreds Methods Registry](https://hyperledger.github.io/anoncreds-methods-registry/)
 - [AnonCreds Specification](https://hyperledger.github.io/anoncreds-spec/)
-- [W3C DID resolution algorithm](https://w3c-ccg.github.io/did-resolution/)
+- [W3C DID resolution algorithm](https://www.w3.org/TR/did-resolution/)
