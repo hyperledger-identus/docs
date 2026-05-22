@@ -95,7 +95,7 @@ Identus comprises core libraries that facilitate typical SSI interactions among 
 
 ![Identus component diagram](/img/component-diagram.png)
 
-**Identus component capabilities** 
+**Identus component capabilities**
 
 The Identus ecosystem consists of three core components, each serving distinct functions in the decentralized identity infrastructure:
 
@@ -103,10 +103,9 @@ The Identus ecosystem consists of three core components, each serving distinct f
 
 * **Wallet SDKs** deliver client-side credential management capabilities for mobile and web applications, allowing users to securely store their VCs, create presentations for verification requests, manage cryptographic keys, and handle encrypted DIDComm messaging with other parties.
 
-
 * **The mediator** acts as a message routing proxy, ensuring reliable communication in the decentralized ecosystem. It routes and stores messages between parties, enables offline message delivery for mobile devices, and provides privacy-preserving message forwarding without exposing communication patterns.
 
-For more information, refer to the [Advanced explainers](/category/advanced-explainers). 
+For more information, refer to the [Advanced explainers](/category/advanced-explainers).
 
 **Typical interaction flow**
 
@@ -202,7 +201,7 @@ Tenant management is the process of onboarding, provisioning, and managing entit
 
 Multi-tenancy requires implementation planning to configure the Cloud agent with multi-tenancy enabled. The system supports various authentication methods, including API keys, JWT tokens, and third-party identity providers.
 
-For detailed implementation guidance, refer to the [multi-tenancy tutorials](/cloud-agent/docs/docusaurus/multitenancy/tenant-onboarding). 
+For detailed implementation guidance, refer to the [multi-tenancy tutorials](/cloud-agent/docs/docusaurus/multitenancy/tenant-onboarding).
 
 ## 5. Common use cases {#5-common-use-cases}
 
@@ -382,7 +381,6 @@ IoT devices can hold VCs that prove their identity, security compliance, and ope
 * Trusted communication between devices  
 * Compliance with security and safety standards.
 
-
 **Software and API credentials**  
 Software applications and APIs can use VCs for authentication and access control.
 
@@ -410,7 +408,6 @@ When planning a use case implementation, consider:
 * Change management and adoption strategies  
 * Governance and policy frameworks  
 * Interoperability with other systems.
-
 
 **Business model**
 

@@ -58,6 +58,7 @@ The following aspect must be taken into account for storing the resources in DLT
 Based on the nature of the resource the size limitations must be considered.
 
 For the following resource types and the common use cases 16KB should be enough, so it's possible to store these on DLT:
+
 - credential schema
 - credential definition
 - logo in SVG format
@@ -65,6 +66,7 @@ For the following resource types and the common use cases 16KB should be enough,
 - documentation in the markdown format
 
 For larger resource types IPFS or another option should be considered. Large resource examples:
+
 - media files
 - large documents
 - large revocation status lists
@@ -219,13 +221,11 @@ Looks like the ToIP specification is inspired by Cheqd's ADR.
 - discoverability: URI is replaced with DID URL that allows discovering the resource using Internal and/or Universal resolver
 - trust: the `checksum` is provided, so it is possible to verify that the resource was not modified by 3rd party
 
-
 #### Negative Consequences
 
 - scalability: the DID document should be updated when the new resource is created
 - interoperability: using the Universal Resolver is optional, so either SDK or internal application API must be used to fetch the resource
 - standard: the `linkedResourceMetadata` field is not a standard part of the DID specification, so the application should be aware of how to deal with it
-
 
 ### DID URL dereferencing (W3C specification)
 
@@ -291,6 +291,7 @@ In this case, the DID Method may describe how the path should be resolved and th
 - scalability: the algorithm contains 2 or 3 steps and the DID Document is always must be resolved in the first step
 
 #### Out of the Scope
+
 - trust, longevity, and technology stack are not specified in this solution
 
 ### DID URL Dereferencing (Trust over IP specification - outdated)
@@ -366,8 +367,8 @@ This specification describes many important aspects:
 
 - longevity, and technology stack are not specified in this solution but must be guaranteed by the underlying DLT
 
-
 ### RootsID - Cardano AnonCreds (Implementation of ToIP at the Cardano stack)
+
 RootsID adopted the AnonCreds specification to store the credential schema and credential definition on the Cardano blockchain.
 
 Links to the implementation and the method description are in the #Links section for this ADR
@@ -389,14 +390,13 @@ As the solution is based on the latest ToIP specification, it derives all positi
 - technology stack: the solution is stateless and is much cheaper in terms of the infrastructure cost
 - technology stack: the solution is implemented in Python and TypeScript (mobile platforms can use the same approach as well)
 
-
 #### Negative Consequences
+
 - scalability: the specification is inspired by the Cheqd approach to store the linkedResourceMetadata inside of the DID Document
 - the convention for references and the logic must be carefully reviewed:
   - `schemaId` in this solution is `{didRef}/resources/{cardano_transaction_id}`, so it doesn't refer to the `id` but to the Tx where everything else is stored (it's an interesting idea for a stateless design)
   - resource metadata is built according to the ToIP specification but for AnonCreds entities only: credential schema and credential definition.
 - technology stack: it doesn't fit to current platform, but can be used for inspiration.
-
 
 ### Hyperledger AnonCreds
 
@@ -450,6 +450,7 @@ Example of the credential schema transaction:
 ```
 
 The resource (credential schema) in the current example can be discovered using Indy SDK by the following id:
+
 ```
 Y6LRXGU3ZCpm7yzjVRSaGu:2:BasicIdentity:1.0.0
 ```
@@ -482,7 +483,6 @@ Are similar to the Hyperledger AnonCreds solution
 
 The main benefit of the Trinsic approach to storing resources is a good abstraction layer, documentation, REST API and a variety of supported programming languages in SDKs for dealing with underlying resources.
 
-
 ### Solution #1 (W3C with dynamic resource resolution)
 
 The solution for storing the resources linked to the DID depends on two decisions that are described in the Context and Problem Statement:
@@ -493,6 +493,7 @@ The solution for storing the resources linked to the DID depends on two decision
 Taking into account the advantages and disadvantages of the existing solutions the decision about the solution for the Identus platform might be the following:
 
 -the resource is linked to the DID by convention specified in the W3C specification, so specifying the resource in the DID URL and defining the service endpoint that exposes the resource allows to discover and fetch the resource using the Universal Resolver
+
 - as an option, the same resource can be discovered and fetched by the Identus platform backend and SDK without loading the Universal resolver
 - the resource integrity must be guaranteed by one of the following options:
   - by signing the payload with one of the DID's keys or
@@ -596,7 +597,6 @@ The version is skipped as for resolving the single resource we don't need a `ver
 `f3d39687-69f5-4046-a960-3aae86a0d3ca` - is a unique identifier that is derived from the triple: didRef, id and version.
 
 So, having the following service endpoint definition in the DID Document:
-
 
 ```
 {  
@@ -717,7 +717,6 @@ The main benefits of option #1 for the Identus platform are the following:
 - this solution is scalable and decentralized (anyone can deploy the Identus stack)
 - level of trust can be guaranteed by the underlying VDR and enforced by hashes or signatures of the resource
 
-
 ## Links
 
 - [Our Approach to DID-Linked Resources](https://blog.cheqd.io/our-approach-to-resources-on-ledger-25bf5690c975)
@@ -730,4 +729,3 @@ The main benefits of option #1 for the Identus platform are the following:
 - [DID-Resolution#dereferencing](https://w3c-ccg.github.io/did-resolution/#dereferencing)
 - [RootsID AnonCreds Methods](https://github.com/roots-id/cardano-anoncreds/blob/main/cardano-anoncred-methods.md)
 - [RootsID Cardano AnonCreds repo](https://github.com/roots-id/cardano-anoncreds)
-

@@ -88,6 +88,7 @@ Example JWT payload containing `ClientRole`. (Some claims are omitted for readab
   }
 }
 ```
+
 The claim is available at `resource_access.<client_id>.roles` by default.
 The path to the claim should be configurable by the agent to avoid vendor lock
 and remain agnostic to the IAM configuration.
@@ -132,6 +133,7 @@ For the agent, it needs to support 2 roles:
 - Bad, because roles are at the realm level, making it hard to support some topology
 
 *Note: This option is equally applicable as Option 1, depending on the required topology.*
+
 ### Option 3: Use custom user attribute for defining roles in Keycloak
 
 - Bad, because role abstraction is already provided by Keycloak. Engineering effort is spent to reinvent the same concept

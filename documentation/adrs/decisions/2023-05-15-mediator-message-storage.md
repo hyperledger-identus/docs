@@ -6,6 +6,7 @@
 - Tags: storage, db, message, mongo, postgres, sql
 
 ## Context and Problem Statement
+
 Mediator storage
 Relational databases like PostgreSQL store data in structured tables, with rows and columns that help establish relationships between various tables and entities.
 SQL is used in PostgreSQL to save, retrieve, access, and manipulate the database data.
@@ -28,6 +29,7 @@ MongoDB Atlas. Fully managed MongoDB in the cloud which can reduce the infrastru
 Amazon DocumentDB (with MongoDB compatibility)  [https://aws.amazon.com/documentdb/]
 
 ## Decision Drivers
+
 - DIDCOMM messages are json based
 - flexibility to store the data
 - Reduce serialisation deserilisation of the data
@@ -36,6 +38,7 @@ Amazon DocumentDB (with MongoDB compatibility)  [https://aws.amazon.com/document
 - low maintainance
 
 ## Considered Options
+
 - PostgresSQL (Storing unstructured data (JSON) and quering data (JSON), scalability)
 - MongoDB (Storing unstructured data (JSON) and quering data (JSON), scalability)
 - Kafka Stream (Storing unstructured data (JSON) and quering data (JSON), scalability and streaming)
@@ -69,7 +72,6 @@ MongoDB provides flexibility with json storage and queries
 - Good, because have strong communities and extensive support materials, so you can expect to find help when you encounter issues.
 - Bad, Is not full ACID compliance
 - Bad, Doesn't natively support complex joins like a relational database
-
 
 ## Refrences used
 

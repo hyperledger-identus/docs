@@ -38,6 +38,7 @@ docker pull hyperledgeridentus/identus-neoprism:$NEOPRISM_VERSION
 NeoPRISM supports two database backends configured via the `NPRISM_DB_URL` environment variable:
 
 #### SQLite
+
 ```bash
 # In-memory database (development/testing)
 NPRISM_DB_URL='sqlite::memory:'
@@ -47,6 +48,7 @@ NPRISM_DB_URL='sqlite:/path/to/database.db'
 ```
 
 #### PostgreSQL
+
 ```bash
 # PostgreSQL connection string
 NPRISM_DB_URL='postgresql://username:password@hostname:5432/database_name'
@@ -62,7 +64,6 @@ Set the `NPRISM_CARDANO_NETWORK` environment variable to specify which Cardano n
 - **custom**: Custom network configuration
 
 Ensure that the selected network matches your blockchain data source configuration and the Cloud Agent's intended deployment environment.
-
 
 ### Examples
 
@@ -142,4 +143,3 @@ docker run -p 8080:8080 \
 ```
 
 Replace the placeholder values with your actual Cardano wallet configuration. This mode requires a separately running indexer instance to provide DID resolution capabilities.
-

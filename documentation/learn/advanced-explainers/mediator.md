@@ -19,9 +19,11 @@ The Mediator is an open-source initiative. For more details, you can refer to th
 ## DIDComm V2 Mediator Test Suite
 
 ### Overview
+
 We have rigorously evaluated our Mediator protocols using the [DIDComm V2 Mediator Test Suite](https://github.com/input-output-hk/didcomm-v2-mediator-test-suite/). This test suite scrutinizes the compatibility of mediators with DIDComm V2 protocols, serving as a benchmark for quality and reliability.
 
 ### Protocols Tested
+
 The suite tests a variety of vital protocols, including:
 
 - [Trust Ping 2.0](https://didcomm.org/trust-ping/2.0/)

@@ -19,6 +19,7 @@ it simply provides a functional way to construct programs (and higher-level libr
 doobie is a Typelevel project. 
 This means we embrace pure, typeful, functional programming, and provide a safe and friendly environment for teaching, learning, and contributing as described in the Scala Code of Conduct.
 ```
+
 Doobie is a good choice for DAL, and this ADR is about something other than replacing it.
 
 Writing the SQL statement and mapping the row to the case class is a boilerplate and error-prone activity that the Quill library can optimize.
