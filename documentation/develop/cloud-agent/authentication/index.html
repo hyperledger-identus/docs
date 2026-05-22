@@ -7,8 +7,8 @@
 <link rel="preconnect" href="https://www.googletagmanager.com">
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-BLNS09BXBY"></script>
 <script>function gtag(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],gtag("js",new Date),gtag("config","G-BLNS09BXBY",{anonymize_ip:!0})</script><link rel="stylesheet" href="/docs/assets/css/styles.28e6b695.css">
-<script src="/docs/assets/js/runtime~main.5a6c4283.js" defer="defer"></script>
-<script src="/docs/assets/js/main.1e4d115a.js" defer="defer"></script>
+<script src="/docs/assets/js/runtime~main.2f02f2f9.js" defer="defer"></script>
+<script src="/docs/assets/js/main.cb21332a.js" defer="defer"></script>
 </head>
 <body class="navigation-with-keyboard">
 <svg style="display: none;"><defs>
@@ -77,22 +77,22 @@ securing modern web applications.</p>
 <p>The Cloud Agent utilizes the following Keycloak features:</p>
 <ul>
 <li class="">Authentication with JWT Token with a configured flow according to
-the <a href="https://staging-docs.atalaprism.io/adrs/adr/20230527-use-keycloak-and-jwt-tokens-for-authentication-and-authorisation-to-facilitate-multitenancy-in-cloud-agent/" target="_blank" rel="noopener noreferrer" class="">ADR</a></li>
+the <a class="" href="/docs/documentation/adrs/decisions/2023-05-27-use-keycloak-and-jwt-tokens-for-authentication-and-authorisation-to-facilitate-multitenancy-in-cloud-agent">ADR</a></li>
 <li class="">Authentication with JWT Token
-using <a href="https://www.keycloak.org/docs/latest/securing_apps/index.html#_token-exchange" target="_blank" rel="noopener noreferrer" class="">token exchange</a></li>
+using <a href="https://www.keycloak.org/securing-apps/token-exchange" target="_blank" rel="noopener noreferrer" class="">token exchange</a></li>
 <li class="">Authorization with <code>roles</code> claim supporting both Keycloak <a href="https://www.keycloak.org/docs/latest/server_admin/#proc-creating-realm-roles_server_administration_guide" target="_blank" rel="noopener noreferrer" class="">RealmRole</a> and <a href="https://www.keycloak.org/docs/latest/server_admin/#con-client-roles_server_administration_guide" target="_blank" rel="noopener noreferrer" class="">ClientRole</a></li>
 <li class="">Authorization with JWT Token and RPT according
 to <a href="https://www.keycloak.org/docs/latest/authorization_services/index.html#authorization-services" target="_blank" rel="noopener noreferrer" class="">authorization services</a>
 based
 on <a href="https://docs.kantarainitiative.org/uma/wg/rec-oauth-uma-grant-2.0.html#:~:text=This%20specification%20defines%20a%20means,a%20resource%20owner%20authorizes%20access." target="_blank" rel="noopener noreferrer" class="">UMA 2.0 specification</a>
-and <a href="https://staging-docs.atalaprism.io/adrs/adr/20230926-use-keycloak-authorisation-service-for-managing-wallet-permissions/" target="_blank" rel="noopener noreferrer" class="">ADR</a></li>
+and <a class="" href="/docs/documentation/adrs/decisions/2023-09-26-use-keycloak-authorisation-service-for-managing-wallet-permissions">ADR</a></li>
 </ul>
 <p>When the JWT Token authentication is enabled, it includes protection for all multi-tenant and administrative endpoints of the Cloud Agent.
 Two mechanisms get utilized in JWT authorization:</p>
 <ol>
 <li class="">
 <p><strong>Role-based authorization</strong><br>
-<!-- -->It implements this <a href="https://staging-docs.atalaprism.io/adrs/adr/20240103-use-jwt-claims-for-agent-admin-auth/" target="_blank" rel="noopener noreferrer" class="">ADR</a>, which can authorize both the administrator and tenant role.
+<!-- -->It implements this <a class="" href="/docs/documentation/adrs/decisions/2024-01-03-use-jwt-claims-for-agent-admin-auth">ADR</a>, which can authorize both the administrator and tenant role.
 Each role is allowed to operate on different parts of the Agent
 Administrators are permitted to oversee the wallet management, while tenants are allowed to utilize the wallet and engage in SSI interactions.</p>
 </li>
