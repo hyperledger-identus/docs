@@ -1,0 +1,52 @@
+# markdownlint configuration
+# https://github.com/DavidAnson/markdownlint/blob/main/doc/Rules.md
+
+default: true
+
+# Allow long lines (common in tables, URLs, and generated content)
+MD013: false
+
+# Allow multiple top-level headings (common in multi-section docs)
+MD025: false
+
+# Allow inline HTML (needed for badges, details/summary, admonitions)
+MD033: false
+
+# Allow duplicate headings in different sections
+MD024: false
+
+# Allow emphasis as heading
+MD036: false
+
+# Allow bare URLs
+MD034: false
+
+# Allow non-sequential list numbering
+MD029: false
+
+# Allow any strong style
+MD050: false
+
+# Relaxed list indentation
+MD007: false
+
+# Allow any list style
+MD004: false
+
+# Allow heading increment jumps
+MD001: false
+
+# Allow compact table style
+MD060: false
+
+# Allow first line to not be heading
+MD041: false
+
+# Allow dollar signs before commands
+MD014: false
+
+# Allow non-descriptive link text
+MD059: false
+
+# Allow code blocks without language
+MD040: false
