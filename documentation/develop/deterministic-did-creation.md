@@ -8,7 +8,7 @@ import TabItem from '@theme/TabItem';
 
 # Deterministic PRISM DID Creation
 
-This guide documents deterministic PRISM DID creation from a mnemonic phrase, based on the [Deterministic PRISM DID Generation Proposal](https://github.com/input-output-hk/prism-did-method-spec/blob/main/extensions/deterministic-prism-did-generation-proposal.md) and the existing [HD key derivation ADR](/adrs/decisions/2023-05-16-hierarchical-deterministic-key-generation-algorithm).
+This guide documents deterministic PRISM DID creation from a mnemonic phrase, based on the [Deterministic PRISM DID Generation Proposal](https://github.com/input-output-hk/prism-did-method-spec/blob/main/extensions/deterministic-prism-did-generation-proposal.md) and the existing [HD key derivation ADR](/documentation/adrs/decisions/2023-05-16-hierarchical-deterministic-key-generation-algorithm).
 
 ## Why deterministic DID creation
 
@@ -139,5 +139,5 @@ val did = CastorShared.createPrismDID(
 ## References
 
 - [Deterministic PRISM DID Generation Proposal](https://github.com/input-output-hk/prism-did-method-spec/blob/main/extensions/deterministic-prism-did-generation-proposal.md)
-- [Hierarchical deterministic key generation algorithm ADR](/adrs/decisions/2023-05-16-hierarchical-deterministic-key-generation-algorithm)
+- [Hierarchical deterministic key generation algorithm ADR](/documentation/adrs/decisions/2023-05-16-hierarchical-deterministic-key-generation-algorithm)
 - [Cloud Agent DID management](/documentation/develop/cloud-agent/did-management)
