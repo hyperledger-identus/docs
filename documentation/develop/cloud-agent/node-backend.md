@@ -110,6 +110,7 @@ Migrating from PRISM Node to NeoPRISM is seamless and requires no code changes. 
 1. **Deploy NeoPRISM:** Ensure NeoPRISM is deployed and running in standalone mode with all prerequisites configured.
 
 2. **Update Environment Variables:** Change the `NODE_BACKEND` variable to `neoprism` and set the `NEOPRISM_BASE_URL`:
+
    ```bash
    NODE_BACKEND=neoprism
    NEOPRISM_BASE_URL=http://your-neoprism-host:8080

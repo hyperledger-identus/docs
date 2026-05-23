@@ -1,6 +1,10 @@
 {
   "recurse": true,
-  "concurrency": 16,
+  "concurrency": 8,
+  "retry": true,
+  "retryErrors": true,
+  "retryErrorsCount": 3,
+  "retryErrorsJitter": 3000,
   "format": "JSON",
   "verbosity": "error",
   "skip": [
@@ -12,6 +16,11 @@
     "https://didcomm.org/*",
     "http://localhost*",
     "https://host.docker.internal*",
-    "https://identity.foundation/*"
+    "https://identity.foundation/*",
+    "https://www.w3.org/TR/*",
+    "https://mvnrepository.com/*",
+    "https://blog.cheqd.io/*",
+    "https://medium.com/*",
+    "https://w3c-ccg.github.io/did-resolution/*"
   ]
 }

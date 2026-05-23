@@ -86,6 +86,7 @@ The Cloud Agent supports multiple VDR drivers for different use cases:
 For all VDR environment variables, see the [Environment Variables](./environment-variables.md) documentation.
 
 **Choosing a driver**:
+
 - **Development/Testing**: Use `memory` or `database` drivers for fast iteration without blockchain overhead
 - **Blockchain-backed storage (recommended)**: Use `neoprism` driver with NeoPRISM for modern REST-based integration
 - **Blockchain-backed storage (legacy)**: Use `prism-node` driver for existing PRISM Node deployments
@@ -98,6 +99,7 @@ For all VDR environment variables, see the [Environment Variables](./environment
 The NeoPrism driver stores VDR entries on the Cardano blockchain through a [NeoPRISM](/documentation/learn/advanced-explainers/neoprism/) instance. This is the **recommended** blockchain-backed VDR driver for new deployments, offering a modern REST API, lightweight resource usage, and full VDR lifecycle management.
 
 The Cloud Agent communicates with NeoPRISM via HTTP to:
+
 - Submit signed VDR operations (create, update, deactivate) to the Cardano blockchain
 - Resolve VDR entry data and metadata
 - Query operation status
@@ -192,12 +194,14 @@ VDR_DEFAULT_KEY_ID=vdr-1
 The PRISM driver stores data on the Cardano blockchain, providing decentralized, permanent, and verifiable storage. Unlike the in-memory and database drivers which store data locally for testing, the PRISM driver offers blockchain-backed guarantees suitable for deployments requiring blockchain permanence.
 
 **Key capabilities**:
+
 - Data stored on Cardano blockchain, not controlled by any single entity
 - Permanent, immutable storage that persists beyond agent lifecycle
 - Publicly verifiable by anyone with blockchain access
 - Designed for scenarios requiring blockchain auditability
 
 **Best suited for**:
+
 - Deployments requiring public, decentralized verification
 - Credential status lists that must remain accessible indefinitely
 - Use cases with regulatory requirements for tamper-proof storage
@@ -239,6 +243,7 @@ Configure the PRISM driver using these environment variables:
 | `VDR_PRISM_DRIVER_PRIVATE_NETWORK_PROTOCOL_MAGIC` | Option B | Protocol magic number for private network | `42` |
 
 **⚠️ Network Configuration**: You MUST configure exactly ONE network option:
+
 - **Option A** (Public Blockfrost): Set `VDR_PRISM_DRIVER_BLOCKFROST_API_KEY` only
 - **Option B** (Private Network): Set both `VDR_PRISM_DRIVER_PRIVATE_NETWORK_URL` and `VDR_PRISM_DRIVER_PRIVATE_NETWORK_PROTOCOL_MAGIC`
 
@@ -319,6 +324,7 @@ The underlying [PRISM VDR driver library](https://github.com/hyperledger-identus
 | PRISMDriverMongoDBWithIndexer | MongoDB + indexing | ❌ Not available | ✅ Available |
 
 All implementations share the same protocol parameters:
+
 - **Driver Family**: `PRISM`
 - **Driver Version**: `1.0`
 

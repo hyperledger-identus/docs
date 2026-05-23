@@ -1,0 +1,46 @@
+---
+extends: default
+
+rules:
+  # Allow long lines (common in CI workflows and docker-compose)
+  line-length: disable
+
+  # Allow truthy values like 'on' (used in GitHub Actions triggers)
+  truthy:
+    allowed-values: ["true", "false", "yes", "no", "on"]
+
+  # Relaxed comment indentation
+  comments-indentation: disable
+
+  # Don't require document start marker
+  document-start: disable
+
+  # Relaxed bracket/brace spacing
+  brackets:
+    min-spaces-inside: 0
+    max-spaces-inside: 1
+  braces:
+    min-spaces-inside: 0
+    max-spaces-inside: 1
+
+  # Allow 1 space before comment
+  comments:
+    min-spaces-from-content: 1
+
+  # Relaxed indentation (semantic-release uses flow style)
+  indentation:
+    spaces: consistent
+    indent-sequences: whatever
+
+  # Relaxed commas
+  commas:
+    min-spaces-after: 1
+    max-spaces-after: -1
+    max-spaces-before: -1
+
+ignore: |
+  cloud-agent/
+  sdk-ts/
+  node_modules/
+  .claude/
+  .releaserc.yml

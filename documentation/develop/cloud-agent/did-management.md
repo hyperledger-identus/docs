@@ -21,4 +21,5 @@ PRISM DID management involves deriving key materials from a seed and derivation 
 The Cloud Agent itself does not store the wallet seed. However, the infrastructure hosting the Cloud Agent may choose to keep it based on operation requirements and security considerations.
 
 ### Peer DID
+
 The Cloud Agent securely stores the key materials of peer DIDs using secret storage.

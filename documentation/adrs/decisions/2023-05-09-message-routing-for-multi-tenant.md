@@ -6,6 +6,7 @@
 - Tags: multi-tenant, routing, message
 
 ## Context and Problem Statement
+
 The Cloud Agent in multi-tenancy is still a single agent running, however, some of the resources are now shared between the tenants of the agent.
 Each tenant has their own keys, with their own DIDs, connections. Transports and most of the settings are still shared between agents.
 All the API endpoints are same from outside

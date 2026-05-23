@@ -103,7 +103,6 @@ Cons:
 * Quite an expensive Cloud solution
 * New for us, some learning curve is expected
 
-
 ### Gatling
 
 Strengths:
@@ -135,7 +134,6 @@ Cons:
 * No native CI/CD integration
 * Supports a lot less of output formats than K6
 * Distributed load generation is very complex, not natively integrated
-
 
 ### Locust
 
