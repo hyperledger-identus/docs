@@ -5,6 +5,7 @@ description: Completion overview of the Project Catalyst–funded Verifiable Dat
 ---
 
 # Verifiable Data Registry (VDR) for Identus on Cardano  
+
 **Project Catalyst – Project Completion Overview**
 
 This document summarizes the completion of the **Project Catalyst initiative** to design and deliver a **Verifiable Data Registry (VDR)** framework for **Identus on Cardano**.
@@ -24,6 +25,7 @@ It enables data to be:
 - Stored across different backends (blockchain, database, files)
 
 In Identus, VDRs are used for:
+
 - DID documents and operations
 - Credential schemas and definitions
 - Trust and identity metadata anchored on Cardano
@@ -37,6 +39,7 @@ This project establishes VDRs as a **generic, reusable abstraction**, not tied t
 ### 1. Generic VDR Specification
 
 A technology-agnostic specification defining:
+
 - VDR interfaces and responsibilities
 - Driver families and versions
 - URL-based resolution model
@@ -46,6 +49,7 @@ A technology-agnostic specification defining:
 This specification allows **any storage backend** to implement a VDR consistently.
 
 **Links**
+
 - Repository & specification:  
   https://github.com/hyperledger-identus/vdr
 
@@ -54,11 +58,13 @@ This specification allows **any storage backend** to implement a VDR consistentl
 ### 2. Cardano / PRISM VDR Specification
 
 A Cardano-specific VDR protocol describing:
+
 - How verifiable data is anchored in Cardano transactions
 - Metadata encoding and verification rules
 - Compatibility with DID PRISM and Identus architecture
 
 **Links**
+
 - Specification:  
   https://github.com/hyperledger-identus/prism-vdr-driver/blob/main/prism-vdr-specification.md
 - Repository:  
@@ -69,11 +75,13 @@ A Cardano-specific VDR protocol describing:
 ### 3. Generic VDR Driver (Kotlin)
 
 A reference implementation of the generic VDR specification:
+
 - Implemented in Kotlin
 - Demonstrates how to build VDR drivers
 - Used for validation, testing, and non-ledger backends
 
 **Links**
+
 - Implementation:  
   https://github.com/hyperledger-identus/vdr/tree/main/src
 
@@ -84,22 +92,26 @@ A reference implementation of the generic VDR specification:
 To prove real-world applicability, multiple independent PRISM VDR drivers were implemented.
 
 #### Scala PRISM VDR Driver
+
 - Uses the Blockfrost API
 - Supports file-based and MongoDB indexing
 - Published as reusable artifacts
 
 **Links**
+
 - https://github.com/hyperledger-identus/prism-vdr-driver
 
 ---
 
 #### NeoPrism VDR Driver (Rust)
+
 - Rust-based Cardano indexing and resolution service
 - Pluggable input feeds (Blockfrost, DBSync, custom)
 - REST API for VDR resolution
 - W3C-compliant DID resolution
 
 **Links**
+
 - https://github.com/hyperledger-identus/neoprism
 
 ---
@@ -107,11 +119,13 @@ To prove real-world applicability, multiple independent PRISM VDR drivers were i
 #### Prism-Node + Cloud-Agent Integration
 
 The production Identus stack:
+
 - `prism-node` performs Cardano ledger operations
 - `cloud-agent` exposes REST and DIDComm APIs
 - Together they provide a complete Cardano-backed VDR service
 
 **Links**
+
 - Prism Node:  
   https://github.com/hyperledger-identus/prism-node
 - Cloud Agent:  
@@ -122,6 +136,7 @@ The production Identus stack:
 ## Public Demonstration
 
 A full end-to-end demonstration was recorded and published, showing:
+
 - VDR architecture in practice
 - Multiple driver implementations
 - Cardano-anchored publishing and resolution flows

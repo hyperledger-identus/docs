@@ -118,7 +118,6 @@ Moreover, for the SaaS application to manage thousands of organizations and mill
 - Logical Separation - PostgreSQL RSP allows to separate of the tenant data at the database level end and enforces the ACL using the policies
 - The Complexity of the Implementation - this option can be implemented on top of the current codebase without significant refactoring of the codebase and additional work for infrastructure engineers.
 
-
 ### Negative Consequences
 
 - Physical Separation - is not covered by this option
@@ -153,7 +152,6 @@ For each Wallet abstraction, the tenant must have the table or the schema with t
 - Bad, because the migration time and maintenance complexity is going to grow with the number of tenants
 - Bad, because `noisy neighbors` issue might occur when some tenant is actively using the Wallet and occupies the resources
 
-
 ### Database per Tenant and Instance per Tenant
 
 In this option, the data are physically isolated by using the database or the server instance per tenant.
@@ -172,6 +170,7 @@ Current options must be applied for SaaS solutions with a high number of tenants
 Both options serve the same goal - horizontal scaling of the instances of PostgreSQL
 
 The main advantages of Citus:
+
 - fits for on-premise deployments
 - provides additional monitoring and statistics to manage the tenants
 - routing to the shard is managed by Citus using the `hash` of the table index (compared to AWS sharding option, the routing is done at the application layer and the system table contains the information about the mapping of the tenant to the instance of the database)

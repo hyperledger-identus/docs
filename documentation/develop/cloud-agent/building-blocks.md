@@ -18,6 +18,7 @@ Cryptography|A set of cryptographic primitives that ensure the integrity, authen
 [DIDComm](/home/concepts/glossary#didcomm) V2|A set of secure, standards-based communications protocols to establish and manage trusted, peer-to-peer connections and interactions between DIDs in a transport-agnostic and interoperable manner.|Mercury
 
 ## Apollo - Cryptography Module
+
 Apollo is one of the building blocks of Identus. It is a suite of cryptographic primitives ensuring data security during storage and handling. Cryptographic primitives are mathematical algorithms and protocols that form the foundation for secure communication and data protection.
 
 The primary purpose of Apollo is to provide data integrity, authenticity, and confidentiality, which are essential components of secure information systems. Apollo ensures that tampering, unauthorized access, and other security threats do not compromise the protection of user data, giving users confidence in its security.

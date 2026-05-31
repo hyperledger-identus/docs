@@ -17,7 +17,7 @@ export function extractMarkdownTitleInfo(content: string): { title?: string, sid
     const customTitleMatch = content.match(/<!--\s*title:\s*(.+?)\s*-->/i);
     const customSidebarLabelMatch = content.match(/<!--\s*sidebar_label:\s*(.+?)\s*-->/i);
     const customSidebarPositionMatch = content.match(/<!--\s*sidebar_position:\s*(\d+(\.\d+)?)\s*-->/i);
-    
+
     let title = customTitleMatch?.[1]?.trim();
 
     if (!title) {
@@ -26,7 +26,7 @@ export function extractMarkdownTitleInfo(content: string): { title?: string, sid
             title = h1Match[1].trim();
         }
     }
-    
+
     if (title) {
         title = title.replace(/^(?:Class|Interface|Type\s+alias|Variable|Function|Namespace|Enum|Enumeration):\s+/i, '');
         title = title.replace(/\\([^a-zA-Z0-9])/g, '$1');
@@ -49,7 +49,7 @@ function getTitleFromMd(filePath: string, fallback: string): string {
         const info = extractMarkdownTitleInfo(content);
         if (info.sidebar_label) return info.sidebar_label;
         if (info.title) return info.title;
-        
+
         return fallback;
     } catch {
         return fallback;
@@ -95,7 +95,7 @@ export function getSidebarItemsForDir(dirPath: string): SidebarItemConfig[] {
                     try {
                         catProps = JSON.parse(fs.readFileSync(categoryJsonPath, 'utf8'));
                     } catch (e) {
-                         console.warn(`Warning: Failed to parse ${categoryJsonPath}:`, e);
+                        console.warn(`Warning: Failed to parse ${categoryJsonPath}:`, e);
                     }
                 }
 
@@ -142,7 +142,7 @@ export function getSidebarItemsForDir(dirPath: string): SidebarItemConfig[] {
                 if (categoryLink && categoryLink.type === 'doc' && categoryLink.id !== `${childPath}/${indexName}`) {
                     const customDocMd = `${dirPath}/${dirent.name}/${categoryLink.id.split('/').pop()}.md`;
                     const customDocMdx = `${customDocMd}x`;
-                    fallbackLabel = fs.existsSync(customDocMdx) ? getTitleFromMd(customDocMdx, baseLabel) : 
+                    fallbackLabel = fs.existsSync(customDocMdx) ? getTitleFromMd(customDocMdx, baseLabel) :
                                     (fs.existsSync(customDocMd) ? getTitleFromMd(customDocMd, baseLabel) : baseLabel);
                 } else {
                     const actualIndexPath = fs.existsSync(indexPathMdx) ? indexPathMdx : indexPath;
@@ -173,8 +173,8 @@ export function getSidebarItemsForDir(dirPath: string): SidebarItemConfig[] {
                     ...(catProps.collapsible !== undefined && { collapsible: catProps.collapsible }),
                     ...(catProps.className && { className: catProps.className }),
                     customProps: {
-                         ...catProps.customProps,
-                         ...(typeof catProps.position === 'number' && { position: catProps.position })
+                        ...catProps.customProps,
+                        ...(typeof catProps.position === 'number' && { position: catProps.position })
                     },
                     ...(categoryLink && { link: categoryLink }),
                     items: finalChildItems

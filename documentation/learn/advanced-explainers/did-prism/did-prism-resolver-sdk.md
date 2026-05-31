@@ -8,10 +8,11 @@ The DID resolver URL should be set in the SDK configuration to point to the appr
 
 ## SDK-TS
 
-The SDK-TS provides a way to resolve PRISM DIDs and retrieve their associated DID Documents. 
+The SDK-TS provides a way to resolve PRISM DIDs and retrieve their associated DID Documents.
 The resolver that can be configured with the corresponding URL is the [PrismShortFormDIDResolver](https://github.com/hyperledger-identus/sdk-ts/blob/main/integration-tests/e2e-tests/src/resolvers/PrismShortFormDIDResolver.ts).
 
 ## SDK-Swift
+
 The SDK-Swift provides a way to resolve PRISM DIDs and retrieve their associated DID Documents.
 The resolver that can be configured with the corresponding URL is the [PrismShortFormResolver](https://github.com/hyperledger-identus/sdk-swift/blob/main/E2E/Tests/Source/Resolvers/PrismShortFormResolver.swift)
 

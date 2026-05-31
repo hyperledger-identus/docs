@@ -15,7 +15,6 @@ The specification recommends a minimum size of 16 KB for the status list include
 However, it does not delineate a maximum size, nor does it provide guidance on how to proceed if the selected status list surpasses its capacity to store information about revoked credentials.
 Put differently, if more credentials are issued than can be accommodated by a 16 KB status list, no specific instructions are provided.
 
-
 ## Decision Drivers
 
 We must determine a strategy for expanding the revocation status list to accommodate the increasing number of revoked credentials in the future.
@@ -28,9 +27,7 @@ In the future, there might be a need to reorganize the state and possibly move s
 
 Absolutely, it's crucial to avoid overengineering the solution. This ensures that the code remains manageable and easy to maintain in the long run.
 
-
 ## Considered Options
-
 
 Option 1: Increment status list size as we approach its limit:
 
@@ -45,11 +42,10 @@ With this approach, we'll generate and store multiple status list credentials.
 It will be crucial to ensure that each credential is linked to a specific status list, allowing us to track where the revocation information is stored.
 If we stick with the smallest recommended status list size, one revocation status list can hold information about 131,072 revocable credentials.
 
-
 ## Pros and Cons of the Options
 
-
 #### Option 1
+
 Option 1 offers the primary advantage of being straightforward to implement.
 It is also important to note that Option 2 isn't significantly more challenging to implement, so we shouldn't overly prioritize this consideration.
 
@@ -68,16 +64,13 @@ Initially, both options face the same issue with a small anonymity set due to th
 As the number of VCs increases, Option 1 maintains a continuously growing anonymity set.
 However, in Option 2, when the issuer reaches the 16KB limit and creates a new list, there will be a period where the new list has only a few VCs, resulting in a smaller anonymity set for VCs in the second list.
 
-
 Option 2 however, has a big advantage considering upcoming need for AnonCreds revocation.
 AnonCreds doesn't allow for expanding the status list size once defined during revocation registry creation.
 Pushing back Option 2 for AnonCreds and starting with an initial capacity of 1 million credentials may not be efficient.
 The size of the attached TAILS FILE grows rapidly with capacity (e.g., 8.4MB for 32,768 VCs!).
 This file needs to be resolved/downloaded by the holder during the issuance process.
 
-
 ## Decision Outcome
 
 Given that the implementation of Option 2 is not significantly more complicated than Option 1, and considering that JWT credentials, specifically statusList2021, are not inherently private, we have decided to proceed with Option 2.
 This choice is more future-proof, especially in light of the anticipated need to implement AnonCreds revocation in the future.
-

@@ -1,9 +1,11 @@
 # Troubleshooting & Considerations
 
 ## Docker Logging Management Considerations
+
 When setting up a long-running environment using Docker Compose, it’s important to consider several factors to avoid issues such as excessive log file sizes leading to out-of-memory errors.
 
 ### Configuring Docker Compose for Effective Log Management
+
 To ensure your Docker containers run smoothly and avoid problems related to excessive log file growth, configure log rotation in your docker-compose.yml file. This will help manage log file sizes and prevent out-of-memory errors caused by uncontrolled log growth.
 
 ### Log Rotation Example
@@ -52,6 +54,7 @@ We should consider configuring the logging Options in the **Docker Daemon**. For
   }
 }
 ```
+
 3. Restart the Docker daemon to apply the new settings:
 
 ```shell
