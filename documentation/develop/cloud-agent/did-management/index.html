@@ -7,8 +7,8 @@
 <link rel="preconnect" href="https://www.googletagmanager.com">
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-BLNS09BXBY"></script>
 <script>function gtag(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],gtag("js",new Date),gtag("config","G-BLNS09BXBY",{anonymize_ip:!0})</script><link rel="stylesheet" href="/docs/assets/css/styles.28e6b695.css">
-<script src="/docs/assets/js/runtime~main.2f02f2f9.js" defer="defer"></script>
-<script src="/docs/assets/js/main.e81bd831.js" defer="defer"></script>
+<script src="/docs/assets/js/runtime~main.ca5e28c9.js" defer="defer"></script>
+<script src="/docs/assets/js/main.330c8593.js" defer="defer"></script>
 </head>
 <body class="navigation-with-keyboard">
 <svg style="display: none;"><defs>
@@ -18,6 +18,7 @@
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="managed-prism-did">Managed PRISM DID<a href="#managed-prism-did" class="hash-link" aria-label="Direct link to Managed PRISM DID" title="Direct link to Managed PRISM DID" translate="no">​</a></h2>
 <p>The <a class="" href="/docs/documentation/learn/glossary#cloud-agent">Cloud Agent</a> simplifies identity management by effectively handling PRISM <a class="" href="/docs/documentation/learn/glossary#decentralized-identifier">DIDs</a> for users. Relying on a Cloud Agent-managed DID, users entrust the Cloud Agent with tasks such as creating, updating, storing, and using the PRISM DID.</p>
 <p>The Cloud Agent employs hierarchical deterministic key derivation to manage the keys of the PRISM DID. The Cloud Agent calculates and stores the derivation path whenever an activity involves new key information, such as creating a new DID or adding a new key. It internally tracks the DID counter and key counter to increment the derivation path accordingly. Details about the Cloud Agent constructs key material from the seed are on the HD-key derivation decision record.</p>
+<p>For mnemonic-based deterministic PRISM DID creation, including derivation path details and test vectors, see <a class="" href="/docs/documentation/develop/deterministic-did-creation">Deterministic PRISM DID Creation</a>.</p>
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="managed-peer-did">Managed Peer DID<a href="#managed-peer-did" class="hash-link" aria-label="Direct link to Managed Peer DID" title="Direct link to Managed Peer DID" translate="no">​</a></h2>
 <p>The Cloud Agent also manages <a class="" href="/docs/documentation/learn/glossary#peer-did">Peer DIDs</a> for <a class="" href="/docs/documentation/learn/glossary#didcomm">DIDComm</a> activities. The Key materials for Peer DIDs are randomly generated and stored securely in <a class="" href="/docs/documentation/learn/glossary#secrets-storage">secret storage</a>, allowing control of the Peer DID.</p>
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="storing-key-material">Storing key material<a href="#storing-key-material" class="hash-link" aria-label="Direct link to Storing key material" title="Direct link to Storing key material" translate="no">​</a></h2>
