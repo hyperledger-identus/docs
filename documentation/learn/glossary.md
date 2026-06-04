@@ -13,6 +13,10 @@ The act of anchoring is tying to something that is trusted by assumption. Usuall
 
 ### Administrator
 
+### AnonCreds
+
+[AnonCreds](https://hyperledger.github.io/anoncreds-spec/) (Anonymous Credentials) is a verifiable credential format that offers privacy-preserving features like selective disclosure and zero-knowledge proofs.
+
 An administrator is a role who oversees the agent and releated resources, including tenant, Edge Agent management, or external services. Admistrator typically does not participate in day-to-day SSI interactions.
 
 ## C
@@ -179,6 +183,20 @@ An entity that asserts claim(s) about one or more [subjects](#did-subject) then 
 
 Allows you to create, retrieve, and manage issued [verifiable credentials (VCs)](#verifiable-credential) between a VC issuer and a VC holder.
 
+## J
+
+### JSON-LD
+
+[JSON-LD](https://json-ld.org/spec/FCGS/json-ld/20130328/) (JSON for Linking Data) is a method of encoding Linked Data using JSON.
+
+### JWT
+
+[JWT](https://datatracker.ietf.org/doc/html/rfc7519) (JSON Web Token) is a compact, URL-safe means of representing claims to be transferred between two parties.
+
+### JWT-VC
+
+[JWT-VC](https://identity.foundation/jwt-vc-presentation-profile/) (JSON Web Token for Verifiable Credentials, also known as VC-JWT) is a verifiable credential encoded as a JSON Web Token.
+
 ## K
 
 ### Keycloak Service
@@ -201,6 +219,10 @@ Multi-tenancy is a core capability of the Identus platform, allowing it to serve
 This segregation maintains data privacy and security, enhancing scalability and resource sharing within the SSI ecosystem.
 
 ## O
+
+### OID4VC
+
+[OID4VC](https://openid.net/sg/openid4vc/) (OpenID for Verifiable Credentials) is an overarching framework and suite of specifications defining how to use OpenID Connect for issuing and presenting verifiable credentials.
 
 ### OIDC
 
@@ -322,6 +344,14 @@ User-Managed Access (UMA) is an authorization framework that allows users to con
 
 HashiCorp Vault is a widely used open-source and enterprise-grade solution designed for securely storing, accessing, and managing secrets and sensitive data in modern computing environments.
 It offers a centralized platform for managing cryptographic keys, passwords, API keys, tokens, and other secrets.
+
+### VCDM 1.1
+
+[VCDM 1.1](https://www.w3.org/TR/vc-data-model/) (W3C Verifiable Credentials Data Model v1.1) is a standard data model specification for verifiable credentials.
+
+### VCDM 2.0
+
+[VCDM 2.0](https://www.w3.org/TR/vc-data-model-2.0/) (W3C Verifiable Credentials Data Model v2.0) is the updated standard data model specification for verifiable credentials, succeeding VCDM 1.1.
 
 ### Verifiable Credential (VC) {#verifiable-credential}
 
