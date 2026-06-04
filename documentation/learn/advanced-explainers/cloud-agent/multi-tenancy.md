@@ -41,26 +41,31 @@ An entity represents a user or any other identity within the Identus platform. E
 Each entity is associated with an Authentication Method, which serves as a secure means of verifying the identity and access rights of the entity. This method ensures the entity's identity is authenticated during interactions with the platform, enhancing security.
 
 ### Logical Isolation
+
 Logical Isolation is a core principle of Identus' multi-tenancy model. It ensures that one entity's digital assets, transactions, and data are logically separated from others, maintaining the highest data privacy and security level.
 
 ### Shared Wallets
+
 Identus' multi-tenancy capabilities allow for the sharing of wallets among multiple entities. This feature facilitates collaborative work and resource sharing while preserving data isolation within the shared wallet. The entity can own only one wallet. Sharing it with other entities is possible, but multiple entities cannot own it.
 
 ### Tenant Management
+
 Tenant Management is the process of onboarding, provisioning, and managing entities and wallets within the Identus platform. Administrators can configure each entity's permissions, resources, and access control, ensuring efficient and secure multi-tenancy operations.
 
 ### DIDComm Connections
+
 DIDComm Connections are the secure communication channels between peers within the SSI ecosystem. Identus' multi-tenancy model ensures that the connections of one entity are logically isolated from those of other entities, preserving data privacy and security. Based on the DID-Peer of the message recipient, the corresponding wallet processes the message.
 
 ### Webhook Notifications
+
 Webhook notifications enable users to receive alerts for specific events in the system. There are two types of webhook notifications:
+
 - Global webhooks: monitor all events across all wallets at the Cloud Agent level
 - Wallet webhooks: isolated to individual wallets and do not have visibility into assets in other wallets.
 
 ## Relation Diagram
 
 The following diagram illustrates the relationship between the key components of Identus' multi-tenancy model.
-
 
 ```mermaid
 graph TB;

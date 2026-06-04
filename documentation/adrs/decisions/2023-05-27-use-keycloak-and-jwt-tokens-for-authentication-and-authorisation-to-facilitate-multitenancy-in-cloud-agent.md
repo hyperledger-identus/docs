@@ -135,4 +135,3 @@ Chosen option: "Keycloak with JWT tokens (without digital signatures)", because 
 - [Information on OAuth 2.0 Token Binding - DPoP](https://tools.ietf.org/id/draft-ietf-oauth-dpop-03.html)
 - [Decentralized Identifiers (DIDs) documentation](https://www.w3.org/TR/did-core/)
 - [JWT vs Opaque Tokens](https://zitadel.com/blog/jwt-vs-opaque-tokens)
-

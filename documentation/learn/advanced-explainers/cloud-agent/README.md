@@ -1,6 +1,6 @@
 # Overview
 
-The [Cloud Agent](/home/concepts/glossary#cloud-agent) is a scaleable, easy-to-use, robust, and W3C standards-based agent that provides [self-sovereign identity (SSI)](/home/concepts/glossary#self-sovereign-identity) services to build products and solutions based on it. 
+The [Cloud Agent](/home/concepts/glossary#cloud-agent) is a scaleable, easy-to-use, robust, and W3C standards-based agent that provides [self-sovereign identity (SSI)](/home/concepts/glossary#self-sovereign-identity) services to build products and solutions based on it.
 The Cloud Agent exposes REST API for integration with any programming language.
 
 The Cloud Agent provides all the required capabilities to leverage the power of decentralized identity through the support of W3C standards, [DIDComm](/home/concepts/glossary#didcomm), and the Hyperledger Aries protocols, solutions based on the Cloud Agent are interoperable with the SSI ecosystem.
@@ -15,7 +15,7 @@ The Cloud Agent includes the following high-level features:
 
 ## Cloud Agent Features
 
-This document provides an overview of the Cloud Agent feature set. 
+This document provides an overview of the Cloud Agent feature set.
 This document is manually updated; as such, it may not be up to date with the most recent release of Cloud Agent.
 
 ## Platform Support

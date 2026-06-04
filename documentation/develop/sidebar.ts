@@ -33,6 +33,7 @@ const sidebar: SidebarsConfig[keyof SidebarsConfig] = [
                     id: CloudAgentPath('index')
                 },
                 items: [
+                    LocalDocs('develop/deterministic-did-creation'),
                     LocalDocs('develop/quick-start'),
                     ...tutorialsSidebar.filter((i) => i !== 'index').map((i) => mapStrings(mapCategories(i)))
                 ]

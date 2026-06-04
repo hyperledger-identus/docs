@@ -25,5 +25,6 @@ Docker image is built each time new changes are merged to `main` branch of the r
 ## Misc
 
 The docs are protected by http basic authentication, `demo:iohk4ever`, if you ever need to update this password:
+
 - Run `htpasswd -n demo` to define the new password (install `apache2-utils` if the command wasn't found).
 - Paste the output line to [htpasswd](nginx/htpasswd).
