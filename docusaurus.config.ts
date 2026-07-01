@@ -10,8 +10,8 @@ import { extractMarkdownTitleInfo } from './src/utils/index';
 const config: Config = {
     title: 'Hyperledger Identus',
     tagline: 'Hyperledger Identus Docs',
-    url: 'https://hyperledger-identus.github.io/',
-    baseUrl: '/docs/',
+    url: 'https://identus.io/',
+    baseUrl: '/',
     onBrokenLinks: 'throw',
     onBrokenAnchors: 'ignore',
     favicon: 'img/favicon.ico',
