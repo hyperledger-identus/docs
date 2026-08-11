@@ -1,0 +1,1 @@
+"use strict";(globalThis.webpackChunkidentus_documentation_portal=globalThis.webpackChunkidentus_documentation_portal||[]).push([[95041],{95041:(e,t,a)=>{a.d(t,{createEventModelingServices:()=>n.g});var n=a(76737);a(51400)}}]);

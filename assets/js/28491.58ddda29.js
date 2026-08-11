@@ -1,0 +1,1 @@
+"use strict";(globalThis.webpackChunkidentus_documentation_portal=globalThis.webpackChunkidentus_documentation_portal||[]).push([[28491],{28491:(e,t,a)=>{a.d(t,{createPacketServices:()=>c.$});var c=a(39773);a(51400)}}]);
