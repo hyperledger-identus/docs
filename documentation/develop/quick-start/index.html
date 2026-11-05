@@ -7,8 +7,8 @@
 <link rel="preconnect" href="https://www.googletagmanager.com">
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-BLNS09BXBY"></script>
 <script>function gtag(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],gtag("js",new Date),gtag("config","G-BLNS09BXBY",{anonymize_ip:!0})</script><link rel="stylesheet" href="/assets/css/styles.7e4b4bb0.css">
-<script src="/assets/js/runtime~main.4afde4b5.js" defer="defer"></script>
-<script src="/assets/js/main.ab5b3ae7.js" defer="defer"></script>
+<script src="/assets/js/runtime~main.b30fe8cd.js" defer="defer"></script>
+<script src="/assets/js/main.93d29b2a.js" defer="defer"></script>
 </head>
 <body class="navigation-with-keyboard">
 <svg style="display: none;"><defs>
@@ -95,7 +95,7 @@
 <li class="">Clone the <a href="https://github.com/hyperledger-identus/sdk-ts" target="_blank" rel="noopener noreferrer" class="">TypeScript SDK</a> repository.</li>
 </ol><div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">git clone -b v6.6.0 https://github.com/hyperledger-identus/sdk-ts</span><br></span></code></pre></div></div><ol start="2">
 <li class="">Ensure you have all applications installed for building the SDK and their dependencies</li>
-</ol><p><a href="https://www.rust-lang.org/tools/install" target="_blank" rel="noopener noreferrer" class="">rust</a> and <a href="https://rustwasm.github.io/wasm-pack/installer/" target="_blank" rel="noopener noreferrer" class="">wasm-pack</a> are leveraged to build and use the AnonCreds and DIDComm Rust libraries within TypeScript. To build the SDK locally or run demonstration applications, you must have these applications installed.</p><p>The following should work Linux and MacOS. If you experience any issues, refer to the latest installation instructions for your platform.</p><div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">curl --proto &#x27;=https&#x27; --tlsv1.2 -sSf https://sh.rustup.rs | sh</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">curl https://rustwasm.github.io/wasm-pack/installer/init.sh -sSf | sh</span><br></span></code></pre></div></div><ol start="3">
+</ol><p><a href="https://www.rust-lang.org/tools/install" target="_blank" rel="noopener noreferrer" class="">rust</a> and <a href="https://wasm-bindgen.github.io/wasm-pack/installer/" target="_blank" rel="noopener noreferrer" class="">wasm-pack</a> are leveraged to build and use the AnonCreds and DIDComm Rust libraries within TypeScript. To build the SDK locally or run demonstration applications, you must have these applications installed.</p><p>The following should work Linux and MacOS. If you experience any issues, refer to the latest installation instructions for your platform.</p><div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">curl --proto &#x27;=https&#x27; --tlsv1.2 -sSf https://sh.rustup.rs | sh</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">curl https://wasm-bindgen.github.io/wasm-pack/installer/init.sh -sSf | sh</span><br></span></code></pre></div></div><ol start="3">
 <li class="">Run the following:</li>
 </ol><ul>
 <li class="">Build the source SDK:</li>
@@ -113,8 +113,8 @@
 </ol><ul>
 <li class="">You will be able to run the rest of the guide here.</li>
 </ul></div><div role="tabpanel" class="tabItem_Ymn6" hidden=""><ol>
-<li class="">Clone the <a href="https://github.com/hyperledger/identus-edge-agent-sdk-kmm" target="_blank" rel="noopener noreferrer" class="">KMM SDK</a> repository.</li>
-</ol><div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">git clone https://github.com/hyperledger/identus-edge-agent-sdk-kmm</span><br></span></code></pre></div></div><ol start="2">
+<li class="">Clone the <a href="https://github.com/hyperledger-identus/sdk-kmp" target="_blank" rel="noopener noreferrer" class="">KMM SDK</a> repository.</li>
+</ol><div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">git clone https://github.com/hyperledger-identus/sdk-kmp</span><br></span></code></pre></div></div><ol start="2">
 <li class="">Open the Wallet SDK project on IntelliJ or Android Studio.</li>
 <li class="">In the <code>Run configuration</code> dropdown, select SampleApp.</li>
 <li class="">Select the device or emulator you want to use.</li>

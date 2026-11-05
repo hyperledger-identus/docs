@@ -7,8 +7,8 @@
 <link rel="preconnect" href="https://www.googletagmanager.com">
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-BLNS09BXBY"></script>
 <script>function gtag(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],gtag("js",new Date),gtag("config","G-BLNS09BXBY",{anonymize_ip:!0})</script><link rel="stylesheet" href="/assets/css/styles.7e4b4bb0.css">
-<script src="/assets/js/runtime~main.4afde4b5.js" defer="defer"></script>
-<script src="/assets/js/main.ab5b3ae7.js" defer="defer"></script>
+<script src="/assets/js/runtime~main.b30fe8cd.js" defer="defer"></script>
+<script src="/assets/js/main.93d29b2a.js" defer="defer"></script>
 </head>
 <body class="navigation-with-keyboard">
 <svg style="display: none;"><defs>
@@ -52,20 +52,14 @@ This validation can also be performed locally on the end-user&#x27;s device. Req
 This image store the status off all DIDs in the file system. But the image is light enough that is capable of running constantly in GitHub actions.</p>
 <p>The code is also distributed as a library in <a href="https://mvnrepository.com/repos/central" target="_blank" rel="noopener noreferrer" class="">Maven Central repository</a> and it&#x27;s capable to run on the JVM and JS Environments.</p>
 <h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="prism-vdr">Prism-VDR<a href="#prism-vdr" class="hash-link" aria-label="Direct link to Prism-VDR" title="Direct link to Prism-VDR" translate="no">​</a></h4>
-<p>The <a href="https://github.com/FabioPinheiro/prism-vdr" target="_blank" rel="noopener noreferrer" class="">prism-vdr</a> is alternative PRISM DID indexer that stores all the PRISM DIDs events and their associated DID Documents in the GitHub repository.
-The PRISM-VDR supports the following Cardano networks:</p>
+<p>The community-maintained <a href="https://github.com/FabioPinheiro/prism-vdr" target="_blank" rel="noopener noreferrer" class="">prism-vdr</a> indexer publishes PRISM DID events and their associated DID Documents in a GitHub repository. Its scheduled indexing workflow uses the Blockfrost API; it is an independent community project, not a Blockfrost-operated feed.
+The PRISM-VDR publishes data for the following Cardano networks:</p>
 <ul>
 <li class=""><a href="https://github.com/FabioPinheiro/prism-vdr/tree/main/mainnet/diddoc" target="_blank" rel="noopener noreferrer" class=""><code>mainnet</code> network</a></li>
 <li class=""><a href="https://github.com/FabioPinheiro/prism-vdr/tree/main/preprod/diddoc" target="_blank" rel="noopener noreferrer" class=""><code>preprod</code> network</a></li>
+<li class=""><a href="https://github.com/FabioPinheiro/prism-vdr/tree/main/preview/diddoc" target="_blank" rel="noopener noreferrer" class=""><code>preview</code> network</a></li>
 </ul>
-<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="blockfrost--prism">Blockfrost &amp; PRISM<a href="#blockfrost--prism" class="hash-link" aria-label="Direct link to Blockfrost &amp; PRISM" title="Direct link to Blockfrost &amp; PRISM" translate="no">​</a></h4>
-<p>Blockfrost is also constantly running the PRISM Indexer for all the Cardano networks and uploading the status to a <a href="https://github.com/blockfrost/prism-vdr" target="_blank" rel="noopener noreferrer" class="">Blockfrost&#x27;s GitHub repository</a>:</p>
-<ul>
-<li class=""><a href="https://github.com/blockfrost/prism-vdr/tree/main/mainnet/diddoc" target="_blank" rel="noopener noreferrer" class=""><code>mainnet</code> network</a></li>
-<li class=""><a href="https://github.com/blockfrost/prism-vdr/tree/main/preprod/diddoc" target="_blank" rel="noopener noreferrer" class=""><code>preprod</code> network</a></li>
-<li class=""><a href="https://github.com/blockfrost/prism-vdr/tree/main/preview/diddoc" target="_blank" rel="noopener noreferrer" class=""><code>preview</code> network</a></li>
-</ul>
-<p>Blockfrost is also developing a experimental API for resolving and managing the PRISM DIDs.</p>
+<p>Verify the indexer&#x27;s synchronization before relying on its data.</p>
 <h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="scala-did">scala-did<a href="#scala-did" class="hash-link" aria-label="Direct link to scala-did" title="Direct link to scala-did" translate="no">​</a></h4>
 <p>Its a tool using the same library as PRISM Indexer but running the in JS Environment.
 Its fetchs the all PRISM events from one DID from the Prism-VDR Github repos and resolves into a DID Document.</p>
