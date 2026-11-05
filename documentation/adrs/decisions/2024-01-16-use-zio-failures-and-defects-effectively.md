@@ -233,14 +233,14 @@ layer.
 #### Try using defects only (`UIO` or `URIO`)
 
 The repository layer leverages Doobie,
-which [natively relies on unchecked exceptions](https://tpolecat.github.io/doobie/docs/09-Error-Handling.html#about-exceptions).
+which [natively relies on unchecked exceptions](https://typelevel.org/doobie/docs/09-Error-Handling.html#about-exceptions).
 Doobie will report any database error as a subclass of `Throwable`, and its specific type will be directly
 linked to the underlying database implementation (i.e. PostgreSQL). Handling it this way means there is no deterministic
 way to recover
 from an SQL execution error in a database-agnostic way.
 
 A good approach is to use ZIO Defects to report repository errors, declaring all repository methods as `URIO`
-or `UIO`([example](https://github.com/hyperledger-identus/cloud-agent/blob/main/connect/lib/core/src/main/scala/io/iohk/atala/connect/core/repository/ConnectionRepository.scala)).
+or `UIO`([example](https://github.com/hyperledger-identus/cloud-agent/blob/eb898e068f768507d6979a5d9bab35ef7ad4a045/connect/lib/core/src/main/scala/io/iohk/atala/connect/core/repository/ConnectionRepository.scala)).
 Conversely, declaring them as `Task` assumes that the caller (i.e. service) can properly handle and
 recover from the low-level and database-specific exceptions exposed in the error channel, which is a fallacy.
 
@@ -392,7 +392,7 @@ prohibited ([example](https://github.com/hyperledger-identus/cloud-agent/blob/b5
 #### Extend the common `Failure` trait
 
 Make sure all service errors extend the shared
-trait [`org.hyperledger.identus.shared.models.Failure`](https://github.com/hyperledger-identus/cloud-agent/blob/main/shared/src/main/scala/io/iohk/atala/shared/models/Failure.scala).
+trait [`org.hyperledger.identus.shared.models.Failure`](https://github.com/hyperledger-identus/cloud-agent/blob/eb898e068f768507d6979a5d9bab35ef7ad4a045/shared/src/main/scala/io/iohk/atala/shared/models/Failure.scala).
 This allows handling "at the end of the world“ to be done in a consistent and in generic way.
 
 Create an exhaustive and meaningful list of service errors and make sure the value of the `userFacingMessage` attribute
@@ -490,9 +490,9 @@ The upper layer will automatically do so appropriately and consistently using Ta
 #### Reporting RFC-9457 Error Response
 
 All declared Tapir endpoints must
-use [`org.hyperledger.identus.api.http.ErrorResponse`](https://github.com/hyperledger-identus/cloud-agent/blob/main/cloud-agent/service/server/src/main/scala/io/iohk/atala/api/http/ErrorResponse.scala)
+use [`org.hyperledger.identus.api.http.ErrorResponse`](https://github.com/hyperledger-identus/cloud-agent/blob/eb898e068f768507d6979a5d9bab35ef7ad4a045/prism-agent/service/server/src/main/scala/io/iohk/atala/api/http/ErrorResponse.scala)
 as their output error
-type ([example](https://github.com/hyperledger-identus/cloud-agent/blob/eb898e068f768507d6979a5d9bab35ef7ad4a045/cloud-agent/service/server/src/main/scala/io/iohk/atala/connect/controller/ConnectionEndpoints.scala#L45))
+type ([example](https://github.com/hyperledger-identus/cloud-agent/blob/eb898e068f768507d6979a5d9bab35ef7ad4a045/prism-agent/service/server/src/main/scala/io/iohk/atala/connect/controller/ConnectionEndpoints.scala#L45))
 This type ensures that the response returned to the user complies with
 the [RFC-9457 Problem Details for HTTP APIs](https://www.rfc-editor.org/rfc/rfc9457.html).
 
@@ -514,10 +514,10 @@ object ConnectionEndpoints {
 
 If all the underlying services used by a controller comply with the above rules, then the only error type that could
 propagate through the effect’s error channel is the
-parent [`org.hyperledger.identus.shared.models.Failure`](https://github.com/hyperledger-identus/cloud-agent/blob/main/shared/src/main/scala/io/iohk/atala/shared/models/Failure.scala)
+parent [`org.hyperledger.identus.shared.models.Failure`](https://github.com/hyperledger-identus/cloud-agent/blob/eb898e068f768507d6979a5d9bab35ef7ad4a045/shared/src/main/scala/io/iohk/atala/shared/models/Failure.scala)
 type and its conversion
 to the ErrorResponse type is done automatically
-via [Scala implicit conversion](https://github.com/hyperledger-identus/cloud-agent/blob/eb898e068f768507d6979a5d9bab35ef7ad4a045/cloud-agent/service/server/src/main/scala/io/iohk/atala/api/http/ErrorResponse.scala#L44).
+via [Scala implicit conversion](https://github.com/hyperledger-identus/cloud-agent/blob/eb898e068f768507d6979a5d9bab35ef7ad4a045/prism-agent/service/server/src/main/scala/io/iohk/atala/api/http/ErrorResponse.scala#L44).
 
 #### Do not reflexively log errors
 

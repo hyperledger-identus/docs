@@ -127,7 +127,7 @@ The production Identus stack:
 **Links**
 
 - Prism Node:  
-  https://github.com/hyperledger-identus/prism-node
+  https://github.com/input-output-hk/atala-prism
 - Cloud Agent:  
   https://github.com/hyperledger-identus/cloud-agent
 
