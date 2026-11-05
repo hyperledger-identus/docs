@@ -80,5 +80,5 @@ This command creates a set of static resources which can be hosted to serve the 
 ## Run [linkinator](https://github.com/JustinBeckwith/linkinator) locally to check the broken links of the live website
 
 ```shell
-$ npx linkinator https://hyperledger-identus.github.io/docs/ --config .linkinatorrc.json --format text
+$ npx linkinator https://identus.io/ --config .linkinatorrc.json --format text
 ```

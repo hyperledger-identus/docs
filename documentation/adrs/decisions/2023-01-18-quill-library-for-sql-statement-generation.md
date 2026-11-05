@@ -11,7 +11,7 @@ PostgreSQL is essential to the Identus platform technology stack, where most ent
 
 Backend services: Identus Cloud Agent, Identus Mediator, and PRISM Node use PostgreSQL.
 
-[Doobie](https://tpolecat.github.io/doobie/index.html) library is currently used in Scala code to communicate with Postgresql. Quotes from the website
+[Doobie](https://typelevel.org/doobie/) library is currently used in Scala code to communicate with Postgresql. Quotes from the website
 
 ```
 Doobie is a pure functional JDBC layer for Scala and Cats. It is not an ORM, nor is it a relational algebra; 
@@ -26,7 +26,7 @@ Writing the SQL statement and mapping the row to the case class is a boilerplate
 
 **Writing the code for mapping a table row to a case class and writing the low-level SQL statement is an error-prone and boilerplate thing**
 
-**Using the [Quill](https://getquill.io/) library on top of Doobie can optimize and improve these things.**
+**Using the [Quill](https://zio.dev/zio-quill/) library on top of Doobie can optimize and improve these things.**
 Quote from the website:
 
 ```
@@ -176,5 +176,5 @@ val result: Future[Seq[Person]] = db.run(q.result)
 - [Database access libraries in Scala](https://medium.com/@takezoe/database-access-libraries-in-scala-7aa7590aa3db)
 - [Typechecking SQL queries with doobie](https://godatadriven.com/blog/typechecking-sql-queries-with-doobie/)
 - [Typechecking SQL in Slick and doobie](https://underscore.io/blog/posts/2015/05/28/typechecking-sql.html)
-- [Doobie example in the Pollux library](https://github.com/hyperledger-identus/cloud-agent/blob/pollux-v0.17.0/pollux/lib/sql-doobie/src/main/scala/io/iohk/atala/pollux/sql/repository/JdbcCredentialRepository.scala)
-- [Quill example in the Pollux library](https://github.com/hyperledger-identus/cloud-agent/blob/pollux-v0.17.0/pollux/lib/sql-doobie/src/main/scala/io/iohk/atala/pollux/sql/model/VerifiableCredentialSchema.scala)
+- [Doobie example in the Pollux library](https://github.com/hyperledger-identus/cloud-agent/blob/8cf5a51bdbef1f3c36092805db14ccdbee5ae6f5/pollux/lib/sql-doobie/src/main/scala/io/iohk/atala/pollux/sql/repository/JdbcCredentialRepository.scala)
+- [Quill example in the Pollux library](https://github.com/hyperledger-identus/cloud-agent/blob/8cf5a51bdbef1f3c36092805db14ccdbee5ae6f5/pollux/lib/sql-doobie/src/main/scala/io/iohk/atala/pollux/sql/model/VerifiableCredentialSchema.scala)

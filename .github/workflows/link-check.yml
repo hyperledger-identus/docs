@@ -32,13 +32,13 @@ jobs:
       - name: Check links on the live site to the action output
         run: |
           echo "Commit SHA: $SHORT_SHA"
-          npx linkinator https://hyperledger-identus.github.io/docs/ --config .linkinatorrc.json --format text || EXIT_CODE=$?
+          npx linkinator https://identus.io/ --config .linkinatorrc.json --format text || EXIT_CODE=$?
           echo "LINKINATOR_EXIT_CODE=${EXIT_CODE:-0}" >> $GITHUB_ENV
 
       - name: Check links on the live site and safe to a file
         if: env.LINKINATOR_EXIT_CODE != 0
         run: |
-          npx linkinator https://hyperledger-identus.github.io/docs/ --config .linkinatorrc.json > link-check-results.json || true
+          npx linkinator https://identus.io/ --config .linkinatorrc.json > link-check-results.json || true
 
       - name: Generate Markdown Table from Linkinator Results
         if: env.LINKINATOR_EXIT_CODE != 0

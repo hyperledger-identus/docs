@@ -221,13 +221,13 @@ git clone -b v6.6.0 https://github.com/hyperledger-identus/sdk-ts
 
 2. Ensure you have all applications installed for building the SDK and their dependencies
 
-[rust](https://www.rust-lang.org/tools/install) and [wasm-pack](https://rustwasm.github.io/wasm-pack/installer/) are leveraged to build and use the AnonCreds and DIDComm Rust libraries within TypeScript. To build the SDK locally or run demonstration applications, you must have these applications installed.
+[rust](https://www.rust-lang.org/tools/install) and [wasm-pack](https://wasm-bindgen.github.io/wasm-pack/installer/) are leveraged to build and use the AnonCreds and DIDComm Rust libraries within TypeScript. To build the SDK locally or run demonstration applications, you must have these applications installed.
 
 The following should work Linux and MacOS. If you experience any issues, refer to the latest installation instructions for your platform.
 
 ```
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
-curl https://rustwasm.github.io/wasm-pack/installer/init.sh -sSf | sh
+curl https://wasm-bindgen.github.io/wasm-pack/installer/init.sh -sSf | sh
 ```
 
 3. Run the following:
@@ -271,10 +271,10 @@ git clone https://github.com/hyperledger/identus-edge-agent-sdk-swift
 </TabItem>
 <TabItem value="android" label="Android Sample APP">
 
-1. Clone the [KMM SDK](https://github.com/hyperledger/identus-edge-agent-sdk-kmm) repository.
+1. Clone the [KMM SDK](https://github.com/hyperledger-identus/sdk-kmp) repository.
 
 ```bash
-git clone https://github.com/hyperledger/identus-edge-agent-sdk-kmm
+git clone https://github.com/hyperledger-identus/sdk-kmp
 ```
 
 2. Open the Wallet SDK project on IntelliJ or Android Studio.

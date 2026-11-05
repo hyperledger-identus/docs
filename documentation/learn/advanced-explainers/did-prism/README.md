@@ -62,21 +62,14 @@ The code is also distributed as a library in [Maven Central repository](https://
 
 #### Prism-VDR
 
-The [prism-vdr](https://github.com/FabioPinheiro/prism-vdr) is alternative PRISM DID indexer that stores all the PRISM DIDs events and their associated DID Documents in the GitHub repository.
-The PRISM-VDR supports the following Cardano networks:
+The community-maintained [prism-vdr](https://github.com/FabioPinheiro/prism-vdr) indexer publishes PRISM DID events and their associated DID Documents in a GitHub repository. Its scheduled indexing workflow uses the Blockfrost API; it is an independent community project, not a Blockfrost-operated feed.
+The PRISM-VDR publishes data for the following Cardano networks:
 
 - [`mainnet` network](https://github.com/FabioPinheiro/prism-vdr/tree/main/mainnet/diddoc)
 - [`preprod` network](https://github.com/FabioPinheiro/prism-vdr/tree/main/preprod/diddoc)
+- [`preview` network](https://github.com/FabioPinheiro/prism-vdr/tree/main/preview/diddoc)
 
-#### Blockfrost & PRISM
-
-Blockfrost is also constantly running the PRISM Indexer for all the Cardano networks and uploading the status to a [Blockfrost's GitHub repository](https://github.com/blockfrost/prism-vdr):
-
-- [`mainnet` network](https://github.com/blockfrost/prism-vdr/tree/main/mainnet/diddoc)
-- [`preprod` network](https://github.com/blockfrost/prism-vdr/tree/main/preprod/diddoc)
-- [`preview` network](https://github.com/blockfrost/prism-vdr/tree/main/preview/diddoc)
-
-Blockfrost is also developing a experimental API for resolving and managing the PRISM DIDs.
+Verify the indexer's synchronization before relying on its data.
 
 #### scala-did
 
